@@ -1,0 +1,188 @@
+\documentclass[a4paper,12pt,twoside]{article}
+
+\usepackage[ngerman,english]{babel}
+
+%%% FOR DISPLAYING CODE
+\usepackage[procnames]{listings}
+\usepackage{xcolor}
+
+%%% MARGINS
+\usepackage{geometry}
+% INFO: https://www.overleaf.com/learn/latex/Page_size_and_margins
+\geometry{
+	a4paper,
+%	total={170mm,257mm},
+	left=25mm,
+	top=25mm,
+	textwidth=16cm,
+	textheight=23cm,
+%	right=25mm,
+%	bottom=40mm,$
+}
+
+%%% SPACING
+%\usepackage{setspace} 
+%\onehalfspacing
+
+\usepackage{siunitx} % for writing numbers with units % e.g. \SI{6.3e8}{km}, \ang{62.59}, \num{100}'s \si{km}, \SI{53}{\degree}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{datetime} 
+\usepackage{color}
+\usepackage{float} %without it, tables position more or less random, with this an writing \begin{table}[H] the table appears right where it is defined!
+\usepackage{mathptmx}
+\usepackage{enumitem}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{pgfplots} % for plotting functions
+\pgfplotsset{compat=1.16}
+
+%%% HEADER and FOOTER
+%\usepackage[automark,headsepline]{scrpage2}
+%\ihead[]{\headmark}
+%\chead[]{}
+%\ohead[]{\pagemark}
+%\ifoot[]{}
+%\cfoot[\pagemark]{}
+%\ofoot[]{}
+%\pagestyle{scrheadings}
+
+\usepackage{lipsum}
+
+%% LINE SPACING
+\usepackage{setspace}
+\setstretch{1.5}
+
+%%% HYPERLINKS
+\usepackage{hyperref} % muss sich vor cite stuff befinden
+
+%% SET IMAGE PATH (where images are stored)
+\graphicspath{{figures/}}
+
+%%% CITE
+\usepackage{apacite}
+\bibliographystyle{apacite}
+
+\input{code_formatting}
+\input{commands}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% AB HIER ARBEITEN, WEITER OBEN NICHTS VERAENDERN
+%%% Ausnahme: Einbinden weitere Pakete
+
+\selectlanguage{ngerman} %% HIER SPRACHE EINSTELLEN! english, ngerman
+
+\begin{titlepage}
+	\clearpage\thispagestyle{empty}	
+	\setstretch{1}
+	
+	\begin{minipage}[t]{\textwidth}
+		\begin{minipage}[t]{0.5\textwidth}
+			Zeynep Zülal Keskin\\
+			Mattfeldstrasse 6\\
+			9532 Rickenbach b. Wil\\
+			077 277 43 77\\
+			zekeskin@ksr.ch
+		\end{minipage}
+		\begin{minipage}[t]{0.5\textwidth}
+			\begin{flushright}
+				Kantonsschule Romanshorn\\
+				Klasse 4Ma\\
+				Maturaarbeit
+			\end{flushright}
+		\end{minipage}
+	\end{minipage}
+	
+	\vspace{4cm}
+	{
+		\centering
+		\Huge\bfseries Titel meiner Arbeit\par
+		\vspace{1cm}
+		\includegraphics[width=0.15\textwidth]{example-image-1x1}\par
+	}
+	
+	\vspace{9cm}	
+	\noindent
+    Fach: Physik, Mathematik, Informatik \noindent\\
+	Betreuungsperson: Dr. Andreas Schärer\\
+	Abgabetermin: 6. Januar 2025
+	
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \null\thispagestyle{empty}\clearpage
+
+%%% ABSTRACT
+
+\pagenumbering{roman}
+
+\section*{Abstract}
+
+Das N-Körper-Problem ist ein fundamentales Problem der Himmelsmechanik, das die Bewegung von N Massenpunkten unter gegenseitiger gravitativer Anziehung beschreibt. Diese Arbeit untersucht zwei verschiedene Simulationsmethoden für das N-Körper-Problem: die direkte Methode und den Barnes-Hut-Algorithmus. Ziel ist es, die Genauigkeit und Effizienz dieser Methoden zu analysieren und zu vergleichen.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% TABLE OF CONTENTS
+
+%\null\thispagestyle{empty}\clearpage
+\newpage
+%\setcounter{page}{1}
+\tableofcontents
+
+\parindent=0pt
+\parskip=6pt
+
+\newpage
+
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Einleitung}
+Diese Arbeit befasst sich mit einem der grundlegendsten und komplexesten Probleme der Himmelsmechanik und -dynamik: dem N-Körper-Problem in der Physik. Dieses Problem ist nicht nur von theoretischem Interesse, sondern findet auch praktische Anwendungen in der Astronomie, Raumfahrt und vielen anderen Bereichen der Physik. Die zentrale Forschungsfrage dieser Arbeit lautet: Welche mathematischen und physikalischen Methoden können verwendet werden, um die Bewegung von N-Körpern zu beschreiben und zu verstehen? 
+Das Ziel dieser Arbeit ist es, die Bewegung von N-Körpern zu definieren und umfassend zu analysieren. Dabei soll der physikalische Hintergrund dieses Problems beleuchtet und seine historische Entwicklung nachgezeichnet werden. Ein besonderer Schwerpunkt liegt auf der Darstellung und Untersuchung der verschiedenen mathematischen und physikalischen Methoden, die im Laufe der Zeit entwickelt wurden, um die Dynamik von N-Körpern zu erklären.
+Darüber hinaus werden zwei detaillierte Simulationen entwickelt, um die theoretischen Konzepte praktisch zu veranschaulichen. Diese Simulationen dienen nicht nur der Erklärung des Problems, sondern auch dem Vergleich verschiedener Lösungsansätze. Durch diese Herangehensweise soll ein tieferes Verständnis für die Komplexität des N-Körper-Problems und die Herausforderungen bei seiner Lösung vermittelt werden.
+Ein weiterer Aspekt dieser Arbeit ist die Untersuchung der praktischen Relevanz des N-Körper-Problems. Dabei wird aufgezeigt, wie die theoretischen Erkenntnisse in der Astronomie zur Berechnung von Planetenbahnen, in der Raumfahrt zur Planung von Satellitenmissionen und in anderen Bereichen der Physik zur Modellierung komplexer Systeme angewendet werden können.
+Zusammenfassend strebt diese Arbeit an, einen umfassenden Überblick über das N-Körper-Problem zu geben, seine Bedeutung in der modernen Physik aufzuzeigen und durch die Entwicklung und den Vergleich von Simulationen einen Beitrag zur Lösung dieses faszinierenden und herausfordernden Problems zu leisten.
+
+\newpage
+\section{Theoretische Grundlagen}
+
+\subsection{Problembeschreibung und historische Entwicklung}
+Das N-Körper-Problem beschäftigt sich mit der dynamischen Analyse von N Massepunkten, die durch ihre gegenseitige gravitative Anziehung beeinflusst werden. Während das Zwei-Körper-Problem durch Newtons Gesetz der universellen Gravitation und die Keplerschen Gesetze exakt gelöst werden kann, wird das N-Körper-Problem für N Körper wesentlich komplexer und zeigt in der Regel chaotisches Verhalten. Die historische Entwicklung dieses Problems begann im 17. Jahrhundert mit den grundlegenden Arbeiten von Johannes Kepler und Isaac Newton, die die Basis für die Himmelsmechanik schufen. Im 18. und 19. Jahrhundert erweiterten Joseph-Louis Lagrange und Pierre-Simon Laplace das Verständnis durch die Einführung der Lagrangeschen Gleichungen und durch die Analyse spezieller Lösungen wie der Lagrange-Punkte, die besondere Gleichgewichtslagen in einem gravitativen System beschreiben. Henri Poincaré entdeckte Ende des 19. Jahrhunderts die chaotische Natur des Systems, was den Beginn der modernen Chaosforschung einleitete. Im 20. und 21. Jahrhundert ermöglichten Fortschritte in der Computertechnologie und numerischen Methoden präzise Simulationen und Analysen komplexer N-Körper-Systeme, die wichtige Einblicke in die Dynamik von Galaxien und die Planung von Raumfahrtmissionen bieten.
+
+\subsection{Gravitationskraft}
+\subsection{Zwei-Körper-Problem}
+\subsection{Drei-Körper-Problem}
+\subsection{Schwierigkeiten des Problems}
+
+\section{Material und Methoden}
+\subsection{Vorgehensweise und Implementierung}
+
+\section{Resultat}
+\subsection{Vergleich der Simulationsergebnisse}
+
+\section{Diskussion}
+\subsection{Vorteile der verwendeten Algorithmen}
+\subsection{Herausforderungen und Limitierungen}
+\subsection{Vergleich mit bestehenden Methoden}
+
+\section{Schlussfolgerung}
+\section{Literaturverzeichnis}
+\section{Abbildungsverzeichnis}
+
+\end{document}
+
