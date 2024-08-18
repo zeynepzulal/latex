@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1724001403.59831 "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" "main.pdf" "main" 1724001404.88422 0
+["pdflatex"] 1724001535.42326 "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" "main.pdf" "main" 1724001536.70291 0
   "C:/Users/zeyne/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1719917508 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/zeyne/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1719917552 24225045 157954072b57883cda7ee0c9c0ea13da ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -237,13 +237,13 @@
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" 1724001403 7871 231fe3ca3939f7cc232fe5ffd3aa7eac ""
+  "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" 1724001533 7871 231fe3ca3939f7cc232fe5ffd3aa7eac ""
   "code_formatting.tex" 1697630962 4170 b0edd4549a47acdaa6596f691b120cba ""
   "commands.tex" 1604852422 1472 836abbf0ad87eb08c8e97ac7a2799146 ""
-  "main.aux" 1724001404 2584 f812e0b321b72811139204fa47ec6bee "pdflatex"
-  "main.out" 1724001404 3154 1d374e88d917a6ee34dda35d4e4eab2c "pdflatex"
-  "main.tex" 1724001403 7871 231fe3ca3939f7cc232fe5ffd3aa7eac ""
-  "main.toc" 1724001404 1603 17c21738b8b456bc1e32284496def6b5 "pdflatex"
+  "main.aux" 1724001536 2584 f812e0b321b72811139204fa47ec6bee "pdflatex"
+  "main.out" 1724001536 3154 1d374e88d917a6ee34dda35d4e4eab2c "pdflatex"
+  "main.tex" 1724001533 7871 231fe3ca3939f7cc232fe5ffd3aa7eac ""
+  "main.toc" 1724001536 1603 17c21738b8b456bc1e32284496def6b5 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
