@@ -165,8 +165,42 @@ Zusammenfassend strebt diese Arbeit an, einen umfassenden Überblick über das N
 Das N-Körper-Problem beschäftigt sich mit der dynamischen Analyse von N Massepunkten, die durch ihre gegenseitige gravitative Anziehung beeinflusst werden. Während das Zwei-Körper-Problem durch Newtons Gesetz der universellen Gravitation und die Keplerschen Gesetze exakt gelöst werden kann, wird das N-Körper-Problem für N Körper wesentlich komplexer und zeigt in der Regel chaotisches Verhalten. Die historische Entwicklung dieses Problems begann im 17. Jahrhundert mit den grundlegenden Arbeiten von Johannes Kepler und Isaac Newton, die die Basis für die Himmelsmechanik schufen. Im 18. und 19. Jahrhundert erweiterten Joseph-Louis Lagrange und Pierre-Simon Laplace das Verständnis durch die Einführung der Lagrangeschen Gleichungen und durch die Analyse spezieller Lösungen wie der Lagrange-Punkte, die besondere Gleichgewichtslagen in einem gravitativen System beschreiben. Henri Poincaré entdeckte Ende des 19. Jahrhunderts die chaotische Natur des Systems, was den Beginn der modernen Chaosforschung einleitete. Im 20. und 21. Jahrhundert ermöglichten Fortschritte in der Computertechnologie und numerischen Methoden präzise Simulationen und Analysen komplexer N-Körper-Systeme, die wichtige Einblicke in die Dynamik von Galaxien und die Planung von Raumfahrtmissionen bieten.
 
 \subsection{Gravitationskraft}
+Die Gravitationskraft $\vec{F}_{12}$ zwischen zwei punktförmigen Massen $m_1$ und $m_2$ liegt auf der Verbindungslinie der beiden Massen. Der Betrag $F$ der Gravitationskraft ist proportional zu den Massen $m_1$ und $m_2$ sowie umgekehrt proportional zum Quadrat des Abstands $r$ der Massen. Er berechnet sich durch:
+\[
+F = G \frac{m_1 m_2}{r^2}
+\]
+mit der Gravitationskonstante $G = 6{,}674 \times 10^{-11} \, \frac{\text{m}^3}{\text{kg s}^2}$.
+
+Die Gravitationskraft $\vec{F}_g$ auf eine punktförmige Masse $m$ an der Erdoberfläche ist senkrecht zur Erdoberfläche gerichtet. Der Betrag $F_g$ der Gravitationskraft ist proportional zur Masse $m$. Er berechnet sich durch:
+\[
+F_g = m \cdot g
+\]
+In der Praxis wurde den Wert verwendet: $g = 9{,}81 \, \frac{\text{m}}{\text{s}^2}$.
+
 \subsection{Zwei-Körper-Problem}
+
+Das Zwei-Körper-Problem beschreibt in der klassischen Mechanik die Bewegung zweier Körper, die sich unter dem Einfluss einer zentralen Kraft (in der Regel die Gravitation) gegenseitig anziehen. Es ist ein fundamentales Problem der Himmelsmechanik und bildet die Grundlage für das Verständnis von Bahnbewegungen, wie sie z.B. bei Planeten, Satelliten oder Doppelsternsystemen auftreten.
+Gegeben sind zwei Massen \( m_1 \) und \( m_2 \), die sich unter dem Einfluss ihrer gegenseitigen Gravitationskraft bewegen. Die Kraft zwischen den beiden Körpern wird durch das Newtonsche Gravitationsgesetz beschrieben:
+\[
+F = G \frac{m_1 m_2}{r^2}
+\]
+Ziel ist es, die Bewegungsgleichungen für beide Körper zu lösen und ihre Bahnen zu bestimmen.
+\subsubsection{Schwerpunktsystem und Reduktion auf das Ein-Körper-Problem}
+Um die Lösung des Problems zu vereinfachen, führt man ein Koordinatensystem ein, das den Schwerpunkt des Systems beschreibt. Der Schwerpunkt befindet sich an der Position:
+\[
+r_{\text{Schwerpunkt}} = \frac{m_1 r_1 + m_2 r_2}{m_1 + m_2}
+\]
+Durch die Transformation in das Schwerpunktsystem kann die Bewegung der beiden Körper auf die Bewegung eines Körpers mit der sogenannten reduzierten Masse \( \mu \) relativ zu einem der beiden Körper reduziert werden. Die reduzierte Masse wird durch:
+\[
+\mu = \frac{m_1 m_2}{m_1 + m_2}
+\]
+definiert. Die Bewegung dieses fiktiven Körpers wird durch eine Differenzialgleichung beschrieben, die sich aus dem zweiten Newtonschen Gesetz ableiten lässt:
+\[
+\mu \frac{d^2 r}{dt^2} = - G \frac{m_1 m_2}{r^3} r
+\]
+Dies ist die Grundgleichung des Zwei-Körper-Problems, die die Bewegung eines Körpers unte
 \subsection{Drei-Körper-Problem}
+
 \subsection{Schwierigkeiten des Problems}
 
 \section{Material und Methoden}
