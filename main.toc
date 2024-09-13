@@ -4,12 +4,11 @@
 \contentsline {section}{\numberline {2}Theoretische Grundlagen}{2}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Problembeschreibung und historische Entwicklung}{2}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Gravitationskraft}{2}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Gravitationskraft}{2}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Zwei-Körper-Problem}{3}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Schwerpunktsystem und Reduktion auf das Ein-Körper-Problem}{3}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Lösung der Bahnkurve}{4}{subsubsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.5}Drei-Körper-Problem}{5}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}N-Körper Problem}{6}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.3}Zwei-Körper-Problem}{3}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Schwerpunktsystem und Reduktion auf das Ein-Körper-Problem}{3}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Lösung der Bahnkurve}{4}{subsubsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.4}Drei-Körper-Problem}{5}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}N-Körper Problem}{6}{subsection.2.5}%
 \contentsline {section}{\numberline {3}Material und Methoden}{6}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Vorgehensweise und Implementierung}{6}{subsection.3.1}%
 \contentsline {section}{\numberline {4}Resultat}{6}{section.4}%
