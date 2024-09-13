@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1725985027.85009 "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" "main.pdf" "main" 1725985029.15159 0
+["pdflatex"] 1726247841.86129 "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" "main.pdf" "main" 1726247847.0185 0
   "C:/Users/zeyne/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1719917508 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/zeyne/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1719918142 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/zeyne/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1719917552 24225045 157954072b57883cda7ee0c9c0ea13da ""
@@ -34,6 +34,7 @@
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 fea0975e20ec51c992338362f05f1146 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb" 1136849748 46026 687528a208fbfc1f00832bb96cccebbb ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb" 1136849748 45458 504e2b06fa82109d168c7a0afb09e145 ""
+  "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmb7t.vf" 1136768654 1372 788387fea833ef5963f4c5bffe33eb89 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmb8t.vf" 1136768654 2340 df9c920cc5688ebbf16a93f45ce7bdd3 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmr8t.vf" 1136768654 2348 91706c542228501c410c266421fbe30c ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/zptmcm7m.vf" 1136768654 1132 27520247d3fe18d4266a226b461885c2 ""
@@ -252,13 +253,14 @@
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" 1725985028 10318 c8d158ebbd2215f4cf115b0a624567cf ""
+  "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" 1726247846 12554 f37c0615d5cab6919e4e9d2225f761cb ""
   "code_formatting.tex" 1697630962 4170 b0edd4549a47acdaa6596f691b120cba ""
   "commands.tex" 1604852422 1472 836abbf0ad87eb08c8e97ac7a2799146 ""
-  "main.aux" 1725985028 2760 af9b9269bafc237e3ca5320f211d12c0 "pdflatex"
-  "main.out" 1725985028 3530 325e2cb55ea32ff83f99811f40e5780b "pdflatex"
-  "main.tex" 1725985028 10318 c8d158ebbd2215f4cf115b0a624567cf ""
-  "main.toc" 1725985028 1738 edfce8ab38a39950783c408af3a801be "pdflatex"
+  "figures/Polarkoordinaten.svg.png" 1726246721 40265 fd8d930a6afbfba7368b0b47c5651b8d ""
+  "main.aux" 1726247846 3291 85326c794ef66f371f16efef96422d6b "pdflatex"
+  "main.out" 1726247846 3790 dfdea32d4ae9c826dfadae09a6867c9a "pdflatex"
+  "main.tex" 1726247846 12554 f37c0615d5cab6919e4e9d2225f761cb ""
+  "main.toc" 1726247846 1907 9b3f2a17c4890d6259b1b83e7123e5e3 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

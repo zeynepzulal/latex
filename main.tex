@@ -103,7 +103,7 @@
 	\vspace{4cm}
 	{
 		\centering
-		\Huge\bfseries Titel meiner Arbeit\par
+		\Huge\bfseries N-Körper Problem\par
 		\vspace{1cm}
 		\includegraphics[width=0.15\textwidth]{example-image-1x1}\par
 	}
@@ -165,30 +165,22 @@ Zusammenfassend strebt diese Arbeit an, einen umfassenden Überblick über das N
 Das N-Körper-Problem beschäftigt sich mit der dynamischen Analyse von N Massepunkten, die durch ihre gegenseitige gravitative Anziehung beeinflusst werden. Während das Zwei-Körper-Problem durch Newtons Gesetz der universellen Gravitation und die Keplerschen Gesetze exakt gelöst werden kann, wird das N-Körper-Problem für N Körper wesentlich komplexer und zeigt in der Regel chaotisches Verhalten. Die historische Entwicklung dieses Problems begann im 17. Jahrhundert mit den grundlegenden Arbeiten von Johannes Kepler und Isaac Newton, die die Basis für die Himmelsmechanik schufen. Im 18. und 19. Jahrhundert erweiterten Joseph-Louis Lagrange und Pierre-Simon Laplace das Verständnis durch die Einführung der Lagrangeschen Gleichungen und durch die Analyse spezieller Lösungen wie der Lagrange-Punkte, die besondere Gleichgewichtslagen in einem gravitativen System beschreiben. Henri Poincaré entdeckte Ende des 19. Jahrhunderts die chaotische Natur des Systems, was den Beginn der modernen Chaosforschung einleitete. Im 20. und 21. Jahrhundert ermöglichten Fortschritte in der Computertechnologie und numerischen Methoden präzise Simulationen und Analysen komplexer N-Körper-Systeme, die wichtige Einblicke in die Dynamik von Galaxien und die Planung von Raumfahrtmissionen bieten.
 
 \subsection{Gravitationskraft}
-Die Gravitationskraft $\vec{F}_{12}$ zwischen zwei punktförmigen Massen $m_1$ und $m_2$ liegt auf der Verbindungslinie der beiden Massen. Der Betrag $F$ der Gravitationskraft ist proportional zu den Massen $m_1$ und $m_2$ sowie umgekehrt proportional zum Quadrat des Abstands $r$ der Massen. Er berechnet sich durch:
+\subsection{Gravitationskraft}
+Die Gravitationskraft $\vec{F}_{12}$ zwischen zwei punktförmigen Massen $m_1$ und $m_2$ liegt auf der Verbindungslinie der beiden Massen. Der Betrag $F$ der Gravitationskraft ist proportional zu den Massen $m_1$ und $m_2$ sowie umgekehrt proportional zum Quadrat des Abstands $r$ (die relative Position ist die Position eines Körpers relativ zu einem anderen: \(\mathbf{r} = \mathbf{r}_2 - \mathbf{r}_1\)) der Massen. Er berechnet sich durch:
 \[
 F = G \frac{m_1 m_2}{r^2}
 \]
 mit der Gravitationskonstante $G = 6{,}674 \times 10^{-11} \, \frac{\text{m}^3}{\text{kg s}^2}$.
 
-Die Gravitationskraft $\vec{F}_g$ auf eine punktförmige Masse $m$ an der Erdoberfläche ist senkrecht zur Erdoberfläche gerichtet. Der Betrag $F_g$ der Gravitationskraft ist proportional zur Masse $m$. Er berechnet sich durch:
-\[
-F_g = m \cdot g
-\]
-In der Praxis wurde den Wert verwendet: $g = 9{,}81 \, \frac{\text{m}}{\text{s}^2}$.
-
 \subsection{Zwei-Körper-Problem}
 
 Das Zwei-Körper-Problem beschreibt in der klassischen Mechanik die Bewegung zweier Körper, die sich unter dem Einfluss einer zentralen Kraft (in der Regel die Gravitation) gegenseitig anziehen. Es ist ein fundamentales Problem der Himmelsmechanik und bildet die Grundlage für das Verständnis von Bahnbewegungen, wie sie z.B. bei Planeten, Satelliten oder Doppelsternsystemen auftreten.
-Gegeben sind zwei Massen \( m_1 \) und \( m_2 \), die sich unter dem Einfluss ihrer gegenseitigen Gravitationskraft bewegen. Die Kraft zwischen den beiden Körpern wird durch das Newtonsche Gravitationsgesetz beschrieben:
-\[
-F = G \frac{m_1 m_2}{r^2}
-\]
+Gegeben sind zwei Massen \( m_1 \) und \( m_2 \), die sich unter dem Einfluss ihrer gegenseitigen Gravitationskraft bewegen.
 Ziel ist es, die Bewegungsgleichungen für beide Körper zu lösen und ihre Bahnen zu bestimmen.
 \subsubsection{Schwerpunktsystem und Reduktion auf das Ein-Körper-Problem}
 Um die Lösung des Problems zu vereinfachen, führt man ein Koordinatensystem ein, das den Schwerpunkt des Systems beschreibt. Der Schwerpunkt befindet sich an der Position:
 \[
-r_{\text{Schwerpunkt}} = \frac{m_1 r_1 + m_2 r_2}{m_1 + m_2}
+R_{\text{Schwerpunkt}} = \frac{m_1 r_1 + m_2 r_2}{m_1 + m_2}
 \]
 Durch die Transformation in das Schwerpunktsystem kann die Bewegung der beiden Körper auf die Bewegung eines Körpers mit der sogenannten reduzierten Masse \( \mu \) relativ zu einem der beiden Körper reduziert werden. Die reduzierte Masse wird durch:
 \[
@@ -196,12 +188,29 @@ Durch die Transformation in das Schwerpunktsystem kann die Bewegung der beiden K
 \]
 definiert. Die Bewegung dieses fiktiven Körpers wird durch eine Differenzialgleichung beschrieben, die sich aus dem zweiten Newtonschen Gesetz ableiten lässt:
 \[
-\mu \frac{d^2 r}{dt^2} = - G \frac{m_1 m_2}{r^3} r
+\mu \frac{d^2}{dt^2} = - G \frac{m_1 m_2}{r^2} 
 \]
-Dies ist die Grundgleichung des Zwei-Körper-Problems, die die Bewegung eines Körpers unte
-\subsection{Drei-Körper-Problem}
+Dies ist die Grundgleichung des Zwei-Körper-Problems, die die Bewegung eines Körpers unter dem Einfluss der Gravitationskraft eines anderen Körpers beschreibt.
+Nachdem die Beschleunigung bestimmt wurde, kann die Geschwindigkeit des Körpers durch die Formel \( \mathbf{v}(t) = \mathbf{v}_0 + \mathbf{a} t \) berechnet werden. Um die neue Position des Körpers zu berechnen, verwendet man die folgende Formel: \( \mathbf{r}(t) = \mathbf{r}_0 + \mathbf{v}_0 t + \frac{1}{2} \mathbf{a} t^2 \).
 
-\subsection{Schwierigkeiten des Problems}
+\subsubsection{Lösung der Bahnkurve}
+Im Zweikörperproblem beschreibt der Abstand \( r \) die Distanz zwischen den beiden Massen \( m_1 \) und \( m_2 \) oder die relative Position eines Körpers zum Schwerpunkt des Systems. Der Winkel \( \theta \) gibt die Lage des Körpers auf seiner Umlaufbahn in Bezug auf eine feste Referenzachse an. In Polarkoordinaten wird die Bahn des Körpers durch die Gleichung:
+\[
+r(\theta) = \frac{p}{1 + e \cos(\theta)}
+\]
+beschrieben, wobei \( p \) der Bahnhalbmesser und \( e \) die Exzentrizität (ist ein Maß für die Abweichung von einer perfekten Kreisbahn: Sie liegt zwischen 0 (Kreis) und größer als 1 (Hyperbel). Diese Information ist entscheidend, um die Form und die Eigenschaften der Bahn zu verstehen) ist. Diese Parameter charakterisieren, ob die Bahn elliptisch, parabolisch oder hyperbolisch ist, wobei der Winkel \( \theta \) die Bewegung entlang der Bahn angibt.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{Polarkoordinaten.svg.png}
+	\caption[Eintrag in Abbildungsverzeichnis von Polarkoordinatsystem]{Polar koordinaten sind ein System zur Beschreibung der Position eines Punktes durch seinen Abstand vom Ursprung und den Winkel, den die Verbindungsgerade zum Ursprung mit einer festen Referenzachse bildet.}
+	\label{polarkoordinatsystem.}
+\end{figure}
+
+\subsection{Drei-Körper-Problem}Im Gegensatz zum Zwei-Körper-Problem, das durch die Kepler-Gesetze vollständig analytisch lösbar ist, gibt es für das Drei-Körper-Problem keine allgemeine analytische Lösung. Das Problem beschreibt die Bewegung dreier Objekte (z.\,B.\ Sterne, Planeten oder Monde), die sich gegenseitig aufgrund der Gravitation anziehen. Jedes Objekt wird durch die resultierende Gravitationskraft der beiden anderen beeinflusst, was zu einer sehr komplizierten Dynamik führt.
+Für das Zwei-Körper-Problem kann die Bewegung der beiden Objekte auf elliptische, parabolische oder hyperbolische Bahnen reduziert werden, je nach den Anfangsbedingungen. Das Drei-Körper-Problem hingegen führt oft zu unvorhersehbaren, chaotischen Bewegungen, außer in speziellen Fällen mit symmetrischen oder stark eingeschränkten Anfangsbedingungen.
+
+\subsection{N-Körper Problem}
 
 \section{Material und Methoden}
 \subsection{Vorgehensweise und Implementierung}
