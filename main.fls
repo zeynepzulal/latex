@@ -501,6 +501,10 @@ INPUT .\figures\Polarkoordinaten.svg.png
 INPUT .\figures\Polarkoordinaten.svg.png
 INPUT .\figures\Polarkoordinaten.svg.png
 INPUT .\figures\Polarkoordinaten.svg.png
+INPUT C:\Users\zeyne\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\zptmcm7m.vf
+INPUT C:\Users\zeyne\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\psyro.tfm
+INPUT C:\Users\zeyne\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
+INPUT C:\Users\zeyne\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmri8r.tfm
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out

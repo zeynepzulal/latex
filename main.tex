@@ -171,6 +171,39 @@ F = G \frac{m_1 m_2}{r^2}
 \]
 mit der Gravitationskonstante $G = 6{,}674 \times 10^{-11} \, \frac{\text{m}^3}{\text{kg s}^2}$.
 
+\subsection{Die Keplerschen Gesetze}
+Die Keplerschen Gesetze beschreiben die Bewegung von Planeten um die Sonne und sind grundlegende Prinzipien der Himmelsmechanik. Johannes Kepler formulierte sie im frühen 17. Jahrhundert auf Basis der Beobachtungen von Tycho Brahe. Diese Gesetze markierten einen Wendepunkt von der klassischen, kreisförmigen Vorstellung der Planetenbewegung zu einem elliptischen Modell. Im Folgenden werde ich die drei Keplerschen Gesetze erläutern.
+\subsubsection{1. Keplersches Gesetz: Das Gesetz der Ellipsen}
+Das erste Keplersche Gesetz besagt:
+\begin{quote}
+    Die Bahnen der Planeten um die Sonne sind Ellipsen, wobei sich die Sonne in einem der beiden Brennpunkte befindet.
+\end{quote}
+Mathematisch lässt sich eine Ellipse durch die Gleichung
+\[
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+\]
+beschreiben, wobei \(a\) die große Halbachse und \(b\) die kleine Halbachse der Ellipse ist. Der Planet bewegt sich auf einer solchen Ellipsenbahn, wobei sich die Sonne nicht im Zentrum der Ellipse befindet, sondern in einem der beiden Brennpunkte. Dies war ein entscheidender Unterschied zur zuvor angenommenen Kreisbahn der Planeten.
+\subsubsection{2. Keplersches Gesetz: Das Gesetz der Flächen}
+Das zweite Keplersche Gesetz lautet:
+\begin{quote}
+    Der Fahrstrahl (die Verbindungslinie) zwischen einem Planeten und der Sonne überstreicht in gleichen Zeitspannen gleiche Flächen.
+\end{quote}
+Dies bedeutet, dass sich ein Planet auf seiner elliptischen Bahn unterschiedlich schnell bewegt: Er ist schneller, wenn er sich näher an der Sonne befindet (Perihel) und langsamer, wenn er weiter entfernt ist (Aphel). Dies lässt sich mathematisch durch die Erhaltung des Drehimpulses ausdrücken, da der Winkelgeschwindigkeitsvektor und der Abstand zur Sonne in Beziehung stehen. Formal lässt sich dies auch durch die Flächengeschwindigkeit beschreiben:
+\[
+\frac{dA}{dt} = \text{konstant},
+\]
+wobei \(A\) die Fläche und \(t\) die Zeit ist. Diese Konstanz der Flächengeschwindigkeit ist ein Hinweis auf das Prinzip der Erhaltung des Drehimpulses.
+\subsubsection{3. Keplersches Gesetz: Das Harmoniegesetz}
+Das dritte Keplersche Gesetz beschreibt die Beziehung zwischen der Umlaufzeit eines Planeten und seiner Entfernung von der Sonne:
+\begin{quote}
+    Die Quadrate der Umlaufzeiten zweier Planeten verhalten sich wie die Kuben der großen Halbachsen ihrer Bahnen.
+\end{quote}
+Mathematisch wird dies durch die Gleichung
+\[
+\frac{T_1^2}{T_2^2} = \frac{a_1^3}{a_2^3}
+\]
+ausgedrückt, wobei \(T_1\) und \(T_2\) die Umlaufzeiten der beiden Planeten und \(a_1\) und \(a_2\) die großen Halbachsen ihrer Bahnen sind. Dies zeigt, dass Planeten, die weiter von der Sonne entfernt sind, eine längere Umlaufzeit haben als solche, die sich näher an der Sonne befinden.
+
 \subsection{Zwei-Körper-Problem}
 
 Das Zwei-Körper-Problem beschreibt in der klassischen Mechanik die Bewegung zweier Körper, die sich unter dem Einfluss einer zentralen Kraft (in der Regel die Gravitation) gegenseitig anziehen. Es ist ein fundamentales Problem der Himmelsmechanik und bildet die Grundlage für das Verständnis von Bahnbewegungen, wie sie z.B. bei Planeten, Satelliten oder Doppelsternsystemen auftreten.
@@ -209,20 +242,32 @@ beschrieben, wobei \( p \) der Bahnhalbmesser und \( e \) die Exzentrizität (is
 \subsection{Drei-Körper-Problem}
 Im Gegensatz zum Zwei-Körper-Problem, das durch die Kepler-Gesetze vollständig analytisch lösbar ist, gibt es für das Drei-Körper-Problem keine allgemeine analytische Lösung. Das Problem beschreibt die Bewegung dreier Objekte (z.\,B.\ Sterne, Planeten oder Monde), die sich gegenseitig aufgrund der Gravitation anziehen. Jedes Objekt wird durch die resultierende Gravitationskraft der beiden anderen beeinflusst, was zu einer sehr komplizierten Dynamik führt.
 Für das Zwei-Körper-Problem kann die Bewegung der beiden Objekte auf elliptische, parabolische oder hyperbolische Bahnen reduziert werden, je nach den Anfangsbedingungen. Das Drei-Körper-Problem hingegen führt oft zu unvorhersehbaren, chaotischen Bewegungen, außer in speziellen Fällen mit symmetrischen oder stark eingeschränkten Anfangsbedingungen.
+
 \subsubsection{Mathematische Beschreibung}
+Das Drei-Körper-Problem befasst sich mit der Bestimmung der Bewegung von drei Massen \( m_1 \), \( m_2 \) und \( m_3 \), die durch ihre wechselseitigen Gravitationskräfte miteinander interagieren. Die Beschleunigung jeder dieser Körper wird durch die Gravitationsanziehung der beiden anderen Massen bestimmt, gemäß dem Gravitationsgesetz von Newton. Die Position jedes Körpers wird durch seinen Vektor \( \mathbf{r}_i \) im dreidimensionalen Raum beschrieben. Die Gravitationskraft zwischen zwei Körpern nimmt mit der dritten Potenz des Abstands zwischen ihnen ab, wobei die resultierende Kraft auf jeden Körper die Summe der von den beiden anderen Körpern ausgeübten Kräfte ist. Dies führt zu einem System gekoppelter, nichtlinearer Differentialgleichungen, bei dem die Beschleunigung jedes Körpers von den relativen Positionen aller drei Massen abhängt. Aufgrund der Komplexität dieses Systems ist eine exakte analytische Lösung im Allgemeinen nicht möglich, weshalb es in der Regel numerisch gelöst wird.
+Die wichtigsten Gleichungen, die die Bewegung der drei Körper beschreiben, sind:
+\[
+\ddot{\mathbf{r}}_1 = -G m_2 \frac{\mathbf{r}_1 - \mathbf{r}_2}{|\mathbf{r}_1 - \mathbf{r}_2|^3} - G m_3 \frac{\mathbf{r}_1 - \mathbf{r}_3}{|\mathbf{r}_1 - \mathbf{r}_3|^3}
+\]
+\[
+\ddot{\mathbf{r}}_2 = -G m_3 \frac{\mathbf{r}_2 - \mathbf{r}_3}{|\mathbf{r}_2 - \mathbf{r}_3|^3} - G m_1 \frac{\mathbf{r}_2 - \mathbf{r}_1}{|\mathbf{r}_2 - \mathbf{r}_1|^3}
+\]
+\[
+\ddot{\mathbf{r}}_3 = -G m_1 \frac{\mathbf{r}_3 - \mathbf{r}_1}{|\mathbf{r}_3 - \mathbf{r}_1|^3} - G m_2 \frac{\mathbf{r}_3 - \mathbf{r}_2}{|\mathbf{r}_3 - \mathbf{r}_2|^3}
+\]
+
+Diese Gleichungen beschreiben, wie sich die Beschleunigungen der drei Körper aufgrund ihrer gegenseitigen Gravitationskräfte entwickeln.
+
 \subsubsection{Sonderfälle}
 \subsubsection{Kollinear}
 \subsubsection{Dreieck}
-\subsubsection{Henri Poincaré ???}
-\subsubsection{3:4:5 ???}
 \subsubsection{Figure-8}
-\subsubsection{Broucke-Hénon Lösung???? (geliche Masse)}
-\subsubsection{Barners Hut Algorithmus kommt erst in N-Körper Problem vlt??}
-
-
+\subsubsection{Runge Kutta Methode}
 
 
 \subsection{N-Körper Problem}
+\subsubsection{Barners Hut Algorithmus}
+
 
 \section{Material und Methoden}
 \subsection{Vorgehensweise und Implementierung}

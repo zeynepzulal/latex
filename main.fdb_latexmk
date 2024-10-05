@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1726356630.8533 "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" "main.pdf" "main" 1726356633.51282 0
+["pdflatex"] 1728123468.86551 "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" "main.pdf" "main" 1728123471.93732 0
   "C:/Users/zeyne/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1719917508 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/zeyne/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1719918142 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/zeyne/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1719917552 24225045 157954072b57883cda7ee0c9c0ea13da ""
@@ -253,14 +253,14 @@
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" 1726356627 12543 33718525db758d9d6f7ed6b0904a356a ""
+  "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" 1728123468 16992 a3caecc2d826e8faf0d7a8c590e2165f ""
   "code_formatting.tex" 1697630962 4170 b0edd4549a47acdaa6596f691b120cba ""
   "commands.tex" 1604852422 1472 836abbf0ad87eb08c8e97ac7a2799146 ""
   "figures/Polarkoordinaten.svg.png" 1726246721 40265 fd8d930a6afbfba7368b0b47c5651b8d ""
-  "main.aux" 1726356633 4414 76b0b217d1ef975104aaf15bb25335ac "pdflatex"
-  "main.out" 1726356633 5265 fc19b9c7155379f54cc06e5157f5e3c4 "pdflatex"
-  "main.tex" 1726356627 12543 33718525db758d9d6f7ed6b0904a356a ""
-  "main.toc" 1726356633 2701 1997906fad65d431bd87df9350872ba5 "pdflatex"
+  "main.aux" 1728123471 4705 c3e25228d90cdb7919e1b2aab830f7fa "pdflatex"
+  "main.out" 1728123471 5750 6f783e3837939ad71917df2b2e948ed8 "pdflatex"
+  "main.tex" 1728123468 16992 a3caecc2d826e8faf0d7a8c590e2165f ""
+  "main.toc" 1728123471 2910 7b9ab6f83de9ce31329722d497983ecc "pdflatex"
   (generated)
   "main.aux"
   "main.log"
