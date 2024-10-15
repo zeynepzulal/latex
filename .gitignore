@@ -1,3 +1,14 @@
+# Ignore auxiliary and other LaTeX build files
+*.aux
+*.log
+*.out
+*.pdf
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+
 # Ignore intermediate files created by LaTeX
 *.synctex.gz
 
@@ -5,13 +16,8 @@
 *.fdb_latexmk
 *.fls
 
-# If you’re using any build directories, like `build` or `out`, add them too
+# Ignore build directories
 build/
 out/
-
-
-
-
-
 
 
