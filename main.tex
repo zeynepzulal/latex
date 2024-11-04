@@ -169,7 +169,7 @@ Die Gravitationskraft $\vec{F}_{12}$ zwischen zwei punktförmigen Massen $m_1$ u
 \[
 F = G \frac{m_1 m_2}{r^2}
 \]
-mit der Gravitationskonstante $G = 6{,}674 \times 10^{-11} \, \frac{\text{m}^3}{\text{kg s}^2}$.
+mit der Gravitationskonstante $G = \SI{6.674e-11}{\frac{m^3}{kg\,s^2}}$.
 
 \subsection{Die Keplerschen Gesetze}
 Die Keplerschen Gesetze beschreiben die Bewegung von Planeten um die Sonne und sind grundlegende Prinzipien der Himmelsmechanik. Johannes Kepler formulierte sie im frühen 17. Jahrhundert auf Basis der Beobachtungen von Tycho Brahe. Diese Gesetze markierten einen Wendepunkt von der klassischen, kreisförmigen Vorstellung der Planetenbewegung zu einem elliptischen Modell. Im Folgenden werde ich die drei Keplerschen Gesetze erläutern.
@@ -268,6 +268,17 @@ Im 1767 fand Leonhard Euler drei Familien von periodischen Lösungen, bei denen 
 
 
 \subsection{N-Körper Problem}
+Das n-Körper-Problem ist ein klassisches Problem in der Physik und beschreibt die Bewegung mehrerer Massenpunkte, die sich gegenseitig durch ihre Gravitationskräfte beeinflussen. Die Grundgleichung für die Beschleunigung eines Körpers \( j \) in einem solchen System ist gegeben durch:
+
+\[
+m_j \ddot{\mathbf{q}}_j = G \sum_{\substack{k=1 \\ k \neq j}}^n \frac{m_j m_k (\mathbf{q}_k - \mathbf{q}_j)}{|\mathbf{q}_k - \mathbf{q}_j|^3}
+\]
+
+Hier steht \( m_j \) für die Masse des betrachteten Körpers, \( \mathbf{q}_j \) für dessen Position, und \( G \) für die Gravitationskonstante. Die Summe erstreckt sich über alle anderen Körper \( k \) (mit \( k \neq j \)), die eine Gravitationskraft auf den Körper \( j \) ausüben. Der Ausdruck \( \frac{\mathbf{q}_k - \mathbf{q}_j}{|\mathbf{q}_k - \mathbf{q}_j|^3} \) beschreibt dabei die Richtung und Stärke der Gravitationskraft zwischen den beiden Körpern \( j \) und \( k \), wobei der Abstand \( |\mathbf{q}_k - \mathbf{q}_j| \) hoch drei im Nenner steht, um sicherzustellen, dass die Kraft gemäß dem Gravitationsgesetz mit dem Quadrat des Abstands abnimmt.
+
+Das n-Körper-Problem stellt eine Herausforderung dar, weil ab mehr als zwei Körpern eine chaotische Dynamik entsteht, die eine exakte analytische Lösung unmöglich macht. Während das Zwei-Körper-Problem stabile, vorhersagbare Bahnen liefert, wird das System bei drei oder mehr Körpern extrem empfindlich gegenüber Anfangsbedingungen.
+Dadurch sind die Bewegungen der Körper langfristig unvorhersehbar und schwer exakt zu berechnen. Numerische Simulationen, die die Bewegung der Körper Schritt für Schritt berechnen, bieten eine Lösungsmöglichkeit, jedoch nur in Form von Näherungen. Die Berechnungen sind dabei extrem aufwendig, da für jede Wechselwirkung die Kräfte separat berücksichtigt werden müssen, was bei steigender Körperanzahl exponentiell mehr Rechenleistung erfordert.
+
 \subsubsection{Barners Hut Algorithmus}
 
 
