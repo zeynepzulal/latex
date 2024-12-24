@@ -279,10 +279,48 @@ Hier steht \( m_j \) für die Masse des betrachteten Körpers, \( \mathbf{q}_j \
 Das n-Körper-Problem stellt eine Herausforderung dar, weil ab mehr als zwei Körpern eine chaotische Dynamik entsteht, die eine exakte analytische Lösung unmöglich macht. Während das Zwei-Körper-Problem stabile, vorhersagbare Bahnen liefert, wird das System bei drei oder mehr Körpern extrem empfindlich gegenüber Anfangsbedingungen.
 Dadurch sind die Bewegungen der Körper langfristig unvorhersehbar und schwer exakt zu berechnen. Numerische Simulationen, die die Bewegung der Körper Schritt für Schritt berechnen, bieten eine Lösungsmöglichkeit, jedoch nur in Form von Näherungen. Die Berechnungen sind dabei extrem aufwendig, da für jede Wechselwirkung die Kräfte separat berücksichtigt werden müssen, was bei steigender Körperanzahl exponentiell mehr Rechenleistung erfordert.
 
-\subsubsection{Barners Hut Algorithmus}
-
 
 \section{Material und Methoden}
+
+\subsection{Der Barnes-Hut-Algorithmus}
+Der Barnes-Hut-Algorithmus ist ein effizientes Näherungsverfahren zur Berechnung der Kräfte in N-Körper-Problemen, insbesondere in der Astrophysik. Er wurde 1986 von Josh Barnes und Piet Hut entwickelt und reduziert den Rechenaufwand von $O(N^2)$ auf $O(N \log N)$, wodurch Simulationen mit einer großen Anzahl von Teilchen ermöglicht werden.
+Der Algorithmus basiert auf der Annahme, dass Gruppen von weit entfernten Teilchen als einzelne Massepunkte behandelt werden können. Dazu wird der Raum rekursiv in immer kleinere Bereiche unterteilt, bis jeder Bereich entweder leer ist oder genau ein Teilchen enthält. Diese Struktur wird in Form eines Baumes, genauer eines Quadtrees im zweidimensionalen Raum oder eines Octrees im dreidimensionalen Raum, dargestellt.
+
+\subsubsection{Algorithmusschritte}
+
+\paragraph{1. Baumerstellung}
+Der gesamte Raum wird in vier (2D) bzw. acht (3D) Quadranten unterteilt. Jedes Teilchen wird entsprechend seiner Position in einen dieser Quadranten einsortiert. Ist ein Quadrant bereits belegt, wird er weiter unterteilt, bis jedes Teilchen in einem eigenen Unterquadranten liegt. Dieses rekursive Unterteilen führt zur Bildung des Quadtrees bzw. Octrees.
+
+\paragraph{2. Masseverteilung}
+Nach der Baumerstellung wird für jeden Knoten des Baumes die Gesamtmasse und der Massenschwerpunkt der in ihm enthaltenen Teilchen berechnet. Diese Informationen sind entscheidend für die spätere Kraftberechnung.
+
+\paragraph{3. Kraftberechnung}
+Um die auf ein bestimmtes Teilchen wirkende Kraft zu berechnen, wird der Baum erneut durchlaufen. Für jeden Knoten wird das Verhältnis von dessen Größe zur Entfernung zum betrachteten Teilchen berechnet. Ist dieses Verhältnis kleiner als ein vorgegebener Schwellenwert ($\theta$), wird der gesamte Knoten als eine einzelne Masse im Massenschwerpunkt betrachtet. Andernfalls werden die Unterknoten weiter untersucht. Dieses Verfahren reduziert die Anzahl der notwendigen Kraftberechnungen erheblich.
+
+\subsubsection{Parameter $\theta$}
+Der Schwellenwert $\theta$ bestimmt die Genauigkeit der Näherung. Ein kleiner Wert für $\theta$ führt zu einer höheren Genauigkeit, da weniger Gruppierungen vorgenommen werden und mehr direkte Berechnungen stattfinden. Ein größerer Wert reduziert den Rechenaufwand, kann jedoch die Genauigkeit beeinträchtigen. Typischerweise wird $\theta$ auf Werte um 0,5 bis 1 gesetzt, abhängig von den Anforderungen an die Simulation.
+
+\subsubsection{Vorteile und Anwendungen}
+Der Barnes-Hut-Algorithmus ermöglicht die Simulation von Systemen mit Millionen von Teilchen, was mit direkten Berechnungsmethoden unpraktikabel wäre. Er findet Anwendung in der Astrophysik, beispielsweise bei der Simulation von Galaxien, sowie in anderen Bereichen wie der Molekulardynamik und der Informatik, etwa beim kräftebasierten Zeichnen von Graphen.
+
+\subsection{React.js -- Funktionsweise und Anwendungen}
+
+React.js ist eine JavaScript-Bibliothek, die zur Entwicklung von Benutzeroberflächen verwendet wird. Sie basiert auf einer komponentenbasierten Architektur, bei der Anwendungen in wiederverwendbare, eigenständige Komponenten unterteilt werden. Jede Komponente verwaltet ihre eigenen Daten und ihr Verhalten. Dies erleichtert die Pflege und Erweiterung komplexer Anwendungen. Ein zentrales Merkmal von React.js ist das virtuelle DOM. Statt Änderungen direkt im echten DOM vorzunehmen, werden diese zunächst im virtuellen DOM simuliert. Anschließend werden nur die tatsächlich geänderten Elemente in den echten DOM übernommen. Dieser Ansatz verbessert die Leistung erheblich, insbesondere bei Anwendungen mit häufigen Aktualisierungen.
+
+Ein weiteres wichtiges Konzept in React.js ist der unidirektionale Datenfluss. Daten werden von Eltern- zu Kinderkomponenten weitergegeben, was die Vorhersagbarkeit und Wartbarkeit des Codes erhöht. Seit der Einführung von React Hooks in Version 16.8 können Entwickler Zustände und Lebenszyklusmethoden in funktionalen Komponenten verwenden. Hooks wie \texttt{useState} und \texttt{useEffect} vereinfachen die Verwaltung von Zuständen und Nebenwirkungen.
+
+\subsubsection{Anwendungen von React.js}
+React.js eignet sich besonders gut für Single-Page Applications (SPAs). In solchen Anwendungen werden nur die benötigten Inhalte aktualisiert, anstatt komplette Seiten neu zu laden. Dies führt zu einer flüssigen und reaktionsschnellen Benutzererfahrung. Darüber hinaus ist React.js ideal für datenintensive Anwendungen, wie z.B. Dashboards und Simulationen, die häufige Aktualisierungen und eine effiziente Verwaltung des Zustands erfordern. Weitere Anwendungen finden sich in der Datenvisualisierung, insbesondere in Kombination mit Bibliotheken wie D3.js und Chart.js, sowie in interaktiven Simulationen und Modellen.
+
+\subsubsection{Warum eignet sich React.js für den Barnes-Hut-Algorithmus?}
+React.js bietet eine ideale Grundlage für die Implementierung des Barnes-Hut-Algorithmus, da dieser auf häufigen Aktualisierungen und dynamischen Daten basiert. Das virtuelle DOM sorgt dafür, dass nur die tatsächlich betroffenen Teile der Benutzeroberfläche aktualisiert werden. Dies ist besonders wichtig bei der Visualisierung von Simulationen mit vielen Teilchen, bei denen laufend neue Positionen und Kräfte berechnet werden.
+
+Die komponentenbasierte Struktur von React.js ermöglicht es, jede Simulationseinheit -- sei es ein Teilchen oder ein Knoten im Baum -- als eigenständige Komponente zu modellieren. Dies erleichtert die Verwaltung von Zuständen und Interaktionen innerhalb der Simulation. Mit React Hooks wie \texttt{useState} und \texttt{useEffect} können diese Zustände effizient aktualisiert werden, ohne den gesamten Baum neu zu rendern.
+
+Ein weiterer Vorteil ist die einfache Integration von Bibliotheken zur Datenvisualisierung und physikalischen Modellierung. Bibliotheken wie D3.js oder Three.js können nahtlos in React-Projekte eingebunden werden, um komplexe Darstellungen und Animationen zu erzeugen. Darüber hinaus unterstützt React.js den Einsatz von WebGL, was eine hardwarebeschleunigte Darstellung von Simulationen ermöglicht.
+
+Zusammenfassend bietet React.js durch seine Effizienz, Modularität und Erweiterbarkeit eine ideale Plattform zur Implementierung von Simulationen auf Basis des Barnes-Hut-Algorithmus. Dies macht es zu einer bevorzugten Wahl für Anwendungen, die sowohl hohe Leistung als auch eine interaktive Benutzeroberfläche erfordern.
+
 \subsection{Vorgehensweise und Implementierung}
 
 \section{Resultat}
