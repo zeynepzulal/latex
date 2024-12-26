@@ -205,39 +205,187 @@ Mathematisch wird dies durch die Gleichung
 ausgedrückt, wobei \(T_1\) und \(T_2\) die Umlaufzeiten der beiden Planeten und \(a_1\) und \(a_2\) die großen Halbachsen ihrer Bahnen sind. Dies zeigt, dass Planeten, die weiter von der Sonne entfernt sind, eine längere Umlaufzeit haben als solche, die sich näher an der Sonne befinden.
 
 \subsection{Zwei-Körper-Problem}
-
-Das Zwei-Körper-Problem beschreibt in der klassischen Mechanik die Bewegung zweier Körper, die sich unter dem Einfluss einer zentralen Kraft (in der Regel die Gravitation) gegenseitig anziehen. Es ist ein fundamentales Problem der Himmelsmechanik und bildet die Grundlage für das Verständnis von Bahnbewegungen, wie sie z.B. bei Planeten, Satelliten oder Doppelsternsystemen auftreten.
-Gegeben sind zwei Massen \( m_1 \) und \( m_2 \), die sich unter dem Einfluss ihrer gegenseitigen Gravitationskraft bewegen.
-Ziel ist es, die Bewegungsgleichungen für beide Körper zu lösen und ihre Bahnen zu bestimmen.
-\subsubsection{Schwerpunktsystem und Reduktion auf das Ein-Körper-Problem}
-Um die Lösung des Problems zu vereinfachen, führt man ein Koordinatensystem ein, das den Schwerpunkt des Systems beschreibt. Der Schwerpunkt befindet sich an der Position:
-\[
-R_{\text{Schwerpunkt}} = \frac{m_1 r_1 + m_2 r_2}{m_1 + m_2}
-\]
-Durch die Transformation in das Schwerpunktsystem kann die Bewegung der beiden Körper auf die Bewegung eines Körpers mit der sogenannten reduzierten Masse \( \mu \) relativ zu einem der beiden Körper reduziert werden. Die reduzierte Masse wird durch:
-\[
-\mu = \frac{m_1 m_2}{m_1 + m_2}
-\]
-definiert. Die Bewegung dieses fiktiven Körpers wird durch eine Differenzialgleichung beschrieben, die sich aus dem zweiten Newtonschen Gesetz ableiten lässt:
-\[
-\mu \frac{d^2}{dt^2} = - G \frac{m_1 m_2}{r^2} 
-\]
-Dies ist die Grundgleichung des Zwei-Körper-Problems, die die Bewegung eines Körpers unter dem Einfluss der Gravitationskraft eines anderen Körpers beschreibt.
+Das Zweikörperproblem besteht darin, die Bahnen von zwei gravitativ wechselwirkenden Körpern mit bekannten Massen und Anfangsgeschwindigkeiten zu bestimmen. 
+Die Körper bewegen sich im dreidimensionalen Raum und werden von keinen anderen Kräften außer der Gravitationskraft beeinflusst. Die erste Lösung des Zweikörperproblems wurde 1687 von Isaac Newton in seinem bahnbrechenden Werk Principia veröffentlicht. 
+Im 17. Jahrhundert zeigte Johannes Kepler, dass die Planetenbahnen um die Sonne elliptisch sind. Dies war für seine Zeitgenossen erstaunlich, da sie den Kreis als die göttliche Form ansahen, die die Himmelskörper regierte. 
+Kepler steckte viel Mühe in seine Berechnungen und nutzte dabei die Beobachtungsdaten von Tycho Brahe. Trotz seiner Entdeckungen konnte er jedoch nie erklären, warum sich die Planeten so bewegen, wie sie es tun. Einige glaubten, dass sie von Engeln vorangetrieben wurden. 
+Eine andere populäre Idee, die von René Descartes vorgeschlagen wurde, erklärte die Bewegung durch Wirbel von Partikeln, die den gesamten Raum füllten (Densmore [2003]). 
+Newton revolutionierte die Welt, indem er ihr das universelle Gravitationsgesetz gab ein Gesetz, das die Bewegung im konstanten Gravitationsfeld sowohl auf der Erde als auch die Bewegungen der Planeten erklären konnte. 
+Manche verspotteten diese Theorie und bezeichneten eine unsichtbare Kraft als übernatürlich und okkult. Einige hundert Jahre später, als die Newtonsche Mechanik zu einem der Hauptpfeiler der modernen Physik wurde, finden wir Theorien über Engel oder Wirbel im Weltraum amüsant. Angesichts unseres heutigen Wissens ist es schwer, sich die Herausforderungen vorzustellen, denen sich Newton als Wissenschaftler stellen musste, und aus welcher Denkweise heraus er wissenschaftliche 
+Normen durchbrechen konnte. Ein weiteres Hindernis, dem Wissenschaftler im 17. Jahrhundert begegneten, war der Mangel an Daten, um neue Theorien zu überprüfen. Als Newton während eines langen Aufenthalts bei seiner Mutter in Woolsthorpe die Idee der Gravitation entwickelte, wollte er sie testen, indem er die Umlaufbahn des Mondes berechnete.
 
 
-\subsubsection{Lösung der Bahnkurve}
-Im Zweikörperproblem beschreibt der Abstand \( r \) die Distanz zwischen den beiden Massen \( m_1 \) und \( m_2 \) oder die relative Position eines Körpers zum Schwerpunkt des Systems. Der Winkel \( \theta \) gibt die Lage des Körpers auf seiner Umlaufbahn in Bezug auf eine feste Referenzachse an. In Polarkoordinaten wird die Bahn des Körpers durch die Gleichung:
-\[
-r(\theta) = \frac{p}{1 + e \cos(\theta)}
-\]
-beschrieben, wobei \( p \) der Bahnhalbmesser und \( e \) die Exzentrizität (ist ein Maß für die Abweichung von einer perfekten Kreisbahn: Sie liegt zwischen 0 (Kreis) und größer als 1 (Hyperbel). Diese Information ist entscheidend, um die Form und die Eigenschaften der Bahn zu verstehen) ist. Diese Parameter charakterisieren, ob die Bahn elliptisch, parabolisch oder hyperbolisch ist, wobei der Winkel \( \theta \) die Bewegung entlang der Bahn angibt.
+\subsubsection{Die Mathematische Beschreibung}
 
+Da nur die zwei Körper (Massen \( m_1, m_2 \), Orte \( \vec{x_1}, \vec{x_2} \)) aufeinander einwirken, heißen die Bewegungsgleichungen:
+
+\begin{align*}
+m_1 \ddot{\vec{x}}_1 = \vec{F}_{1,2}
+\end{align*}
+\begin{align*}
+	m_2 \ddot{\vec{x}}_2 = \vec{F}_{2,1}
+\end{align*}
+
+Dabei können die Kräfte \( \vec{F}_{1,2}, \vec{F}_{2,1} \) nach dem Relativitätsprinzip nur von der relativen Position der Körper zueinander abhängen. Der Vektor \( \vec{r} := \vec{x_1} - \vec{x_2} \) beschreibt die Lage des zweiten Körpers relativ zum ersten, der Vektor \( \vec{R} \) ist der Ortsvektor des Schwerpunkts oder Baryzentrums des Systems. Zudem sind die beiden Kräfte nach dem 3. Newtonschen Axiom entgegengesetzt gleich:
+
+\begin{align*}
+\vec{F}_{1,2} = -\vec{F}_{2,1} = \vec{F}(\vec{r})
+\end{align*}
+
+\subsubsection{Übergang zum äquivalenten Einkörperproblem}
+Mathematische Modellierung der Lage zweier Körper im Raum und sind vom Koordinatenursprung 
+ausgehende Positionsvektoren. Man rechnet nun in Relativ- und Schwerpunktkoordinaten (siehe Abbildung 1)
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.4\textwidth]{Polarkoordinaten.svg.png}
-	\caption[Eintrag in Abbildungsverzeichnis von Polarkoordinatsystem]{Polar koordinaten sind ein System zur Beschreibung der Position eines Punktes durch seinen Abstand vom Ursprung und den Winkel, den die Verbindungsgerade zum Ursprung mit einer festen Referenzachse bildet.}
-	\label{polarkoordinatsystem.}
+	\includegraphics[width=0.4\textwidth]{Zwei-Körper.png}
+	\caption[Eintrag in Abbildungsverzeichnis von Grumpy Cat]{Mathematische Modellierung der Lage zweier Körper im Raum, x1 und x2 sind vom Koordinatenursprung ausgehende Positionsvektoren}
+	\label{Zwei-Körper .}
 \end{figure}
+
+\begin{align*}
+\vec{r} = \vec{x_1} - \vec{x_2}
+\end{align*}
+
+\begin{align*}
+	\vec{R} = \frac{m_1 \vec{x_1} + m_2 \vec{x_2}}{M} \quad (M = m_1 + m_2 \text{ ist die Gesamtmasse.})
+\end{align*}
+
+Durch Addition geeigneter Vielfacher der beiden obigen Bewegungsgleichungen erhält man nun zwei entkoppelte Bewegungsgleichungen:
+
+\begin{align*}
+	\ddot{\vec{R}} = 0
+\end{align*}
+
+
+
+\begin{align*}
+\vec{r} = \left( \frac{1}{m_1} + \frac{1}{m_2} \right) \vec{F}_{1,2}
+\end{align*}
+
+
+Die erste Gleichung besagt, dass der Massenschwerpunkt eine geradlinig gleichförmige Bewegung beschreibt, wie es auch aus dem allgemeinen Schwerpunktsatz zu folgen ist. Die zweite Gleichung wird umformuliert zu:
+
+\begin{align*}
+\mu \ddot{\vec{r}} = \vec{F}(\vec{r}),
+\end{align*}
+
+wobei
+
+\begin{align*}
+\mu = \left( \frac{1}{m_1} + \frac{1}{m_2} \right)^{-1} = \frac{m_1 m_2}{M}
+\end{align*}
+als die \textit{reduzierte Masse} des Zweikörperproblems bezeichnet wird. $\mu$ ist stets kleiner als die kleinere der beiden Massen, und nähert sich ihr an, wenn die größere Masse gegen unendlich strebt. Diese Bewegungsgleichung besagt, dass die Relativkoordinate $\vec{r}(t)$ sich so verhält, als ob ein Körper der Masse $\mu$ sich in einem ortsfesten Kraftfeld $\vec{F}(\vec{r})$ bewegt. Dies ist das äquivalente Einkörperproblem. Für alle Fälle, in denen die Stärke der Kraft von einer Potenz des Abstandes $r$ abhängt, ist es zuerst von Newton gelöst worden.
+
+\subsubsection{Gemeinsame Bewegung}
+Nachdem das Einkörperproblem durch die Bahnkurve $\vec{r}(t)$
+gelöst ist und die Bewegung des Schwerpunktes $\vec{R}(t)$
+ebenfalls bekannt ist, kann man wieder in die ursprünglichen Koordinaten umrechnen:
+
+\begin{align*}
+	\vec{x_1}(t) = \vec{R}(t) + \frac{m_2}{M} \vec{r}(t)
+\end{align*}
+\begin{align*}
+	\vec{x_2}(t) = \vec{R}(t) - \frac{m_1}{M} \vec{r}(t)
+\end{align*}
+Im Schwerpunktsystem betrachtet (mathematisch, indem man eine Koordinatentransformation, genauer eine Verschiebung, um \( \mathbf{R} \) anwendet), bewegen sich also beide Körper um den Schwerpunkt, der stets auf ihrer Verbindungsline liegt, und beschreiben zwei zur Kurve \( \mathbf{r}(t) \) ähnliche Kurven, deren Größenverhältnis durch das resiproke Massenverhältnis bestimmt ist. Durch zweimaliges Differenzieren von \( \mathbf{x_1}(t) \) und Einsetzen von
+
+\begin{align*}
+	\vec{r} = \frac{M}{m_2} \vec{x_1}
+\end{align*}
+
+sieht man, dass für den ersten Körper die Bewegungsgleichung
+
+\begin{align*}
+	m_1 \ddot{\vec{x}}_1 = \vec{F}_{\text{eff}}(\vec{x_1})
+\end{align*}
+
+erfüllt ist, als ob der Körper sich in einem effektiven Kraftfeld
+
+\begin{align*}
+	\vec{F}_{\text{eff}}(\vec{x_1}) = \vec{F} \left( \frac{M}{m_2} \vec{x_1} \right)
+\end{align*}
+
+bewegen würde, dessen Zentrum ortsfest am Schwerpunkt bleibt und dessen Stärke mit dem wirklichen Kraftfeld in einer durch das Massenverhältnis bestimmten größeren Entfernung übereinstimmt - genauso für den anderen Körper.
+Wenn sich der Schwerpunkt selbst geradlinig und gleichförmig bewegt, und weitere geeignete Startbedingungen erfüllt sind, dann beschreiben die Bahnen der beiden Körper eine Art „Schlangenkurve“ um die Bahn des Schwerpunktes. In der Astronomie erlaubt diese sogenannte Taumelbewegung eine indirekte Beobachtung unsichtbarer Begleiter von Sternen wie z. B. Exoplaneten.
+
+\subsubsection{Drehimpulserhaltung}
+Die Kraft \( \vec{F}_{1,2} = -\vec{F}_{2,1} = \vec{F}(\vec{r}) \) liegt parallel zur Verbindungsline \( \vec{r} \) (entsprechend der Problemdefinition), deshalb ist sie eine Zentralkraft und übt kein Drehmoment auf den umlaufenden Körper aus, denn dieses ist durch das Vektorprodukt von Radiusvektor und Kraft gegeben:
+
+\begin{align*}
+	\vec{r} \times \vec{F} = 0
+\end{align*}
+
+Daher ist der Drehimpuls \( \vec{L} = \vec{r} \times \vec{p} \) nach Betrag und Richtung zeitlich konstant. Er ist ein Integral der Bewegung. Somit erfolgt die Bewegung in einer festen Ebene, denn die Vektoren \( \vec{r} \) und \( \vec{p} = \mu \vec{r} \) liegen stets in der Ebene senkrecht zu \( \vec{L} \).
+Aus der Konstanz des Drehimpulses folgt auch das 2. Keplersche Gesetz oder der Flächensatz, der also für jedes Zentralkraftfeld gilt.
+In ebenen Polarkoordinaten zerfällt die vektorielle Bewegungsgleichung des Einkörperproblems in zwei gekoppelte gewöhnliche Differentialgleichungen:
+
+\begin{align*}
+	\dot{r} - r \dot{\varphi}^2 = - \frac{1}{\mu} F(r)
+\end{align*}
+
+\begin{align*}
+	\frac{d}{dt} \left( \mu r^2 \dot{\varphi} \right) = 0
+\end{align*}
+Die zweite dieser Gleichungen zeigt noch einmal die Erhaltung des Drehimpulses \( L \), denn
+
+\begin{align*}
+	L = \mu r^2 \dot{\varphi}
+\end{align*}
+
+
+\subsubsection{Energieerhaltung}
+Für das Keplerproblem im engeren Sinn ist die Kraft durch die Gravitation gegeben:
+
+\begin{align*}
+	F(r) = - \frac{G m_1 m_2}{r^2}
+\end{align*}
+Verwendet man die Definition des Drehimpulses in Polarkoordinaten, um aus der anderen Differentialgleichung die Winkelgeschwindigkeit \( \dot{\varphi} \) zu eliminieren, erhält man ein Gesetz für den Abstand \( r \), die Radialgleichung
+
+\begin{align*}
+	\mu \ddot{r} = \frac{L^2}{\mu r^3} - \frac{G M}{r^2}
+\end{align*}
+Dies kann nach Multiplikation mit \( \dot{r} \) und \( \mu \) in der Form
+\begin{align*}
+	\frac{d}{dt} \left( \frac{\mu}{2} \dot{r}^2 + \frac{L^2}{2 \mu r^2} - \frac{GM \mu}{r} \right) = 0
+\end{align*}
+geschrieben werden. Die drei Summanden in dieser Gleichung entsprechen der Reihenfolge nach dem Radialanteil der kinetischen Energie, dem Winkelanteil der kinetischen Energie, der als Zentrifugalpotential wie eine potentielle Energie die Radialbewegung beeinflusst, sowie der potentiellen Energie des Körpers im äußeren Zentralpotential. Gemeinsam ergeben sie seine Gesamtenergie:
+\begin{align*}
+	E = \frac{\mu}{2} \dot{r}^2 + \frac{L^2}{2 \mu r^2} - \frac{GM \mu}{r}
+\end{align*}
+die laut obiger Gleichung zeitlich konstant und somit ebenfalls ein Integral der Bewegung ist. Die Gesamtenergie muss natürlich schon allein deshalb erhalten sein, weil es sich bei einem Gravitationsfeld um ein konservatives Feld handelt. Genau auch den Artikel Spezifische Bahnenenergie, der sich näher damit befasst.
+
+
+\subsubsection{Bahnkurve-Kegelschnittform}
+
+Gibt man die Werte für die beiden Integrale der Bewegung \( E \) und \( L \) vor, so lässt sich die Bewegungsgleichung lösen, indem man zunächst die radiale Bewegung \( r(t) \) aus der Form des Energieintegrals (letzte Gleichung im obigen Abschnitt) und sodann die Winkelbewegung \( \varphi(t) \) aus dem Drehimpulsintegral \( L = \mu r^2 \dot{\varphi} \) berechnet. 
+Allerdings führt dieser Weg auf Gleichungen, die man als unanschaulich erkennen kann, da man ihnen die Form der Bahn nicht direkt ansehen kann.
+Daher ist es üblich, entweder die Radialgleichung oder das Energieintegral zunächst in eine Differentialgleichung nach dem Winkel \( \varphi \) umzuwandeln. Man nimmt also \( r \) als Funktion von \( \varphi \) an und betrachtet \( r' := \frac{dr}{d\varphi} \), die Ableitung von \( r \) nach dem Winkel \( \varphi \). 
+Hier wird der zweite Weg, das Energieintegral verwendet, vorgestellt. 
+Mit der Energiegleichung aus dem vorigen Abschnitt und indem man \( \dot{r} \) durch \( r' \dot{\varphi} \) und \( \dot{\varphi} \) mit Hilfe der Drehimpulsgleichung durch \( \frac{L}{\mu r^2} \) ersetzt, erhält man so:
+
+\begin{align*}
+	E = \frac{L^2}{2\mu r^2} \left( \frac{r^2}{r^2 + 1} \right) - \frac{GM\mu}{r}
+\end{align*}
+Die Bahnkurve, die diese Gleichung löst, ist, wenn man die Willkür in der Wahl des Winkels \( \varphi \) so ausnutzt, dass der größte oder kleinste Abstand vom Zentrum bei \( \varphi = 0 \) liegt, von der Form
+
+\begin{align*}
+	r(\varphi) = \frac{p}{1 + \epsilon \cos \varphi}
+\end{align*}
+wobei man durch Einsetzen nachrechnen kann, dass für die beiden Parameter
+
+\begin{align*}
+	p = \frac{L^2}{GM\mu^2} \quad \text{und} \quad \epsilon^2 = \frac{2E L^2}{GM^2 \mu^2} + 1
+\end{align*}
+gelten muss. Dies ist die Gleichung eines Kegelschnitts mit numerischer Exzentrizität \( \epsilon \) (wobei \( \epsilon \geq 0 \) gewählt werden kann, denn der Wechsel \( \epsilon \to -\epsilon \) ist äquivalent zu \( \varphi \to \varphi + \pi \)).
+Ist die Gesamtenergie negativ, dann gilt \( \epsilon < 1 \) und die Bewegung ist gebunden, d. h., es gibt einen maximalen Abstand (Aphelion) \( \frac{p}{1 - \epsilon} \) vom Zentrum. Es handelt sich bei der Bahn in diesem Fall um eine Ellipse, in deren einem Brennpunkt das Zentrum liegt, deren große Halbachse
+\begin{align*}
+	a = \frac{p}{1 - \epsilon^2}
+\end{align*}
+ist. Dies ist das erste keplersche Gesetz (der Ellipsensatz). Dass die Bahnkurve des gebundenen Zustands immer geschlossen ist, ist bei radialsymmetrischen Kraftfeldern ein Spezialfall, der sonst nur noch beim harmonischen Oszillator vorkommt, dessen Kraftfeld proportional zum Abstand vom Zentrum wächst.
+Ist die Gesamtenergie positiv, so ist \( \epsilon > 1 \) und die Bahn ist eine Hyperbel mit kleinstem Abstand \( \frac{p}{1 + \epsilon} \) vom Zentrum. Der Grenzfall mit Energie \( E = 0 \) und \( \epsilon = 1 \) ist eine Parabel, deren kleinster Abstand vom Zentrum \( \frac{p}{2} \) ist.
+
+In einem idealisierten Zwei-Körper-Problem, bei dem nur die gegenseitige Gravitationskraft wirkt und keine anderen Störungen oder relativistischen Effekte berücksichtigt werden, bewegen sich die Körper immer entlang einer Kegelschnittbahn (Ellipse, Parabel oder Hyperbel).
+
 
 \subsection{Drei-Körper-Problem}
 Im Gegensatz zum Zwei-Körper-Problem, das durch die Kepler-Gesetze vollständig analytisch lösbar ist, gibt es für das Drei-Körper-Problem keine allgemeine analytische Lösung. Das Problem beschreibt die Bewegung dreier Objekte (z.\,B.\ Sterne, Planeten oder Monde), die sich gegenseitig aufgrund der Gravitation anziehen. Jedes Objekt wird durch die resultierende Gravitationskraft der beiden anderen beeinflusst, was zu einer sehr komplizierten Dynamik führt.

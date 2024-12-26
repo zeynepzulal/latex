@@ -9,34 +9,38 @@
 \contentsline {subsubsection}{\numberline {2.3.2}2. Keplersches Gesetz: Das Gesetz der Flächen}{3}{subsubsection.2.3.2}%
 \contentsline {subsubsection}{\numberline {2.3.3}3. Keplersches Gesetz: Das Harmoniegesetz}{4}{subsubsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.4}Zwei-Körper-Problem}{4}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Schwerpunktsystem und Reduktion auf das Ein-Körper-Problem}{5}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Lösung der Bahnkurve}{5}{subsubsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.5}Drei-Körper-Problem}{6}{subsection.2.5}%
-\contentsline {subsubsection}{\numberline {2.5.1}Mathematische Beschreibung}{7}{subsubsection.2.5.1}%
-\contentsline {subsubsection}{\numberline {2.5.2}Sonderfälle}{7}{subsubsection.2.5.2}%
-\contentsline {subsubsection}{\numberline {2.5.3}Kollinear}{7}{subsubsection.2.5.3}%
-\contentsline {subsubsection}{\numberline {2.5.4}Dreieck}{8}{subsubsection.2.5.4}%
-\contentsline {subsubsection}{\numberline {2.5.5}Figure-8}{8}{subsubsection.2.5.5}%
-\contentsline {subsubsection}{\numberline {2.5.6}Runge Kutta Methode}{8}{subsubsection.2.5.6}%
-\contentsline {subsection}{\numberline {2.6}N-Körper Problem}{8}{subsection.2.6}%
-\contentsline {section}{\numberline {3}Material und Methoden}{9}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Der Barnes-Hut-Algorithmus}{9}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Algorithmusschritte}{9}{subsubsection.3.1.1}%
-\contentsline {paragraph}{1. Baumerstellung}{9}{section*.3}%
-\contentsline {paragraph}{2. Masseverteilung}{9}{section*.4}%
-\contentsline {paragraph}{3. Kraftberechnung}{10}{section*.5}%
-\contentsline {subsubsection}{\numberline {3.1.2}Parameter $\theta $}{10}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Vorteile und Anwendungen}{10}{subsubsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.2}React.js -- Funktionsweise und Anwendungen}{10}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Anwendungen von React.js}{11}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Warum eignet sich React.js für den Barnes-Hut-Algorithmus?}{11}{subsubsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.3}Vorgehensweise und Implementierung}{13}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Resultat}{13}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Vergleich der Simulationsergebnisse}{13}{subsection.4.1}%
-\contentsline {section}{\numberline {5}Diskussion}{13}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Vorteile der verwendeten Algorithmen}{13}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Herausforderungen und Limitierungen}{13}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Vergleich mit bestehenden Methoden}{13}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Schlussfolgerung}{13}{section.6}%
-\contentsline {section}{\numberline {7}Literaturverzeichnis}{13}{section.7}%
-\contentsline {section}{\numberline {8}Abbildungsverzeichnis}{13}{section.8}%
+\contentsline {subsubsection}{\numberline {2.4.1}Die Mathematische Beschreibung}{5}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Übergang zum äquivalenten Einkörperproblem}{6}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Gemeinsame Bewegung}{8}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Drehimpulserhaltung}{9}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Energieerhaltung}{10}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}Bahnkurve-Kegelschnittform}{11}{subsubsection.2.4.6}%
+\contentsline {subsection}{\numberline {2.5}Drei-Körper-Problem}{12}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Mathematische Beschreibung}{13}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Sonderfälle}{14}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}Kollinear}{14}{subsubsection.2.5.3}%
+\contentsline {subsubsection}{\numberline {2.5.4}Dreieck}{14}{subsubsection.2.5.4}%
+\contentsline {subsubsection}{\numberline {2.5.5}Figure-8}{14}{subsubsection.2.5.5}%
+\contentsline {subsubsection}{\numberline {2.5.6}Runge Kutta Methode}{14}{subsubsection.2.5.6}%
+\contentsline {subsection}{\numberline {2.6}N-Körper Problem}{14}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Material und Methoden}{15}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Der Barnes-Hut-Algorithmus}{15}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Algorithmusschritte}{15}{subsubsection.3.1.1}%
+\contentsline {paragraph}{1. Baumerstellung}{15}{section*.3}%
+\contentsline {paragraph}{2. Masseverteilung}{16}{section*.4}%
+\contentsline {paragraph}{3. Kraftberechnung}{16}{section*.5}%
+\contentsline {subsubsection}{\numberline {3.1.2}Parameter $\theta $}{16}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Vorteile und Anwendungen}{16}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}React.js -- Funktionsweise und Anwendungen}{17}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Anwendungen von React.js}{17}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Warum eignet sich React.js für den Barnes-Hut-Algorithmus?}{17}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Vorgehensweise und Implementierung}{19}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Resultat}{19}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Vergleich der Simulationsergebnisse}{19}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Diskussion}{19}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Vorteile der verwendeten Algorithmen}{19}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Herausforderungen und Limitierungen}{19}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Vergleich mit bestehenden Methoden}{19}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Schlussfolgerung}{19}{section.6}%
+\contentsline {section}{\numberline {7}Literaturverzeichnis}{19}{section.7}%
+\contentsline {section}{\numberline {8}Abbildungsverzeichnis}{19}{section.8}%
