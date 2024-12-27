@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1735255761.72287 "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" "main.pdf" "main" 1735255764.81179 0
+["pdflatex"] 1735262553.42135 "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" "main.pdf" "main" 1735262559.73763 0
   "C:/Users/zeyne/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1732716197 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/zeyne/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1200.pk" 1719918152 24152 5a1b4b6a374036dbe556eda677e36f92 ""
   "C:/Users/zeyne/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1719918142 688 37338d6ab346c2f1466b29e195316aa4 ""
@@ -261,14 +261,17 @@
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" 1735255757 35901 a9727e72be7c1a102bb6cf6b27852477 ""
+  "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" 1735262552 40935 09da9c58a1f09c7fc9419771990f12f8 ""
   "code_formatting.tex" 1697630962 4170 b0edd4549a47acdaa6596f691b120cba ""
   "commands.tex" 1604852422 1472 836abbf0ad87eb08c8e97ac7a2799146 ""
+  "figures/AndereOrbits.png" 1735259060 107085 5f42062b5c832a867bb37aab18ea053e ""
+  "figures/EulerUndLagrange.png" 1735257532 16168 5f0437b5caa52a677bec604f738544c1 ""
   "figures/Zwei-Körper.png" 1735248280 24850 258b56a68183510ea5c410a0cfa9036d ""
-  "main.aux" 1735255764 6432 4a910d5826f44ec5f30c5a82eac51c04 "pdflatex"
-  "main.out" 1735255764 7723 4e77caab9e7e6ce97d54643039aee2b9 "pdflatex"
-  "main.tex" 1735255757 35901 a9727e72be7c1a102bb6cf6b27852477 ""
-  "main.toc" 1735255764 4131 001c66063be37644281594b3006a67da "pdflatex"
+  "figures/figure8Orbit.png" 1735258079 24665 6a34b61befbe750111d9b8e86a8692bf ""
+  "main.aux" 1735262558 7323 a1747c0525a8213d7724814e292ee213 "pdflatex"
+  "main.out" 1735262558 7558 8c6c6561cccb37fb38e6c3e912095a4f "pdflatex"
+  "main.tex" 1735262552 40935 09da9c58a1f09c7fc9419771990f12f8 ""
+  "main.toc" 1735262558 4244 4af500e93cd0691f9a654497e2a74620 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

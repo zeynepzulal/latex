@@ -165,10 +165,10 @@ Zusammenfassend strebt diese Arbeit an, einen umfassenden Überblick über das N
 Das N-Körper-Problem beschäftigt sich mit der dynamischen Analyse von N Massepunkten, die durch ihre gegenseitige gravitative Anziehung beeinflusst werden. Während das Zwei-Körper-Problem durch Newtons Gesetz der universellen Gravitation und die Keplerschen Gesetze exakt gelöst werden kann, wird das N-Körper-Problem für N Körper wesentlich komplexer und zeigt in der Regel chaotisches Verhalten. Die historische Entwicklung dieses Problems begann im 17. Jahrhundert mit den grundlegenden Arbeiten von Johannes Kepler und Isaac Newton, die die Basis für die Himmelsmechanik schufen. Im 18. und 19. Jahrhundert erweiterten Joseph-Louis Lagrange und Pierre-Simon Laplace das Verständnis durch die Einführung der Lagrangeschen Gleichungen und durch die Analyse spezieller Lösungen wie der Lagrange-Punkte, die besondere Gleichgewichtslagen in einem gravitativen System beschreiben. Henri Poincaré entdeckte Ende des 19. Jahrhunderts die chaotische Natur des Systems, was den Beginn der modernen Chaosforschung einleitete. Im 20. und 21. Jahrhundert ermöglichten Fortschritte in der Computertechnologie und numerischen Methoden präzise Simulationen und Analysen komplexer N-Körper-Systeme, die wichtige Einblicke in die Dynamik von Galaxien und die Planung von Raumfahrtmissionen bieten.
 
 \subsection{Gravitationskraft}
-Die Gravitationskraft $\vec{F}_{12}$ zwischen zwei punktförmigen Massen $m_1$ und $m_2$ liegt auf der Verbindungslinie der beiden Massen. Der Betrag $F$ der Gravitationskraft ist proportional zu den Massen $m_1$ und $m_2$ sowie umgekehrt proportional zum Quadrat des Abstands $r$ (die relative Position ist die Position eines Körpers relativ zu einem anderen: \(\mathbf{r} = \mathbf{r}_2 - \mathbf{r}_1\)) der Massen. Er berechnet sich durch:
-\[
-F = G \frac{m_1 m_2}{r^2}
-\]
+Die Gravitationskraft $\vec{F}_{12}$ zwischen zwei punktförmigen Massen $m_1$ und $m_2$ liegt auf der Verbindungslinie der beiden Massen. Der Betrag $F$ der Gravitationskraft ist proportional zu den Massen $m_1$ und $m_2$ sowie umgekehrt proportional zum Quadrat des Abstands $r$ (die relative Position ist die Position eines Körpers relativ zu einem anderen: \(\vec{r} = \vec{r}_2 - \vec{r}_1\)) der Massen. Er berechnet sich durch:
+\begin{align*}
+	F = G \frac{m_1 m_2}{r^2}
+\end{align*}
 mit der Gravitationskonstante $G = \SI{6.674e-11}{\frac{m^3}{kg\,s^2}}$.
 
 \subsection{Die Keplerschen Gesetze}
@@ -179,29 +179,34 @@ Das erste Keplersche Gesetz besagt:
     Die Bahnen der Planeten um die Sonne sind Ellipsen, wobei sich die Sonne in einem der beiden Brennpunkte befindet.
 \end{quote}
 Mathematisch lässt sich eine Ellipse durch die Gleichung
-\[
-\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
-\]
+\begin{align*}
+	\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+\end{align*}
+
 beschreiben, wobei \(a\) die große Halbachse und \(b\) die kleine Halbachse der Ellipse ist. Der Planet bewegt sich auf einer solchen Ellipsenbahn, wobei sich die Sonne nicht im Zentrum der Ellipse befindet, sondern in einem der beiden Brennpunkte. Dies war ein entscheidender Unterschied zur zuvor angenommenen Kreisbahn der Planeten.
 \subsubsection{2. Keplersches Gesetz: Das Gesetz der Flächen}
 Das zweite Keplersche Gesetz lautet:
+
 \begin{quote}
     Der Fahrstrahl (die Verbindungslinie) zwischen einem Planeten und der Sonne überstreicht in gleichen Zeitspannen gleiche Flächen.
 \end{quote}
 Dies bedeutet, dass sich ein Planet auf seiner elliptischen Bahn unterschiedlich schnell bewegt: Er ist schneller, wenn er sich näher an der Sonne befindet (Perihel) und langsamer, wenn er weiter entfernt ist (Aphel). Dies lässt sich mathematisch durch die Erhaltung des Drehimpulses ausdrücken, da der Winkelgeschwindigkeitsvektor und der Abstand zur Sonne in Beziehung stehen. Formal lässt sich dies auch durch die Flächengeschwindigkeit beschreiben:
-\[
-\frac{dA}{dt} = \text{konstant},
-\]
+\begin{align*}
+	\frac{dA}{dt} = \text{konstant},
+\end{align*}
+
 wobei \(A\) die Fläche und \(t\) die Zeit ist. Diese Konstanz der Flächengeschwindigkeit ist ein Hinweis auf das Prinzip der Erhaltung des Drehimpulses.
+
 \subsubsection{3. Keplersches Gesetz: Das Harmoniegesetz}
 Das dritte Keplersche Gesetz beschreibt die Beziehung zwischen der Umlaufzeit eines Planeten und seiner Entfernung von der Sonne:
 \begin{quote}
     Die Quadrate der Umlaufzeiten zweier Planeten verhalten sich wie die Kuben der großen Halbachsen ihrer Bahnen.
 \end{quote}
 Mathematisch wird dies durch die Gleichung
-\[
-\frac{T_1^2}{T_2^2} = \frac{a_1^3}{a_2^3}
-\]
+\begin{align*}
+	\frac{T_1^2}{T_2^2} = \frac{a_1^3}{a_2^3}
+\end{align*}
+
 ausgedrückt, wobei \(T_1\) und \(T_2\) die Umlaufzeiten der beiden Planeten und \(a_1\) und \(a_2\) die großen Halbachsen ihrer Bahnen sind. Dies zeigt, dass Planeten, die weiter von der Sonne entfernt sind, eine längere Umlaufzeit haben als solche, die sich näher an der Sonne befinden.
 
 \subsection{Zwei-Körper-Problem}
@@ -220,10 +225,8 @@ Normen durchbrechen konnte. Ein weiteres Hindernis, dem Wissenschaftler im 17. J
 Da nur die zwei Körper (Massen \( m_1, m_2 \), Orte \( \vec{x_1}, \vec{x_2} \)) aufeinander einwirken, heißen die Bewegungsgleichungen:
 
 \begin{align*}
-m_1 \ddot{\vec{x}}_1 = \vec{F}_{1,2}
-\end{align*}
-\begin{align*}
-	m_2 \ddot{\vec{x}}_2 = \vec{F}_{2,1}
+	m_1 \ddot{\vec{x}}_1 &= \vec{F}_{1,2} \\
+	m_2 \ddot{\vec{x}}_2 &= \vec{F}_{2,1}
 \end{align*}
 
 Dabei können die Kräfte \( \vec{F}_{1,2}, \vec{F}_{2,1} \) nach dem Relativitätsprinzip nur von der relativen Position der Körper zueinander abhängen. Der Vektor \( \vec{r} := \vec{x_1} - \vec{x_2} \) beschreibt die Lage des zweiten Körpers relativ zum ersten, der Vektor \( \vec{R} \) ist der Ortsvektor des Schwerpunkts oder Baryzentrums des Systems. Zudem sind die beiden Kräfte nach dem 3. Newtonschen Axiom entgegengesetzt gleich:
@@ -234,32 +237,24 @@ Dabei können die Kräfte \( \vec{F}_{1,2}, \vec{F}_{2,1} \) nach dem Relativit�
 
 \subsubsection{Übergang zum äquivalenten Einkörperproblem}
 Mathematische Modellierung der Lage zweier Körper im Raum und sind vom Koordinatenursprung 
-ausgehende Positionsvektoren. Man rechnet nun in Relativ- und Schwerpunktkoordinaten (siehe Abbildung 1)
+ausgehende Positionsvektoren. Man rechnet nun in Relativ- und Schwerpunktkoordinaten (siehe Abbildung 1).
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{Zwei-Körper.png}
-	\caption[Eintrag in Abbildungsverzeichnis von Grumpy Cat]{Mathematische Modellierung der Lage zweier Körper im Raum, x1 und x2 sind vom Koordinatenursprung ausgehende Positionsvektoren}
+	\caption[Eintrag in Abbildungsverzeichnis von Grumpy Cat]{Mathematische Modellierung der Lage zweier Körper im Raum, x1 und x2 sind vom Koordinatenursprung ausgehende Positionsvektoren.}
 	\label{Zwei-Körper .}
 \end{figure}
 
 \begin{align*}
-\vec{r} = \vec{x_1} - \vec{x_2}
-\end{align*}
-
-\begin{align*}
-	\vec{R} = \frac{m_1 \vec{x_1} + m_2 \vec{x_2}}{M} \quad (M = m_1 + m_2 \text{ ist die Gesamtmasse.})
+	\vec{r} &= \vec{x_1} - \vec{x_2} \\
+	\vec{R} &= \frac{m_1 \vec{x_1} + m_2 \vec{x_2}}{M} \quad (M = m_1 + m_2 \text{ ist die Gesamtmasse.})
 \end{align*}
 
 Durch Addition geeigneter Vielfacher der beiden obigen Bewegungsgleichungen erhält man nun zwei entkoppelte Bewegungsgleichungen:
 
 \begin{align*}
-	\ddot{\vec{R}} = 0
-\end{align*}
-
-
-
-\begin{align*}
-\vec{r} = \left( \frac{1}{m_1} + \frac{1}{m_2} \right) \vec{F}_{1,2}
+	\ddot{\vec{R}} &= 0 \\
+	\vec{r} &= \left( \frac{1}{m_1} + \frac{1}{m_2} \right) \vec{F}_{1,2}
 \end{align*}
 
 
@@ -269,7 +264,7 @@ Die erste Gleichung besagt, dass der Massenschwerpunkt eine geradlinig gleichfö
 \mu \ddot{\vec{r}} = \vec{F}(\vec{r}),
 \end{align*}
 
-wobei
+wobei,
 
 \begin{align*}
 \mu = \left( \frac{1}{m_1} + \frac{1}{m_2} \right)^{-1} = \frac{m_1 m_2}{M}
@@ -282,10 +277,8 @@ gelöst ist und die Bewegung des Schwerpunktes $\vec{R}(t)$
 ebenfalls bekannt ist, kann man wieder in die ursprünglichen Koordinaten umrechnen:
 
 \begin{align*}
-	\vec{x_1}(t) = \vec{R}(t) + \frac{m_2}{M} \vec{r}(t)
-\end{align*}
-\begin{align*}
-	\vec{x_2}(t) = \vec{R}(t) - \frac{m_1}{M} \vec{r}(t)
+	\vec{x_1}(t) &= \vec{R}(t) + \frac{m_2}{M} \vec{r}(t) \\
+	\vec{x_2}(t) &= \vec{R}(t) - \frac{m_1}{M} \vec{r}(t)
 \end{align*}
 Im Schwerpunktsystem betrachtet (mathematisch, indem man eine Koordinatentransformation, genauer eine Verschiebung, um \( \mathbf{R} \) anwendet), bewegen sich also beide Körper um den Schwerpunkt, der stets auf ihrer Verbindungsline liegt, und beschreiben zwei zur Kurve \( \mathbf{r}(t) \) ähnliche Kurven, deren Größenverhältnis durch das resiproke Massenverhältnis bestimmt ist. Durch zweimaliges Differenzieren von \( \mathbf{x_1}(t) \) und Einsetzen von
 
@@ -293,13 +286,13 @@ Im Schwerpunktsystem betrachtet (mathematisch, indem man eine Koordinatentransfo
 	\vec{r} = \frac{M}{m_2} \vec{x_1}
 \end{align*}
 
-sieht man, dass für den ersten Körper die Bewegungsgleichung
+sieht man, dass für den ersten Körper die Bewegungsgleichung:
 
 \begin{align*}
 	m_1 \ddot{\vec{x}}_1 = \vec{F}_{\text{eff}}(\vec{x_1})
 \end{align*}
 
-erfüllt ist, als ob der Körper sich in einem effektiven Kraftfeld
+erfüllt ist, als ob der Körper sich in einem effektiven Kraftfeld:
 
 \begin{align*}
 	\vec{F}_{\text{eff}}(\vec{x_1}) = \vec{F} \left( \frac{M}{m_2} \vec{x_1} \right)
@@ -320,10 +313,7 @@ Aus der Konstanz des Drehimpulses folgt auch das 2. Keplersche Gesetz oder der F
 In ebenen Polarkoordinaten zerfällt die vektorielle Bewegungsgleichung des Einkörperproblems in zwei gekoppelte gewöhnliche Differentialgleichungen:
 
 \begin{align*}
-	\dot{r} - r \dot{\varphi}^2 = - \frac{1}{\mu} F(r)
-\end{align*}
-
-\begin{align*}
+	\dot{r} - r \dot{\varphi}^2 = - \frac{1}{\mu} F(r) \\
 	\frac{d}{dt} \left( \mu r^2 \dot{\varphi} \right) = 0
 \end{align*}
 Die zweite dieser Gleichungen zeigt noch einmal die Erhaltung des Drehimpulses \( L \), denn
@@ -394,25 +384,85 @@ Für das Zwei-Körper-Problem kann die Bewegung der beiden Objekte auf elliptisc
 \subsubsection{Mathematische Beschreibung}
 Das Drei-Körper-Problem befasst sich mit der Bestimmung der Bewegung von drei Massen \( m_1 \), \( m_2 \) und \( m_3 \), die durch ihre wechselseitigen Gravitationskräfte miteinander interagieren. Die Beschleunigung jeder dieser Körper wird durch die Gravitationsanziehung der beiden anderen Massen bestimmt, gemäß dem Gravitationsgesetz von Newton. Die Position jedes Körpers wird durch seinen Vektor \( \mathbf{r}_i \) im dreidimensionalen Raum beschrieben. Die Gravitationskraft zwischen zwei Körpern nimmt mit der dritten Potenz des Abstands zwischen ihnen ab, wobei die resultierende Kraft auf jeden Körper die Summe der von den beiden anderen Körpern ausgeübten Kräfte ist. Dies führt zu einem System gekoppelter, nichtlinearer Differentialgleichungen, bei dem die Beschleunigung jedes Körpers von den relativen Positionen aller drei Massen abhängt. Aufgrund der Komplexität dieses Systems ist eine exakte analytische Lösung im Allgemeinen nicht möglich, weshalb es in der Regel numerisch gelöst wird.
 Die wichtigsten Gleichungen, die die Bewegung der drei Körper beschreiben, sind:
-\[
-\ddot{\mathbf{r}}_1 = -G m_2 \frac{\mathbf{r}_1 - \mathbf{r}_2}{|\mathbf{r}_1 - \mathbf{r}_2|^3} - G m_3 \frac{\mathbf{r}_1 - \mathbf{r}_3}{|\mathbf{r}_1 - \mathbf{r}_3|^3}
-\]
-\[
-\ddot{\mathbf{r}}_2 = -G m_3 \frac{\mathbf{r}_2 - \mathbf{r}_3}{|\mathbf{r}_2 - \mathbf{r}_3|^3} - G m_1 \frac{\mathbf{r}_2 - \mathbf{r}_1}{|\mathbf{r}_2 - \mathbf{r}_1|^3}
-\]
-\[
-\ddot{\mathbf{r}}_3 = -G m_1 \frac{\mathbf{r}_3 - \mathbf{r}_1}{|\mathbf{r}_3 - \mathbf{r}_1|^3} - G m_2 \frac{\mathbf{r}_3 - \mathbf{r}_2}{|\mathbf{r}_3 - \mathbf{r}_2|^3}
-\]
+\begin{align*}
+	\ddot{\vec{r}}_1 = -G m_2 \frac{\vec{r}_1 - \vec{r}_2}{|\vec{r}_1 - \vec{r}_2|^3} - G m_3 \frac{\vec{r}_1 - \vec{r}_3}{|\vec{r}_1 - \vec{r}_3|^3} \\
+	\ddot{\vec{r}}_2 = -G m_3 \frac{\vec{r}_2 - \vec{r}_3}{|\vec{r}_2 - \vec{r}_3|^3} - G m_1 \frac{\vec{r}_2 - \vec{r}_1}{|\vec{r}_2 - \vec{r}_1|^3} \\
+	\ddot{\vec{r}}_3 = -G m_1 \frac{\vec{r}_3 - \vec{r}_1}{|\vec{r}_3 - \vec{r}_1|^3} - G m_2 \frac{\vec{r}_3 - \vec{r}_2}{|\vec{r}_3 - \vec{r}_2|^3}
+\end{align*}
+
 
 Diese Gleichungen beschreiben, wie sich die Beschleunigungen der drei Körper aufgrund ihrer gegenseitigen Gravitationskräfte entwickeln.
 
-\subsubsection{Sonderfälle}
+\subsubsection{Bekannte Lösungen des Dreikörperproblems}
+\paragraph{1- Klassische Bahnen: }
+das System kann, das die Bewegung von drei gravitativ wechselwirkenden Körpern beschreibt, im Allgemeinen nicht analytisch gelöst werden. 
+Es gibt jedoch zwei bekannte analytische Lösungen, die auf Euler und Lagrange zurückgehen. Bei der Euler-Bahn beginnen die drei Körper in einer kollinearen Anordnung, und die beiden äußeren Körper bewegen sich auf einem Kreis um den zentralen Körper, der sich im Zentrum dieses Kreises befindet (Siehe Abb. 2a). 
+Bei der Lagrange-Bahn beginnen die drei Körper an den Eckpunkten eines gleichseitigen Dreiecks und bewegen sich auf einem Kreis, wobei sie die dreieckige Struktur beibehalten (siehe Abb. 2b).
 
-\subsubsection{Kollinear}
-Im 1767 fand Leonhard Euler drei Familien von periodischen Lösungen, bei denen die drei Massen zu jedem Zeitpunkt kollinear sind. In der Eulerschen Lösung des Dreikörperproblems beginnen die Körper auf einer Linie. Sie können unterschiedliche Massen haben und ihre Bewegung wird nur durch ihre gegenseitigen anziehenden Gravitationskräfte angetrieben, die alle auf den Massenschwerpunkt des Systems gerichtet sind. Die Bedingungen für die Verwirklichung der Eulerschen Lösung sind wie folgt: 
-\subsubsection{Dreieck}
-\subsubsection{Figure-8}
-\subsubsection{Runge Kutta Methode}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{EulerUndLagrange.png}
+	\caption[Eintrag in Abbildungsverzeichnis von Grumpy Cat]{Klassische Drei-Körper-Orbits: (a) Euler-Orbit, (b) Lagrange-Orbit.}
+	\label{EulerUndLagrange .}
+\end{figure}
+
+\paragraph{2- Figure-8: }
+Der sogenannte Figure-8 Orbit ist die einzige bekannte stabile Lösung des Drei-Körper-Problems. In diesem Orbit starten die drei Körper in einer kollinearen Konfiguration und bewegen sich entlang einer 8-förmigen Bahn (Siehe Abb.3).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figure8Orbit.png}
+    \caption{Figure-8 Orbit.}
+    \label{fig:figure8Orbit}
+\end{figure}
+
+Um diesen Orbit zu konstruieren, können wir die Integrale der Bewegung verwenden, 
+zusammen mit der Bedingung, dass die drei Körper in einer kollinearen Konfiguration (Euler-Konfiguration) starten, um die Anzahl der zu spezifizierenden Parameter zu reduzieren. 
+Wenn die Anfangspositionen in einer Euler-Konfiguration gesetzt werden, erhalten wir fünf Einschränkungen für die Positionen der Körper (sie wurden auf der x-Achse gewählt), bis hin zum Abstand der beiden äußeren Körper zum zentralen Körper, der ohne Verlust der Allgemeinheit auf 1 gesetzt werden kann (dies würde nur zu einem allgemeinen Skalierungsfaktor in der potentiellen Energie führen, und somit die Größe der Anfangsgeschwindigkeiten beeinflussen). 
+Durch Arbeiten im Bezugssystem des Schwerpunkts können wir $P = 0$ setzen, was zwei Einschränkungen für die Parameter ergibt. Darüber hinaus handelt es sich um einen Orbit mit null Drehimpuls, d.h., $L = 0$, was eine weitere Einschränkung liefert. Die Erhaltung der Energie liefert die letzte Einschränkung, wodurch uns nur noch zwei ``freie" Parameter verbleiben, $v_x$ und $v_y$, die beiden Komponenten der Geschwindigkeit eines der drei Körper, wobei dieser auf der Position (1, 0) gewählt wurde. Um den Figure-8 Orbit zu erzeugen, lauten die Werte dieser Parameter:
+\begin{equation}
+	v_x = 0.3471128135672417, \quad v_y = 0.532726851767674
+	\label{ref1}
+\end{equation}
+
+
+\paragraph{3- Andere Orbits: } 
+Die Figur-8-Orbit-Methode ermöglicht die Identifizierung einer Vielzahl alternativer Orbits (die allesamt instabil sind), durch die Angabe unterschiedlicher Werte für $v_x$ und $v_y$.
+Einige dieser anderen Orbits sind in Abbildung \ref{Abb:andereOrbits} gezeigt, mit den Werten von $v_x$ und $v_y$, die unter den Abbildungen angegeben sind.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{AndereOrbits.png}
+    \caption{Andere Orbits.}
+    \label{Abb:andereOrbits}
+\end{figure}
+
+\subsubsection{Integration Methoden}
+Zur Lösung des Systems von gewöhnlichen Differentialgleichungen (DGL), das die Bewegung der Körper beschreibt, ist der Einsatz eines numerischen Solvers erforderlich, um eine approximative Lösung zu erhalten. Es existiert eine Vielzahl von Solvern, die je nach ihrer Genauigkeit (Ordnung) sowie den spezifischen Eigenschaften, die sie aufweisen, ausgewählt werden können.
+
+\paragraph{4.1 Euler-Verfahren: }
+Dies ist der einfachste numerische DGL-Solver. Für ein System, das in Vektorschreibweise als $ \dot{y} = f(t, y) $, und mit einem Zeitschritt $\delta t$, geschrieben wird, wird der Wert von $y$ zum Zeitpunkt $t + \delta t$, $y_{i+1}$, in Bezug auf den Wert von $y$ zum Zeitpunkt $t$, $y_i$, berechnet als:
+
+\begin{equation*}
+    y_{i+1} = y_i + f(t, y_i)\delta t
+\end{equation*}
+Dies ist ein Verfahren erster Ordnung, d.h. der Fehler in der Näherung ist von der Ordnung $\delta t$. Dies macht das Verfahren sehr ungenau, und es ist notwendig, einen sehr kleinen Zeitschritt anzugeben, um eine gute Näherung zu erhalten.
+
+
+\paragraph{Runge-Kutta-Verfahren vierter Ordnung}
+Das Runge-Kutta-Verfahren vierter Ordnung (rk4-Verfahren) ist eine Erweiterung des Euler-Verfahrens, das die Genauigkeit verbessert, indem mehr Auswertungen des Systems pro Schritt vorgenommen werden. Für ein System, das in Vektorschreibweise als $\dot{y} = f(t, y)$ und mit einem Zeitschritt $\delta t$ geschrieben wird, wird der Wert von $y$ zum Zeitpunkt $t + \delta t$, $y_{i+1}$, in Bezug auf den Wert von $y$ zum Zeitpunkt $t$, $y_i$, berechnet als:
+
+\begin{align*}
+    k_1 &= f(t, y_i)\delta t \\
+    k_2 &= f\left(t + \frac{\delta t}{2}, y_i + \frac{k_1}{2} \delta t \right) \delta t \\
+    k_3 &= f\left(t + \frac{\delta t}{2}, y_i + \frac{k_2}{2} \delta t \right) \delta t \\
+    k_4 &= f(t + \delta t, y_i + k_3 \delta t) \delta t \\
+    y_{i+1} &= y_i + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)
+\end{align*}
+
+Dies ist ein Verfahren vierter Ordnung, d.h., der Fehler in der Näherung hat die Ordnung $(\delta t)^4$. Dies macht das Verfahren deutlich genauer als das Euler-Verfahren. Zum Vergleich mit dem Euler-Verfahren müssen wir denselben Zeitschritt $\delta t$ wählen, aber viermal so viele Auswertungen pro Zeitschritt vornehmen, da das rk4-Verfahren viermal so viele Auswertungen des Systems pro Zeitschritt erfordert.
+
+
 
 
 \subsection{N-Körper Problem}
