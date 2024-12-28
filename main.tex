@@ -744,6 +744,205 @@ Die kontinuierliche Aktualisierung der Bewegungen und Pfade sorgt für eine flü
 
 \subsubsection{N-Körper Simulation}
 
+Der vorliegende Code zur Simulation des N-Körper-Problems nutzt den Barnes-Hut-Algorithmus, um die Gravitationskräfte effizient zu berechnen. Dieser Algorithmus verwendet eine QuadTree-Datenstruktur, um den Raum zu unterteilen und so die Komplexität der Berechnungen zu verringern. Der QuadTree ermöglicht es, die Anzahl der Berechnungen für die Gravitationskräfte von \(O(N^2)\) auf \(O(N \log N)\) zu reduzieren, was besonders bei einer großen Anzahl von Körpern von Vorteil ist. Der QuadTree teilt den Raum in vier Quadranten auf und aggregiert die Körper in jedem Quadranten zu einem einzigen "Schwerpunkt". Wenn Körper weit genug voneinander entfernt sind, kann die Gravitationskraft durch den Schwerpunkt des Quadranten approximiert werden, anstatt alle Körper innerhalb eines Quadranten direkt zu berücksichtigen.
+
+\paragraph{Die Body-Klasse}
+Die \javascriptinline{Body}-Klasse stellt einen Körper im N-Körper-System dar. Jeder Körper hat eine Position (\javascriptinline{x}, \javascriptinline{y}), eine Geschwindigkeit (\javascriptinline{vx}, \javascriptinline{vy}), und eine Masse (\javascriptinline{mass}). Die Klasse enthält zwei Hauptmethoden: \javascriptinline{updatePosition()} und \javascriptinline{applyForce(fx, fy)}.
+
+Die Methode \javascriptinline{updatePosition()} berechnet die neue Position des Körpers basierend auf seiner Geschwindigkeit und einem festen Zeitschritt \javascriptinline{timeStep}. Sie nutzt die Geschwindigkeit des Körpers, um die Position im Raum in jedem Zeitschritt zu verschieben:
+
+\begin{javascript}
+updatePosition() {
+    this.x += this.vx * timeStep;
+    this.y += this.vy * timeStep;
+}
+\end{javascript}
+
+Diese Methode ist für die Aktualisierung der Position des Körpers zuständig. Sie nutzt die Geschwindigkeit des Körpers, um die Position im Raum in jedem Zeitschritt zu verschieben.
+
+Die Methode \javascriptinline{applyForce(fx, fy)} berechnet die Veränderung der Geschwindigkeit eines Körpers aufgrund einer angewendeten Kraft. Sie basiert auf dem zweiten Newtonschen Gesetz \(F = ma\), wobei die Beschleunigung \(a\) als Kraft \(F\) geteilt durch die Masse des Körpers \(m\) berechnet wird:
+
+\begin{javascript}
+applyForce(fx, fy) {
+    this.vx += (fx / this.mass) * timeStep;
+    this.vy += (fy / this.mass) * timeStep;
+}
+\end{javascript}
+
+Durch diese Methode wird die Geschwindigkeit des Körpers entsprechend den berechneten Kräften angepasst. Dies ist notwendig, um die Bewegung des Körpers über die Zeit zu simulieren, da die Geschwindigkeit die Hauptgröße ist, die die Position beeinflusst.
+
+\paragraph{Die QuadTree-Klasse}
+Die \javascriptinline{QuadTree}-Klasse ist die Grundlage des Barnes-Hut-Algorithmus. Sie dient dazu, den Raum effizient zu unterteilen, sodass die Berechnungen der Gravitationskräfte zwischen den Körpern schneller und weniger rechenintensiv sind. Der QuadTree unterteilt den Raum in vier quadratische Regionen (Nordwesten, Nordosten, Südwesten und Südosten), wobei jede Region Körper enthält, die sich in diesem Bereich befinden. Die Methode \javascriptinline{subdivide()} teilt den aktuellen Quadranten in vier kleinere Quadranten. Dies ermöglicht eine hierarchische Struktur, bei der jeder Quadrant wiederum in kleinere Teile unterteilt werden kann, bis eine bestimmte Kapazität erreicht ist.
+
+\begin{javascript}
+subdivide() {
+    const { x, y, width, height } = this.boundary;
+    const nw = { x, y, width: width / 2, height: height / 2 };
+	//...
+    this.northwest = new QuadTree(nw, this.capacity);
+	//...
+    this.divided = true;
+}
+\end{javascript}
+
+Die Methode \javascriptinline{insert(body)} fügt einen Körper in den entsprechenden Quadranten des QuadTrees ein. Falls der Quadrant bereits eine maximale Anzahl an Körpern enthält, wird der Quadrant weiter unterteilt. Dies sorgt dafür, dass Körper in die richtigen Quadranten des Baums eingefügt werden, was die Suche nach benachbarten Körpern und damit die Berechnung der Kräfte optimiert.
+
+\begin{javascript}
+insert(body) {
+    if(!this.contains(body)) return false;
+    if (this.bodies.length < this.capacity) {
+        this.bodies.push(body);
+        return true;
+    }
+    if (!this.divided) this.subdivide();
+    return (
+        this.northwest.insert(body) ||
+        this.northeast.insert(body) ||
+        this.southwest.insert(body) ||
+        this.southeast.insert(body)
+    );
+}
+\end{javascript}
+
+
+Die Funktion \javascriptinline{query(body, theta)} berechnet die Gravitationskräfte auf einen Körper \javascriptinline{body} in einem QuadTree, wobei die Berechnung durch den Barnes-Hut-Algorithmus effizienter gestaltet wird. Der Parameter \javascriptinline{theta} steuert dabei, ob die Berechnungen direkt oder vereinfacht durch den Schwerpunkt eines Quadranten durchgeführt werden. Die Funktion ist in zwei Hauptteile unterteilt: Die Berechnung der Kräfte für einen nicht unterteilten Quadranten und die Berechnung unter Verwendung des Schwerpunkts eines unterteilten Quadranten.
+Zu Beginn werden die Kräfte in den \( x \)- und \( y \)-Richtungen auf Null gesetzt. Diese Kräfte werden später durch die Interaktionen mit anderen Körpern aktualisiert:
+
+\begin{javascript}
+const forces = { fx: 0, fy: 0 };
+\end{javascript}
+
+Diese Variablen speichern die resultierenden Kräfte, die durch Wechselwirkungen zwischen dem Körper und anderen Körpern im QuadTree entstehen.
+
+Wenn der QuadTree-Quadrant nicht weiter unterteilt wurde, wird die Gravitationskraft direkt zwischen den Körpern innerhalb dieses Quadranten berechnet. Für jedes Körperpaar werden die \( x \)- und \( y \)-Differenzen (\( dx \), \( dy \)) ermittelt und die Gravitationskraft auf Basis der Entfernung zwischen den Körpern berechnet. Diese Kräfte werden zu den Gesamtkräften des Körpers hinzugefügt:
+
+\begin{javascript}
+if (!this.divided) {
+    this.bodies.forEach((other) => {
+        if (other !== body) {
+            const dx = other.x - body.x;
+            const dy = other.y - body.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            const force = (G * body.mass * other.mass) / (distance * distance);
+            forces.fx += (force * dx) / distance;
+            forces.fy += (force * dy) / distance;
+        }
+    });
+    return forces;
+}
+\end{javascript}
+
+- \javascriptinline{dx} und \javascriptinline{dy} repräsentieren die Differenzen der Positionen der beiden Körper.
+- \javascriptinline{distance} berechnet die Entfernung zwischen den Körpern.
+- Die Gravitationskraft \javascriptinline{force} wird anhand der Masse der beiden Körper und der Entfernung berechnet.
+
+
+Wenn der Quadrant unterteilt wurde, wird die Gravitationskraft nicht direkt zwischen allen Körpern berechnet, sondern durch den Schwerpunkt des gesamten Quadranten. Diese Methode wird verwendet, wenn der Körper weit genug vom Quadranten entfernt ist, um eine Approximation durch den Schwerpunkt zu rechtfertigen. Der Abstand zum Schwerpunkt wird als \javascriptinline{distanceToCOM} berechnet, und wenn dieser groß genug ist, wird die Gravitationskraft basierend auf dem gesamten Quadranten berechnet:
+
+\begin{javascript}
+const totalMass = this.bodies.reduce((acc, b) => acc + b.mass, 0);
+const centerOfMass = {
+  x: this.bodies.reduce((acc, b) => acc + b.x * b.mass, 0) / totalMass,
+  y: this.bodies.reduce((acc, b) => acc + b.y * b.mass, 0) / totalMass,
+};
+const distanceToCOM = Math.sqrt(
+  (centerOfMass.x - body.x) ** 2 + (centerOfMass.y - body.y) ** 2
+);
+\end{javascript}
+
+- \javascriptinline{totalMass} berechnet die Gesamtmasse der Körper im Quadranten.
+- \javascriptinline{centerOfMass} ermittelt den Schwerpunkt des Quadranten unter Berücksichtigung der Massen und Positionen der Körper.
+- \javascriptinline{distanceToCOM} berechnet den Abstand des Körpers zum Schwerpunkt des Quadranten.
+
+Wenn der Abstand zum Zentrum des Quadranten groß genug ist (d.h., \( \frac{\text{width}}{\text{distanceToCOM}} < \theta \)), wird die Gravitationskraft basierend auf dem Schwerpunkt des Quadranten berechnet:
+
+\begin{javascript}
+if ((this.boundary.width / distanceToCOM) < theta) {
+    const force = (G * body.mass * totalMass) / (distanceToCOM * distanceToCOM);
+    const dx = centerOfMass.x - body.x;
+    const dy = centerOfMass.y - body.y;
+    forces.fx += (force * dx) / distanceToCOM;
+    forces.fy += (force * dy) / distanceToCOM;
+}
+\end{javascript}
+
+Hier wird die Gravitationskraft vereinfacht berechnet, indem nur der Schwerpunkt des Quadranten verwendet wird. Dies reduziert die Berechnungszeit erheblich, da viele Körper in einem Quadrat durch einen einzigen Punkt ersetzt werden können.
+Wenn der Abstand zum Zentrum des Quadranten zu klein ist, um eine Annäherung zu verwenden, werden die Kräfte rekursiv für die Unterquadranten berechnet:
+
+\begin{javascript}
+else {
+    forces.fx += this.northwest.query(body, theta).fx;
+    forces.fy += this.northwest.query(body, theta).fy;
+    //...
+}
+\end{javascript}
+
+Dies stellt sicher, dass auch bei komplexen Strukturen im QuadTree alle relevanten Kräfte berechnet werden, indem die Kräfte der Unterquadranten berücksichtigt werden.
+
+
+Die Funktion \javascriptinline{query(body, theta)} verwendet eine rekursive Struktur, um die Gravitationskräfte in einem QuadTree zu berechnen. Sie entscheidet basierend auf dem Parameter \javascriptinline{theta}, ob die Berechnungen direkt zwischen benachbarten Körpern oder vereinfacht durch den Schwerpunkt eines Quadranten durchgeführt werden. Diese Technik optimiert die Berechnungszeit, insbesondere bei einer großen Anzahl von Körpern, und ist ein grundlegender Bestandteil des Barnes-Hut-Algorithmus.
+
+
+
+
+
+
+
+\paragraph{Simulationslogik und Animation}
+
+Bei jeder Änderung der Körperliste (\javascriptinline{bodies}) wird das Canvas mit \javascriptinline{ctx.clearRect} gelöscht, um alte Zeichnungen zu entfernen. Für jeden Körper wird anschließend ein blauer Kreis an den Positionen des Körpers gezeichnet, wobei \javascriptinline{ctx.arc} den Kreis mit einem Radius von 4 Pixeln erstellt. Mit \javascriptinline{ctx.fillStyle} wird die Farbe Blau gesetzt, und \javascriptinline{ctx.fill} füllt den Kreis, um die Körper auf dem Canvas darzustellen.
+
+\begin{javascript}
+	useEffect(() => {
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        bodies.forEach((body) => {
+            ctx.beginPath();
+            ctx.arc(body.x, body.y, 4, 0, 2 * Math.PI);
+            ctx.fillStyle = 'blue';
+            ctx.fill();
+        });
+    }, [bodies])
+\end{javascript}
+
+
+Der zweite \javascriptinline{useEffect}-Hook aktualisiert die Simulation alle 16 Millisekunden (ca. 60 FPS). In jedem Intervall wird ein QuadTree verwendet, um die Gravitationskräfte zwischen den Körpern zu berechnen. Der QuadTree teilt den Raum in Quadranten und ermöglicht eine effiziente Berechnung. Jeder Körper wird in den QuadTree eingefügt, und die Kräfte werden mit der \javascriptinline{query}-Methode berechnet. Diese Kräfte werden auf die Körper angewendet, um deren Geschwindigkeit und Position zu aktualisieren. Am Ende wird der Zustand der Körperliste mit den neuen Positionen überschrieben.
+
+
+\begin{javascript}
+useEffect(() => {
+    const interval = setInterval(() => {
+        if (isRunning && bodies.length > 0) {
+            const boundary = { x: 0, y: 0, width: 400, height: 400 };
+            const quadTree = new QuadTree(boundary, 4);
+            bodies.forEach((body) => quadTree.insert(body));
+            bodies.forEach((body) => {
+                const forces = quadTree.query(body);
+                body.applyForce(forces.fx, forces.fy);
+                body.updatePosition();
+            })
+            setBodies([...bodies]);
+        }
+    }, 16);
+    return () => clearInterval(interval);
+}, [isRunning, bodies]);
+\end{javascript}
+
+
+\paragraph{Steuerung der Simulation}
+Die Simulation wird über zwei Hauptbuttons gesteuert: einer zum Hinzufügen neuer Körper (\javascriptinline{addBody}) und einer zum Starten oder Stoppen der Simulation (\javascriptinline{toggleSimulation}). Die Funktion \javascriptinline{addBody()} fügt der Simulation zufällig positionierte Körper hinzu, die mit zufälligen Massen und Geschwindigkeiten ausgestattet werden. Die Funktion \javascriptinline{toggleSimulation()} startet oder stoppt die Simulation, indem der Zustand \javascriptinline{isRunning} geändert wird. Wenn die Simulation läuft, wird die Simulation durch den vorher beschriebenen \javascriptinline{setInterval()}-Aufruf kontinuierlich aktualisiert.
+\begin{javascript}
+	return (
+        <div>
+            <canvas ref={canvasRef} width={400} height={400} style={{ border: '1px solid black' }} />
+            <button onClick={addBody}>Add Body</button>
+            <button onClick={toggleSimulation}> {isRunning ? 'Stop' : 'Start'} Simulation</button>
+        </div>
+    )
+\end{javascript}
+
 \subsection{Vorgehensweise und Implementierung}
 
 \section{Resultat}
