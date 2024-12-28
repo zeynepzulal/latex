@@ -519,6 +519,132 @@ Ein weiterer Vorteil ist die einfache Integration von Bibliotheken zur Datenvisu
 
 Zusammenfassend bietet React.js durch seine Effizienz, Modularität und Erweiterbarkeit eine ideale Plattform zur Implementierung von Simulationen auf Basis des Barnes-Hut-Algorithmus. Dies macht es zu einer bevorzugten Wahl für Anwendungen, die sowohl hohe Leistung als auch eine interaktive Benutzeroberfläche erfordern.
 
+\subsection{Erklärung der Simulationen}
+\subsubsection{2-Körper Simulation}
+Zwei Körper werden definiert, die sich im Gravitationsfeld gegenseitig beeinflussen. Die Eigenschaften der Körper umfassen die Position (\javascriptinline{x}, \javascriptinline{y}), die Geschwindigkeit (\javascriptinline{vx}, \javascriptinline{vy}), die Masse (\javascriptinline{mass}) und eine Liste zur Speicherung der zurückgelegten Positionen (\javascriptinline{path}):
+
+\begin{javascript}
+let body1 = { x: 300, y: 300, vx: 0, vy: 2, mass: 1000, path: [] };
+let body2 = { x: 500, y: 300, vx: 0, vy: -2, mass: 1000, path: [] };
+\end{javascript}
+
+Die Anfangspositionen und Geschwindigkeiten sind so gewählt, dass die Körper eine Umlaufbahn um ihren gemeinsamen Schwerpunkt bilden können.
+
+\paragraph{Globale Konstanten:}
+Weitere Konstanten werden definiert, darunter die Gravitationskonstante \javascriptinline{G}, die maximale Länge der Bewegungsbahnen und ein \javascriptinline{softening}-Parameter:
+
+\begin{javascript}
+const G = 0.1;
+const maxTrailLength = 100;
+const softening = 0.1;
+\end{javascript}
+
+Der Parameter \javascriptinline{softening} verhindert eine Singularität (unendliche Kraft), die auftritt, wenn der Abstand zwischen den beiden Körpern gegen null geht. Dies wird durch die Addition von \javascriptinline{softening} zum Abstand kompensiert.
+
+\paragraph{Berechnung der Gravitationskraft und Bewegung:}
+Die Funktion \javascriptinline{update()} implementiert die Berechnung der Gravitation basierend auf Newtons Gesetz der universellen Gravitation. Zunächst wird der Abstand zwischen den beiden Körpern bestimmt:
+
+\begin{javascript}
+const dx = body2.x - body1.x;
+const dy = body2.y - body1.y;
+const distance = Math.sqrt(dx * dx + dy * dy + softening);
+\end{javascript}
+
+Die Berechnung des Abstands \javascriptinline{distance} enthält den \javascriptinline{softening}-Parameter, um numerische Instabilitäten zu vermeiden. Anschließend wird die Gravitationskraft zwischen den Körpern berechnet:
+
+\begin{javascript}
+const force = (G * body1.mass * body2.mass) / (distance * distance);
+\end{javascript}
+
+Die Richtung der Kraft wird durch die Komponenten der Beschleunigung (\javascriptinline{ax} und \javascriptinline{ay}) berechnet:
+
+\begin{javascript}
+const ax1 = (force * dx) / (body1.mass * distance);
+const ay1 = (force * dy) / (body1.mass * distance);
+const ax2 = -(force * dx) / (body2.mass * distance);
+const ay2 = -(force * dy) / (body2.mass * distance);
+\end{javascript}
+
+Diese Werte werden genutzt, um die Geschwindigkeiten und Positionen der Körper zu aktualisieren:
+
+\begin{javascript}
+body1.vx += ax1;
+body1.vy += ay1;
+body2.vx += ax2;
+body2.vy += ay2;
+
+body1.x += body1.vx;
+body1.y += body1.vy;
+body2.x += body2.vx;
+body2.y += body2.vy;
+\end{javascript}
+
+Die neue Geschwindigkeit ergibt sich aus der aktuellen Geschwindigkeit plus der Änderung aufgrund der Beschleunigung. Die neue Position wird entsprechend der Gleichung \( s = s_0 + v \cdot t \) berechnet, wobei \( t \) implizit auf 1 gesetzt ist (jede Iteration entspricht einem Zeitschritt).
+
+\paragraph{Darstellung der Bewegungsbahnen:}
+Um die Bewegungsbahnen der Körper darzustellen, wird die Funktion \javascriptinline{drawPath()} implementiert. Zunächst wird die aktuelle Position des Körpers dem Pfad hinzugefügt:
+
+\begin{javascript}
+body.path.push({ x: body.x, y: body.y });
+if (body.path.length > maxTrailLength) body.path.shift();
+\end{javascript}
+
+Wird die maximale Pfadlänge überschritten, wird der älteste Eintrag entfernt, um eine begrenzte Spur zu gewährleisten. Die Punkte werden anschließend durch Linien verbunden:
+
+\begin{javascript}
+context.strokeStyle = color;
+context.beginPath();
+for (let i = 0; i < body.path.length - 1; i++) {
+    context.moveTo(body.path[i].x, body.path[i].y);
+    context.lineTo(body.path[i + 1].x, body.path[i + 1].y);
+}
+context.stroke();
+\end{javascript}
+
+Dies sorgt dafür, dass die Bahn des Körpers visuell verfolgt werden kann.
+
+\paragraph{Zeichnen der Körper:}
+Die Körper selbst werden als Kreise dargestellt:
+
+\begin{javascript}
+context.beginPath();
+context.arc(body.x, body.y, 10, 0, 2 * Math.PI);
+context.fillStyle = color;
+context.fill();
+\end{javascript}
+
+Hierbei wird ein Kreis mit einem Radius von 10 Pixeln gezeichnet, dessen Farbe von der Funktion vorgegeben wird.
+
+\paragraph{Animation der Simulation:}
+Die Hauptanimationsschleife wird durch die Funktion \javascriptinline{animate()} definiert. Zu Beginn wird der Canvas-Bereich gelöscht, um alte Positionen zu entfernen:
+
+\begin{javascript}
+context.clearRect(0, 0, canvas.width, canvas.height);
+\end{javascript}
+
+Danach werden die physikalischen Berechnungen aktualisiert, die Bewegungsbahnen gezeichnet und die Körper neu positioniert:
+
+\begin{javascript}
+update();
+drawPath(body1, 'blue');
+drawPath(body2, 'red');
+drawBody(body1, 'blue');
+drawBody(body2, 'red');
+\end{javascript}
+
+Die Funktion \javascriptinline{requestAnimationFrame(animate)} sorgt dafür, dass die Animation kontinuierlich aktualisiert wird.
+
+\paragraph{Einbettung in das React-Framework:}
+Das Canvas-Element wird innerhalb der Rückgabewerte der React-Komponente definiert:
+
+\begin{javascript}
+return (<canvas ref={canvasRef} style={{ border: '1px solid black', display: 'block', margin: '0 auto', background: 'black' }} />)
+\end{javascript}
+
+
+\subsubsection{3-Körper Simulation}
+\subsubsection{N-Körper Simulation}
+
 \subsection{Vorgehensweise und Implementierung}
 
 \section{Resultat}

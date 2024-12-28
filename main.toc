@@ -36,13 +36,23 @@
 \contentsline {subsection}{\numberline {3.2}React.js -- Funktionsweise und Anwendungen}{19}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Anwendungen von React.js}{20}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Warum eignet sich React.js für den Barnes-Hut-Algorithmus?}{20}{subsubsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.3}Vorgehensweise und Implementierung}{21}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Resultat}{21}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Vergleich der Simulationsergebnisse}{21}{subsection.4.1}%
-\contentsline {section}{\numberline {5}Diskussion}{21}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Vorteile der verwendeten Algorithmen}{21}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Herausforderungen und Limitierungen}{21}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Vergleich mit bestehenden Methoden}{21}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Schlussfolgerung}{21}{section.6}%
-\contentsline {section}{\numberline {7}Literaturverzeichnis}{21}{section.7}%
-\contentsline {section}{\numberline {8}Abbildungsverzeichnis}{21}{section.8}%
+\contentsline {subsection}{\numberline {3.3}Erklärung der Simulationen}{21}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}2-Körper Simulation}{21}{subsubsection.3.3.1}%
+\contentsline {paragraph}{Globale Konstanten:}{21}{section*.11}%
+\contentsline {paragraph}{Berechnung der Gravitationskraft und Bewegung:}{22}{section*.12}%
+\contentsline {paragraph}{Darstellung der Bewegungsbahnen:}{23}{section*.13}%
+\contentsline {paragraph}{Zeichnen der Körper:}{23}{section*.14}%
+\contentsline {paragraph}{Animation der Simulation:}{23}{section*.15}%
+\contentsline {paragraph}{Einbettung in das React-Framework:}{24}{section*.16}%
+\contentsline {subsubsection}{\numberline {3.3.2}3-Körper Simulation}{25}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}N-Körper Simulation}{25}{subsubsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.4}Vorgehensweise und Implementierung}{25}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Resultat}{25}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Vergleich der Simulationsergebnisse}{25}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Diskussion}{25}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Vorteile der verwendeten Algorithmen}{25}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Herausforderungen und Limitierungen}{25}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Vergleich mit bestehenden Methoden}{25}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Schlussfolgerung}{25}{section.6}%
+\contentsline {section}{\numberline {7}Literaturverzeichnis}{25}{section.7}%
+\contentsline {section}{\numberline {8}Abbildungsverzeichnis}{25}{section.8}%
