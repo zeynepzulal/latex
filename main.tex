@@ -644,6 +644,104 @@ Dabei erhält das Canvas einen schwarzen Hintergrund und wird zentriert dargeste
 
 
 \subsubsection{3-Körper Simulation}
+Der Code zur Simulation des Drei-Körper-Problems basiert auf denselben physikalischen Prinzipien und numerischen Methoden wie der zuvor beschriebene Code für das Zwei-Körper-Problem. Beide Implementierungen verwenden Newtons Gravitationsgesetz, um die Kräfte zwischen den Körpern zu berechnen, und aktualisieren deren Positionen und Geschwindigkeiten durch numerische Integration. Zudem erfolgt die visuelle Darstellung der Bewegung über ein HTML5-Canvas-Element, das durch React.js verwaltet wird. Trotz dieser Gemeinsamkeiten erfordert die Simulation des Drei-Körper-Problems aufgrund der zusätzlichen Wechselwirkungen zwischen den Körpern eine komplexere Implementierung. Diese Anpassungen betreffen insbesondere die Berechnung der Kräfte, die Verwaltung der Zustände und die visuelle Darstellung der Pfade.
+Ein wesentlicher Unterschied zur Zwei-Körper-Simulation besteht darin, dass die Bewegungen jedes Körpers nicht mehr ausschließlich von einem einzelnen Partner beeinflusst werden. Stattdessen muss jede Wechselwirkung zwischen allen drei Körpern berücksichtigt werden, was insgesamt drei unabhängige Paarungen erzeugt: (Körper 1 und Körper 2), (Körper 1 und Körper 3) sowie (Körper 2 und Körper 3). Um diese Wechselwirkungen effizient zu berechnen, wird die Funktion \texttt{calculateForces()} eingeführt. Diese Funktion übernimmt die Berechnung der gravitativen Anziehungskraft zwischen zwei beliebigen Körpern und gibt die daraus resultierenden Beschleunigungen zurück:
+
+\begin{javascript}
+function calculateForces(bodyA, bodyB) {
+    const dx = bodyB.x - bodyA.x;
+    const dy = bodyB.y - bodyA.y;
+    const distance = Math.sqrt(dx * dx + dy * dy + softening);
+    const force = (G * bodyA.mass * bodyB.mass) / (distance * distance);
+
+    const ax = (force * dx) / (bodyA.mass * distance);
+    const ay = (force * dy) / (bodyA.mass * distance);
+
+    return { ax, ay };
+}
+\end{javascript}
+
+Diese Funktion ist notwendig, da die Kräfte zwischen jedem Körperpaar unabhängig berechnet werden müssen. Sie verbessert die Lesbarkeit und Wiederverwendbarkeit des Codes, indem sie die Berechnungen abstrahiert und mehrfach aufgerufen werden kann.
+
+Während im Zwei-Körper-Problem nur eine einzige Wechselwirkung existiert, müssen im Drei-Körper-Problem die Kräfte aus zwei Quellen kombiniert werden, um die Gesamtbeschleunigung jedes Körpers zu bestimmen. Dies erfolgt in der Funktion \texttt{update()}, die alle Kräfte separat berechnet und dann addiert:
+
+\begin{javascript}
+const force12 = calculateForces(bodies[0], bodies[1]);
+const force13 = calculateForces(bodies[0], bodies[2]);
+
+bodies[0].vx += force12.ax + force13.ax;
+bodies[0].vy += force12.ay + force13.ay;
+
+bodies[0].x += bodies[0].vx;
+bodies[0].y += bodies[0].vy;
+\end{javascript}
+
+Die Geschwindigkeit jedes Körpers wird durch die Addition der Beschleunigungen aufgrund der beiden anderen Körper aktualisiert. Anschließend werden die Positionen anhand der neuen Geschwindigkeiten berechnet. Dieser Ansatz berücksichtigt die gleichzeitigen Wechselwirkungen zwischen allen Körpern und ermöglicht eine präzise Simulation ihrer Bewegungen.
+
+Eine weitere wichtige Erweiterung des Drei-Körper-Codes betrifft die Verwaltung der Bewegungsbahnen. Da sich die Körper unabhängig voneinander bewegen, wird für jeden Körper ein eigenes Array zur Speicherung seiner bisherigen Positionen verwendet:
+
+\begin{javascript}
+let path1 = [];
+let path2 = [];
+let path3 = [];
+\end{javascript}
+
+Diese Arrays speichern die Koordinaten der Körper, während sie sich durch die Simulation bewegen. Die Funktion \texttt{drawPath()} zeichnet die zurückgelegten Pfade, indem sie die gespeicherten Positionen durch Linien miteinander verbindet:
+
+\begin{javascript}
+function drawPath(path, color) {
+    context.beginPath();
+    context.moveTo(path[0].x, path[0].y);
+    for (let i = 1; i < path.length; i++) {
+        context.lineTo(path[i].x, path[i].y);
+    }
+    context.strokeStyle = color;
+    context.stroke();
+}
+\end{javascript}
+
+Die Pfade bieten eine visuelle Darstellung der Trajektorien der Körper und ermöglichen es, Muster und Stabilitäten in der Bewegung zu erkennen. Dies ist insbesondere für das „Figure-Eight“-Muster von Bedeutung, da es ein Beispiel für eine symmetrische und periodische Lösung des Drei-Körper-Problems darstellt.
+
+Die Simulation enthält zusätzlich eine Benutzeroberfläche, die es ermöglicht, verschiedene Anfangsbedingungen auszuwählen. Dies wird durch ein Dropdown-Menü realisiert, dessen Auswahl den Zustand der Körper entsprechend aktualisiert:
+
+\begin{javascript}
+const handleSelectChange = (event) => {
+    const selectedCase = event.target.value;
+    setInitialCondition(selectedCase);
+    setBodies(InitialConditions[selectedCase]);
+};
+\end{javascript}
+
+Die Integration dieser Auswahlmöglichkeit erhöht die Flexibilität der Simulation und ermöglicht es, neue Konfigurationen oder Anfangsbedingungen problemlos zu ergänzen.
+
+Ein weiterer Unterschied zum Zwei-Körper-Code ist die Anpassung der Darstellung der Körper selbst. Während im Zwei-Körper-Code einfache Kreise gezeichnet werden, wird im Drei-Körper-Code zusätzlich ein visueller Effekt implementiert, der die Körper durch einen leichten Leuchteffekt hervorhebt:
+
+\begin{javascript}
+context.arc(body.x, body.y, 3, 0, 2 * Math.PI);
+context.fillStyle = color;
+context.shadowColor = color;
+context.shadowBlur = 10;
+context.fill();
+\end{javascript}
+
+Dieser Effekt verbessert die visuelle Darstellung und hebt die Körper deutlicher von den Pfaden ab, was insbesondere bei komplexen Mustern wie dem „Figure-Eight“ hilfreich ist.
+
+Die Animation der Simulation erfolgt schließlich über die Funktion \texttt{animate()}, die kontinuierlich die Positionen aktualisiert und sowohl die Körper als auch ihre Pfade neu zeichnet:
+
+\begin{javascript}
+function animate() {
+    context.fillStyle = 'rgba(0,0,0,1)';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    update();
+    drawPath(path1, 'rgb(66, 135, 245)');
+    //...
+    drawBody(bodies[0], 'rgb(66, 135, 245)');
+	//...
+    requestAnimationFrame(animate);
+}
+\end{javascript}
+Die kontinuierliche Aktualisierung der Bewegungen und Pfade sorgt für eine flüssige Animation, die die dynamischen Wechselwirkungen zwischen den Körpern in Echtzeit darstellt.
+
 \subsubsection{N-Körper Simulation}
 
 \subsection{Vorgehensweise und Implementierung}
