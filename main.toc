@@ -21,42 +21,42 @@
 \contentsline {paragraph}{1- Klassische Bahnen: }{13}{section*.3}%
 \contentsline {paragraph}{2- Figure-8: }{14}{section*.4}%
 \contentsline {paragraph}{3- Andere Orbits: }{15}{section*.5}%
-\contentsline {subsubsection}{\numberline {2.5.3}Integration Methoden}{15}{subsubsection.2.5.3}%
-\contentsline {paragraph}{4.1 Euler-Verfahren: }{15}{section*.6}%
-\contentsline {paragraph}{Runge-Kutta-Verfahren vierter Ordnung}{16}{section*.7}%
+\contentsline {paragraph}{Das Eingeschränkte Drei-Körper-Problem:}{15}{section*.6}%
+\contentsline {subsubsection}{\numberline {2.5.3}Integration Methoden}{16}{subsubsection.2.5.3}%
+\contentsline {paragraph}{4.1 Euler-Verfahren: }{16}{section*.7}%
+\contentsline {paragraph}{Runge-Kutta-Verfahren vierter Ordnung}{16}{section*.8}%
 \contentsline {subsection}{\numberline {2.6}N-Körper Problem}{17}{subsection.2.6}%
 \contentsline {section}{\numberline {3}Material und Methoden}{18}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Der Barnes-Hut-Algorithmus}{18}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Algorithmusschritte}{18}{subsubsection.3.1.1}%
-\contentsline {paragraph}{1. Baumerstellung}{18}{section*.8}%
-\contentsline {paragraph}{2. Masseverteilung}{18}{section*.9}%
-\contentsline {paragraph}{3. Kraftberechnung}{18}{section*.10}%
-\contentsline {subsubsection}{\numberline {3.1.2}Parameter $\theta $}{19}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Vorteile und Anwendungen}{19}{subsubsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.2}React.js -- Funktionsweise und Anwendungen}{19}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Anwendungen von React.js}{20}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Warum eignet sich React.js für den Barnes-Hut-Algorithmus?}{20}{subsubsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.3}Erklärung der Simulationen}{21}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}2-Körper Simulation}{21}{subsubsection.3.3.1}%
-\contentsline {paragraph}{Globale Konstanten:}{21}{section*.11}%
-\contentsline {paragraph}{Berechnung der Gravitationskraft und Bewegung:}{22}{section*.12}%
-\contentsline {paragraph}{Darstellung der Bewegungsbahnen:}{23}{section*.13}%
-\contentsline {paragraph}{Zeichnen der Körper:}{23}{section*.14}%
-\contentsline {paragraph}{Animation der Simulation:}{23}{section*.15}%
-\contentsline {paragraph}{Einbettung in das React-Framework:}{24}{section*.16}%
-\contentsline {subsubsection}{\numberline {3.3.2}3-Körper Simulation}{24}{subsubsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.3}N-Körper Simulation}{28}{subsubsection.3.3.3}%
-\contentsline {paragraph}{Die Body-Klasse}{28}{section*.17}%
-\contentsline {paragraph}{Die QuadTree-Klasse}{29}{section*.18}%
-\contentsline {paragraph}{Simulationslogik und Animation}{33}{section*.19}%
-\contentsline {paragraph}{Steuerung der Simulation}{35}{section*.20}%
-\contentsline {subsection}{\numberline {3.4}Vorgehensweise und Implementierung}{36}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Resultat}{36}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Vergleich der Simulationsergebnisse}{36}{subsection.4.1}%
-\contentsline {section}{\numberline {5}Diskussion}{36}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Vorteile der verwendeten Algorithmen}{36}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Herausforderungen und Limitierungen}{36}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Vergleich mit bestehenden Methoden}{36}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Schlussfolgerung}{36}{section.6}%
-\contentsline {section}{\numberline {7}Literaturverzeichnis}{36}{section.7}%
-\contentsline {section}{\numberline {8}Abbildungsverzeichnis}{36}{section.8}%
+\contentsline {subsubsection}{\numberline {3.1.1}Algorithmusschritte}{19}{subsubsection.3.1.1}%
+\contentsline {paragraph}{1. Baumerstellung}{19}{section*.9}%
+\contentsline {paragraph}{2. Masseverteilung}{19}{section*.10}%
+\contentsline {paragraph}{3. Kraftberechnung}{19}{section*.11}%
+\contentsline {subsubsection}{\numberline {3.1.2}Parameter $\theta $}{20}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Vorteile und Anwendungen}{20}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}React.js -- Funktionsweise und Anwendungen}{20}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Anwendungen von React.js}{21}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Warum eignet sich React.js für den Barnes-Hut-Algorithmus?}{21}{subsubsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.3}Erklärung der Simulationen}{22}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}2-Körper Simulation}{22}{subsubsection.3.3.1}%
+\contentsline {paragraph}{Globale Konstanten:}{22}{section*.12}%
+\contentsline {paragraph}{Berechnung der Gravitationskraft und Bewegung:}{22}{section*.13}%
+\contentsline {paragraph}{Darstellung der Bewegungsbahnen:}{23}{section*.14}%
+\contentsline {paragraph}{Zeichnen der Körper:}{24}{section*.15}%
+\contentsline {paragraph}{Animation der Simulation:}{24}{section*.16}%
+\contentsline {paragraph}{Einbettung in das React-Framework:}{25}{section*.17}%
+\contentsline {subsubsection}{\numberline {3.3.2}3-Körper Simulation}{25}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}N-Körper Simulation}{29}{subsubsection.3.3.3}%
+\contentsline {paragraph}{Die Body-Klasse}{29}{section*.18}%
+\contentsline {paragraph}{Die QuadTree-Klasse}{30}{section*.19}%
+\contentsline {paragraph}{Simulationslogik und Animation}{34}{section*.20}%
+\contentsline {paragraph}{Steuerung der Simulation}{35}{section*.21}%
+\contentsline {section}{\numberline {4}Resultat}{37}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Vergleich der Simulationsergebnisse}{37}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Diskussion}{37}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Vorteile der verwendeten Algorithmen}{37}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Herausforderungen und Limitierungen}{37}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Vergleich mit bestehenden Methoden}{37}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Schlussfolgerung}{37}{section.6}%
+\contentsline {section}{\numberline {7}Literaturverzeichnis}{37}{section.7}%
+\contentsline {section}{\numberline {8}Abbildungsverzeichnis}{37}{section.8}%

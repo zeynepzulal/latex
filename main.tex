@@ -401,7 +401,7 @@ Bei der Lagrange-Bahn beginnen die drei Körper an den Eckpunkten eines gleichse
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.4\textwidth]{EulerUndLagrange.png}
+	\includegraphics[width=0.8\textwidth]{EulerUndLagrange.png}
 	\caption[Eintrag in Abbildungsverzeichnis von Grumpy Cat]{Klassische Drei-Körper-Orbits: (a) Euler-Orbit, (b) Lagrange-Orbit.}
 	\label{EulerUndLagrange .}
 \end{figure}
@@ -432,10 +432,16 @@ Einige dieser anderen Orbits sind in Abbildung \ref{Abb:andereOrbits} gezeigt, m
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{AndereOrbits.png}
+    \includegraphics[width=0.8\textwidth]{AndereOrbits.png}
     \caption{Andere Orbits.}
     \label{Abb:andereOrbits}
 \end{figure}
+
+\paragraph{Das Eingeschränkte Drei-Körper-Problem:}
+Das eingeschränkte Drei-Körper-Problem ist ein Spezialfall der klassischen Mechanik, bei dem die Bewegung eines dritten Körpers mit vernachlässigbarer Masse – wie eines Satelliten – unter dem gravitativen Einfluss zweier massereicher Primärkörper untersucht wird. Diese bewegen sich auf stabilen, kreisförmigen Bahnen um ihren gemeinsamen Schwerpunkt.
+Das Modell setzt voraus, dass die Masse des dritten Körpers die Bewegung der Primärkörper nicht beeinflusst und dass alle drei Körper in derselben Ebene liegen. Es dient der Vereinfachung komplexer dynamischer Systeme und zur Analyse von Gleichgewichtspunkten.
+Ein zentraler Anwendungsbereich ist die Berechnung von Satellitenbahnen im Erde-Mond- oder Sonne-Erde-System, insbesondere die Untersuchung der Lagrange-Punkte, an denen sich die Gravitationskräfte und die Zentrifugalkraft ausgleichen. Hier kann der dritte Körper eine stabile Position einnehmen.
+
 
 \subsubsection{Integration Methoden}
 Zur Lösung des Systems von gewöhnlichen Differentialgleichungen (DGL), das die Bewegung der Körper beschreibt, ist der Einsatz eines numerischen Solvers erforderlich, um eine approximative Lösung zu erhalten. Es existiert eine Vielzahl von Solvern, die je nach ihrer Genauigkeit (Ordnung) sowie den spezifischen Eigenschaften, die sie aufweisen, ausgewählt werden können.
@@ -489,6 +495,15 @@ Der Algorithmus basiert auf der Annahme, dass Gruppen von weit entfernten Teilch
 
 \paragraph{1. Baumerstellung}
 Der gesamte Raum wird in vier (2D) bzw. acht (3D) Quadranten unterteilt. Jedes Teilchen wird entsprechend seiner Position in einen dieser Quadranten einsortiert. Ist ein Quadrant bereits belegt, wird er weiter unterteilt, bis jedes Teilchen in einem eigenen Unterquadranten liegt. Dieses rekursive Unterteilen führt zur Bildung des Quadtrees bzw. Octrees.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Baumstruktur.png}
+	\caption[Eintrag in Abbildungsverzeichnis von Grumpy Cat]{Baumstruktur}
+	\label{Baumstruktur .}
+\end{figure}
+
+
 
 \paragraph{2. Masseverteilung}
 Nach der Baumerstellung wird für jeden Knoten des Baumes die Gesamtmasse und der Massenschwerpunkt der in ihm enthaltenen Teilchen berechnet. Diese Informationen sind entscheidend für die spätere Kraftberechnung.
@@ -944,7 +959,6 @@ Die Simulation wird über zwei Hauptbuttons gesteuert: einer zum Hinzufügen neu
     )
 \end{javascript}
 
-\subsection{Vorgehensweise und Implementierung}
 
 \section{Resultat}
 \subsection{Vergleich der Simulationsergebnisse}
