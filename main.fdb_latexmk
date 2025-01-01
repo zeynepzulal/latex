@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1735431770.58944 "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" "main.pdf" "main" 1735431774.9622 0
+["pdflatex"] 1735699147.15458 "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" "main.pdf" "main" 1735699149.10476 0
   "C:/Users/zeyne/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1732716197 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/zeyne/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecss1095.pk" 1719918147 21816 0f977c8c851e997abe8238d227892eba ""
   "C:/Users/zeyne/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx1095.pk" 1719918149 24028 800e0e7cce2aec2e9683390542c6c42c ""
@@ -18,7 +18,6 @@
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmr8t.tfm" 1136768654 6672 e3ab9e37e925f3045c9005e6d1473d56 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmri7t.tfm" 1136768654 2288 f478fc8fed18759effb59f3dad7f3084 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmri8r.tfm" 1136768654 4640 532ca3305aad10cc01d769f3f91f1029 ""
-  "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmri8t.tfm" 1136768654 6944 94c55ad86e6ea2826f78ba2240d50df9 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/zptmcm7m.tfm" 1136768654 2232 db256afffc8202da192b4641df14d602 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/zptmcm7t.tfm" 1136768654 2172 1d00c2a0d10f23031be62329457a870c ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/zptmcm7v.tfm" 1136768654 1032 20febbd0f0c9a48eb78616f897008286 ""
@@ -50,7 +49,6 @@
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmb7t.vf" 1136768654 1372 788387fea833ef5963f4c5bffe33eb89 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmb8t.vf" 1136768654 2340 df9c920cc5688ebbf16a93f45ce7bdd3 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmr8t.vf" 1136768654 2348 91706c542228501c410c266421fbe30c ""
-  "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmri8t.vf" 1136768654 2328 6cd7df782b09b29cfc4d93e55b6b9a59 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/zptmcm7m.vf" 1136768654 1132 27520247d3fe18d4266a226b461885c2 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/zptmcm7t.vf" 1136768654 1108 d271d6f9de4122c3f8d3b65666167fac ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/zptmcm7v.vf" 1136768654 1012 046369ac6a83af997c3aa05a43256ad5 ""
@@ -271,7 +269,7 @@
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" 1735431771 66769 4ab8feb88577be81820a2fb43fbfb888 ""
+  "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" 1735699146 66095 ff32e2f35f01d4031e404ae589d07355 ""
   "code_formatting.tex" 1697630962 4170 b0edd4549a47acdaa6596f691b120cba ""
   "commands.tex" 1604852422 1472 836abbf0ad87eb08c8e97ac7a2799146 ""
   "figures/AndereOrbits.png" 1735259060 107085 5f42062b5c832a867bb37aab18ea053e ""
@@ -279,10 +277,10 @@
   "figures/EulerUndLagrange.png" 1735257532 16168 5f0437b5caa52a677bec604f738544c1 ""
   "figures/Zwei-Körper.png" 1735248280 24850 258b56a68183510ea5c410a0cfa9036d ""
   "figures/figure8Orbit.png" 1735258079 24665 6a34b61befbe750111d9b8e86a8692bf ""
-  "main.aux" 1735431774 9248 77924588b9d029a7a6da131aeebf80ec "pdflatex"
-  "main.out" 1735431774 8028 9826d69da13af66e5aeea0ead22a90cd "pdflatex"
-  "main.tex" 1735431771 66769 4ab8feb88577be81820a2fb43fbfb888 ""
-  "main.toc" 1735431774 5340 4cf9d83d6dfaeacc78b9fcefda99b240 "pdflatex"
+  "main.aux" 1735699148 9693 c29d6ba610370452d3a2a7dcd38954d7 "pdflatex"
+  "main.out" 1735699148 8025 365c5ea368bd917c45f7e85a8b7a4338 "pdflatex"
+  "main.tex" 1735699146 66095 ff32e2f35f01d4031e404ae589d07355 ""
+  "main.toc" 1735699148 5338 a7ca3f825e5ba565a64ba7e657d7a529 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

@@ -165,7 +165,9 @@ Zusammenfassend strebt diese Arbeit an, einen umfassenden Überblick über das N
 Das N-Körper-Problem beschäftigt sich mit der dynamischen Analyse von N Massepunkten, die durch ihre gegenseitige gravitative Anziehung beeinflusst werden. Während das Zwei-Körper-Problem durch Newtons Gesetz der universellen Gravitation und die Keplerschen Gesetze exakt gelöst werden kann, wird das N-Körper-Problem für N Körper wesentlich komplexer und zeigt in der Regel chaotisches Verhalten. Die historische Entwicklung dieses Problems begann im 17. Jahrhundert mit den grundlegenden Arbeiten von Johannes Kepler und Isaac Newton, die die Basis für die Himmelsmechanik schufen. Im 18. und 19. Jahrhundert erweiterten Joseph-Louis Lagrange und Pierre-Simon Laplace das Verständnis durch die Einführung der Lagrangeschen Gleichungen und durch die Analyse spezieller Lösungen wie der Lagrange-Punkte, die besondere Gleichgewichtslagen in einem gravitativen System beschreiben. Henri Poincaré entdeckte Ende des 19. Jahrhunderts die chaotische Natur des Systems, was den Beginn der modernen Chaosforschung einleitete. Im 20. und 21. Jahrhundert ermöglichten Fortschritte in der Computertechnologie und numerischen Methoden präzise Simulationen und Analysen komplexer N-Körper-Systeme, die wichtige Einblicke in die Dynamik von Galaxien und die Planung von Raumfahrtmissionen bieten.
 
 \subsection{Gravitationskraft}
-Die Gravitationskraft $\vec{F}_{12}$ zwischen zwei punktförmigen Massen $m_1$ und $m_2$ liegt auf der Verbindungslinie der beiden Massen. Der Betrag $F$ der Gravitationskraft ist proportional zu den Massen $m_1$ und $m_2$ sowie umgekehrt proportional zum Quadrat des Abstands $r$ (die relative Position ist die Position eines Körpers relativ zu einem anderen: \(\vec{r} = \vec{r}_2 - \vec{r}_1\)) der Massen. Er berechnet sich durch:
+Die Gravitationskraft $\vec{F}_{12}$ zwischen zwei punktförmigen Massen $m_1$ und $m_2$ liegt auf der Verbindungslinie der beiden Massen.
+Der Betrag $F$ der Gravitationskraft ist proportional zu den Massen $m_1$ und $m_2$ sowie umgekehrt proportional zum Quadrat des Abstands $r$ 
+(die relative Position ist die Position eines Körpers relativ zu einem anderen: \(\vec{r} = \vec{r}_2 - \vec{r}_1\)) der Massen ~\cite{LeifiPhysikGravitation}. Er berechnet sich durch:
 \begin{align*}
 	F = G \frac{m_1 m_2}{r^2}
 \end{align*}
@@ -173,6 +175,7 @@ mit der Gravitationskonstante $G = \SI{6.674e-11}{\frac{m^3}{kg\,s^2}}$.
 
 \subsection{Die Keplerschen Gesetze}
 Die Keplerschen Gesetze beschreiben die Bewegung von Planeten um die Sonne und sind grundlegende Prinzipien der Himmelsmechanik. Johannes Kepler formulierte sie im frühen 17. Jahrhundert auf Basis der Beobachtungen von Tycho Brahe. Diese Gesetze markierten einen Wendepunkt von der klassischen, kreisförmigen Vorstellung der Planetenbewegung zu einem elliptischen Modell. Im Folgenden werde ich die drei Keplerschen Gesetze erläutern.
+~\cite{LeifiPhysikKepler}
 \subsubsection{1. Keplersches Gesetz: Das Gesetz der Ellipsen}
 Das erste Keplersche Gesetz besagt:
 \begin{quote}
@@ -207,37 +210,32 @@ Mathematisch wird dies durch die Gleichung
 	\frac{T_1^2}{T_2^2} = \frac{a_1^3}{a_2^3}
 \end{align*}
 
-ausgedrückt, wobei \(T_1\) und \(T_2\) die Umlaufzeiten der beiden Planeten und \(a_1\) und \(a_2\) die großen Halbachsen ihrer Bahnen sind. Dies zeigt, dass Planeten, die weiter von der Sonne entfernt sind, eine längere Umlaufzeit haben als solche, die sich näher an der Sonne befinden.
+ausgedrückt, wobei \(T_1\) und \(T_2\) die Umlaufzeiten der beiden Planeten und \(a_1\) und \(a_2\) die großen Halbachsen ihrer Bahnen sind. Dies zeigt, dass Planeten, die weiter von der Sonne entfernt sind, eine längere Umlaufzeit haben als solche, die sich näher an der Sonne befinden ~\cite{Haase1998}.
+
 
 \subsection{Zwei-Körper-Problem}
-Das Zweikörperproblem besteht darin, die Bahnen von zwei gravitativ wechselwirkenden Körpern mit bekannten Massen und Anfangsgeschwindigkeiten zu bestimmen. 
-Die Körper bewegen sich im dreidimensionalen Raum und werden von keinen anderen Kräften außer der Gravitationskraft beeinflusst. Die erste Lösung des Zweikörperproblems wurde 1687 von Isaac Newton in seinem bahnbrechenden Werk Principia veröffentlicht. 
-Im 17. Jahrhundert zeigte Johannes Kepler, dass die Planetenbahnen um die Sonne elliptisch sind. Dies war für seine Zeitgenossen erstaunlich, da sie den Kreis als die göttliche Form ansahen, die die Himmelskörper regierte. 
-Kepler steckte viel Mühe in seine Berechnungen und nutzte dabei die Beobachtungsdaten von Tycho Brahe. Trotz seiner Entdeckungen konnte er jedoch nie erklären, warum sich die Planeten so bewegen, wie sie es tun. Einige glaubten, dass sie von Engeln vorangetrieben wurden. 
-Eine andere populäre Idee, die von René Descartes vorgeschlagen wurde, erklärte die Bewegung durch Wirbel von Partikeln, die den gesamten Raum füllten (Densmore [2003]). 
-Newton revolutionierte die Welt, indem er ihr das universelle Gravitationsgesetz gab ein Gesetz, das die Bewegung im konstanten Gravitationsfeld sowohl auf der Erde als auch die Bewegungen der Planeten erklären konnte. 
-Manche verspotteten diese Theorie und bezeichneten eine unsichtbare Kraft als übernatürlich und okkult. Einige hundert Jahre später, als die Newtonsche Mechanik zu einem der Hauptpfeiler der modernen Physik wurde, finden wir Theorien über Engel oder Wirbel im Weltraum amüsant. Angesichts unseres heutigen Wissens ist es schwer, sich die Herausforderungen vorzustellen, denen sich Newton als Wissenschaftler stellen musste, und aus welcher Denkweise heraus er wissenschaftliche 
-Normen durchbrechen konnte. Ein weiteres Hindernis, dem Wissenschaftler im 17. Jahrhundert begegneten, war der Mangel an Daten, um neue Theorien zu überprüfen. Als Newton während eines langen Aufenthalts bei seiner Mutter in Woolsthorpe die Idee der Gravitation entwickelte, wollte er sie testen, indem er die Umlaufbahn des Mondes berechnete.
-
+Das 2-Körper-Problem ist ein zentrales Modell der Himmelsmechanik, das die Bewegung zweier Massen untersucht, die sich unter dem Einfluss ihrer gegenseitigen Gravitation befinden. Es beschreibt ein isoliertes System, in dem keine äusseren Kräfte wirken, und ermöglicht die analytische Bestimmung der Bahnen, auf denen sich die Körper bewegen  ~\cite{Spektrum}. Diese Bahnen, die je nach Anfangsbedingungen elliptisch, parabolisch oder hyperbolisch sein können, liefern wichtige Erkenntnisse über die Dynamik von Planeten, Monden und Satelliten. Als analytisch lösbares Problem bildet es die Grundlage für die Erweiterung auf komplexere Mehrkörpersysteme und spielt eine wesentliche Rolle in der Astronomie und Physik.
 
 \subsubsection{Die Mathematische Beschreibung}
 
-Da nur die zwei Körper (Massen \( m_1, m_2 \), Orte \( \vec{x_1}, \vec{x_2} \)) aufeinander einwirken, heißen die Bewegungsgleichungen:
+Da sich die beiden Körper (Massen \( m_1, m_2 \), Positionen \( \vec{x_1}, \vec{x_2} \)) ausschliesslich gegenseitig beeinflussen, lauten die Bewegungsgleichungen:
 
 \begin{align*}
 	m_1 \ddot{\vec{x}}_1 &= \vec{F}_{1,2} \\
 	m_2 \ddot{\vec{x}}_2 &= \vec{F}_{2,1}
 \end{align*}
 
-Dabei können die Kräfte \( \vec{F}_{1,2}, \vec{F}_{2,1} \) nach dem Relativitätsprinzip nur von der relativen Position der Körper zueinander abhängen. Der Vektor \( \vec{r} := \vec{x_1} - \vec{x_2} \) beschreibt die Lage des zweiten Körpers relativ zum ersten, der Vektor \( \vec{R} \) ist der Ortsvektor des Schwerpunkts oder Baryzentrums des Systems. Zudem sind die beiden Kräfte nach dem 3. Newtonschen Axiom entgegengesetzt gleich:
+Die Kräfte \( \vec{F}_{1,2} und \vec{F}_{2,1} \) hängen gemäß dem Relativitätsprinzip nur von der relativen Position der Körper zueinander ab. Der Vektor \( \vec{r} := \vec{x_1} - \vec{x_2} \) 
+beschreibt die Position des zweiten Körpers relativ zum ersten, während der Vektor \( \vec{R} \) den Ortsvektor des Schwerpunkts oder Baryzentrums des Systems darstellt. 
+Darüber hinaus sind die beiden Kräfte nach dem 3. Newtonschen Axiom einander entgegengesetzt und gleich gross:
 
 \begin{align*}
 \vec{F}_{1,2} = -\vec{F}_{2,1} = \vec{F}(\vec{r})
 \end{align*}
 
 \subsubsection{Übergang zum äquivalenten Einkörperproblem}
-Mathematische Modellierung der Lage zweier Körper im Raum und sind vom Koordinatenursprung 
-ausgehende Positionsvektoren. Man rechnet nun in Relativ- und Schwerpunktkoordinaten (siehe Abbildung 1).
+Die mathematische Modellierung der Position zweier Körper im Raum basiert auf Positionsvektoren, die vom Koordinatenursprung ausgehen. Dabei erfolgt die Berechnung in Relativ- und Schwerpunktkoordinaten (siehe Abbildung 1).
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{Zwei-Körper.png}
@@ -250,15 +248,14 @@ ausgehende Positionsvektoren. Man rechnet nun in Relativ- und Schwerpunktkoordin
 	\vec{R} &= \frac{m_1 \vec{x_1} + m_2 \vec{x_2}}{M} \quad (M = m_1 + m_2 \text{ ist die Gesamtmasse.})
 \end{align*}
 
-Durch Addition geeigneter Vielfacher der beiden obigen Bewegungsgleichungen erhält man nun zwei entkoppelte Bewegungsgleichungen:
+Durch die Addition geeigneter Vielfacher der beiden oben genannten Bewegungsgleichungen lassen sich zwei voneinander unabhängige Bewegungsgleichungen ableiten:
 
 \begin{align*}
 	\ddot{\vec{R}} &= 0 \\
 	\vec{r} &= \left( \frac{1}{m_1} + \frac{1}{m_2} \right) \vec{F}_{1,2}
 \end{align*}
 
-
-Die erste Gleichung besagt, dass der Massenschwerpunkt eine geradlinig gleichförmige Bewegung beschreibt, wie es auch aus dem allgemeinen Schwerpunktsatz zu folgen ist. Die zweite Gleichung wird umformuliert zu:
+Die erste Gleichung zeigt, dass der Massenschwerpunkt eine geradlinige und gleichförmige Bewegung ausführt, was auch dem allgemeinen Schwerpunktsatz entspricht. Die zweite Gleichung kann entsprechend umgeformt werden zu:
 
 \begin{align*}
 \mu \ddot{\vec{r}} = \vec{F}(\vec{r}),
@@ -269,54 +266,56 @@ wobei,
 \begin{align*}
 \mu = \left( \frac{1}{m_1} + \frac{1}{m_2} \right)^{-1} = \frac{m_1 m_2}{M}
 \end{align*}
-als die \textit{reduzierte Masse} des Zweikörperproblems bezeichnet wird. $\mu$ ist stets kleiner als die kleinere der beiden Massen, und nähert sich ihr an, wenn die größere Masse gegen unendlich strebt. Diese Bewegungsgleichung besagt, dass die Relativkoordinate $\vec{r}(t)$ sich so verhält, als ob ein Körper der Masse $\mu$ sich in einem ortsfesten Kraftfeld $\vec{F}(\vec{r})$ bewegt. Dies ist das äquivalente Einkörperproblem. Für alle Fälle, in denen die Stärke der Kraft von einer Potenz des Abstandes $r$ abhängt, ist es zuerst von Newton gelöst worden.
+Die reduzierte Masse des Zweikörperproblems wird als $\mu$ bezeichnet. Sie ist stets kleiner als die kleinere der beiden Massen und nähert sich dieser an, wenn die grössere Masse gegen unendlich geht. Die zugehörige Bewegungsgleichung beschreibt, dass die Relativkoordinate $\vec{r}(t)$ sich so verhält, als ob ein Körper der Masse $\mu$ sich in einem ortsfesten Kraftfeld $\vec{F}(\vec{r})$ bewegt wird. Dies entspricht dem äquivalenten Einkörperproblem. Für alle Fälle, in denen die Stärke der Kraft von einer Potenz des Abstandes $r$ abhängt, wurde es zuerst von Newton gelöst ~\cite{Gleisner2013}.
 
 \subsubsection{Gemeinsame Bewegung}
 Nachdem das Einkörperproblem durch die Bahnkurve $\vec{r}(t)$
-gelöst ist und die Bewegung des Schwerpunktes $\vec{R}(t)$
-ebenfalls bekannt ist, kann man wieder in die ursprünglichen Koordinaten umrechnen:
+gelöst wurde und die Bewegung des Schwerpunktes $\vec{R}(t)$
+ebenfalls bekannt ist, lässt sich das System wieder in die ursprünglichen Koordinaten zurücktransformieren:
 
 \begin{align*}
 	\vec{x_1}(t) &= \vec{R}(t) + \frac{m_2}{M} \vec{r}(t) \\
 	\vec{x_2}(t) &= \vec{R}(t) - \frac{m_1}{M} \vec{r}(t)
 \end{align*}
-Im Schwerpunktsystem betrachtet (mathematisch, indem man eine Koordinatentransformation, genauer eine Verschiebung, um \( \mathbf{R} \) anwendet), bewegen sich also beide Körper um den Schwerpunkt, der stets auf ihrer Verbindungsline liegt, und beschreiben zwei zur Kurve \( \mathbf{r}(t) \) ähnliche Kurven, deren Größenverhältnis durch das resiproke Massenverhältnis bestimmt ist. Durch zweimaliges Differenzieren von \( \mathbf{x_1}(t) \) und Einsetzen von
+
+Wird das System im Schwerpunkt betrachtet (mathematisch, durch eine Koordinatentransformation, insbesondere eine Verschiebung um \( \vec{R} \) anwendet), so bewegen sich beide Körper um den Schwerpunkt, der stets auf ihrer Verbindungsline liegt und beschreibt zwei zur Kurve \( \mathbf{r}(t) \) ähnliche Bahnen, deren Größenverhältnis durch das reziproke Massenverhältnis bestimmt ist. Durch zweimaliges Differenzieren von \( \vec{x_1}(t) \) und Einsetzen von
 
 \begin{align*}
 	\vec{r} = \frac{M}{m_2} \vec{x_1}
 \end{align*}
 
-sieht man, dass für den ersten Körper die Bewegungsgleichung:
+Man erkennt, dass für den ersten Körper die Bewegungsgleichung laute
 
 \begin{align*}
 	m_1 \ddot{\vec{x}}_1 = \vec{F}_{\text{eff}}(\vec{x_1})
 \end{align*}
 
-erfüllt ist, als ob der Körper sich in einem effektiven Kraftfeld:
+erfüllt ist, sodass der Körper sich in einem effektiven Kraftfeld:
 
 \begin{align*}
 	\vec{F}_{\text{eff}}(\vec{x_1}) = \vec{F} \left( \frac{M}{m_2} \vec{x_1} \right)
 \end{align*}
 
-bewegen würde, dessen Zentrum ortsfest am Schwerpunkt bleibt und dessen Stärke mit dem wirklichen Kraftfeld in einer durch das Massenverhältnis bestimmten größeren Entfernung übereinstimmt - genauso für den anderen Körper.
-Wenn sich der Schwerpunkt selbst geradlinig und gleichförmig bewegt, und weitere geeignete Startbedingungen erfüllt sind, dann beschreiben die Bahnen der beiden Körper eine Art „Schlangenkurve“ um die Bahn des Schwerpunktes. In der Astronomie erlaubt diese sogenannte Taumelbewegung eine indirekte Beobachtung unsichtbarer Begleiter von Sternen wie z. B. Exoplaneten.
+bewegen würde. Das Zentrum dieses Kraftfeldes bleibt ortsfest am Schwerpunkt, und seine Stärke entspricht dem realen Kraftfeld, jedoch in einer durch das Massenverhältnis bestimmten größeren Entfernung - dasselbe gilt auch für den anderen Körper.
+Wenn sich der Schwerpunkt geradlinig und gleichförmig bewegt und weitere geeignete Anfangsbedingungen erfüllt sind, beschreiben die Bahnen der beiden Körper eine Art „Schlangenkurve“ um die Bahn des Schwerpunktes.
+In der Astronomie ermöglicht diese sogenannte Taumelbewegung die indirekte Beobachtung unsichtbarer Begleiter von Sternen, wie beispielsweise Exoplaneten.
 
 \subsubsection{Drehimpulserhaltung}
-Die Kraft \( \vec{F}_{1,2} = -\vec{F}_{2,1} = \vec{F}(\vec{r}) \) liegt parallel zur Verbindungsline \( \vec{r} \) (entsprechend der Problemdefinition), deshalb ist sie eine Zentralkraft und übt kein Drehmoment auf den umlaufenden Körper aus, denn dieses ist durch das Vektorprodukt von Radiusvektor und Kraft gegeben:
+
+Die Kraft \( \vec{F}_{1,2} = -\vec{F}_{2,1} = \vec{F}(\vec{r}) \) verläuft parallel zur Verbindungsline \( \vec{r} \) (entsprechend der Problemdefinition). Daher handelt es sich um eine Zentralkraft, die kein Drehmoment auf den umlaufenden Körper ausübt, da dieses durch das Vektorprodukt von Radiusvektor und Kraft bestimmt wird:
 
 \begin{align*}
 	\vec{r} \times \vec{F} = 0
 \end{align*}
 
-Daher ist der Drehimpuls \( \vec{L} = \vec{r} \times \vec{p} \) nach Betrag und Richtung zeitlich konstant. Er ist ein Integral der Bewegung. Somit erfolgt die Bewegung in einer festen Ebene, denn die Vektoren \( \vec{r} \) und \( \vec{p} = \mu \vec{r} \) liegen stets in der Ebene senkrecht zu \( \vec{L} \).
-Aus der Konstanz des Drehimpulses folgt auch das 2. Keplersche Gesetz oder der Flächensatz, der also für jedes Zentralkraftfeld gilt.
-In ebenen Polarkoordinaten zerfällt die vektorielle Bewegungsgleichung des Einkörperproblems in zwei gekoppelte gewöhnliche Differentialgleichungen:
+Daher bleibt der Drehimpuls \( \vec{L} = \vec{r} \times \vec{p} \) hinsichtlich Betrag und Richtung zeitlich konstant. Er stellt ein Bewegungsintegral dar. Dies bedeutet, dass die Bewegung in einer festen Ebene erfolgt, da die Vektoren \( \vec{r} \) und \( \vec{p} = \mu \vec{r} \) stets in der zur \( \vec{L} \) senkrechten Ebene liegen.
+Aus der Konstanz des Drehimpulses folgt zudem das 2. Keplersche Gesetz, auch bekannt als Flächensatz, das für jedes Zentralkraftfeld gilt. In ebenen Polarkoordinaten zerfällt die vektorielle Bewegungsgleichung des Einkörperproblems schließlich in zwei gekoppelte gewöhnliche Differentialgleichungen:
 
 \begin{align*}
 	\dot{r} - r \dot{\varphi}^2 = - \frac{1}{\mu} F(r) \\
 	\frac{d}{dt} \left( \mu r^2 \dot{\varphi} \right) = 0
 \end{align*}
-Die zweite dieser Gleichungen zeigt noch einmal die Erhaltung des Drehimpulses \( L \), denn
+Die zweite dieser Gleichungen bestätigt erneut die Erhaltung des Drehimpulses \( L \), denn:
 
 \begin{align*}
 	L = \mu r^2 \dot{\varphi}
@@ -324,33 +323,37 @@ Die zweite dieser Gleichungen zeigt noch einmal die Erhaltung des Drehimpulses \
 
 
 \subsubsection{Energieerhaltung}
-Für das Keplerproblem im engeren Sinn ist die Kraft durch die Gravitation gegeben:
+Für das Keplerproblem im engeren Sinne wird die Kraft durch die Gravitation beschrieben:
 
 \begin{align*}
 	F(r) = - \frac{G m_1 m_2}{r^2}
 \end{align*}
-Verwendet man die Definition des Drehimpulses in Polarkoordinaten, um aus der anderen Differentialgleichung die Winkelgeschwindigkeit \( \dot{\varphi} \) zu eliminieren, erhält man ein Gesetz für den Abstand \( r \), die Radialgleichung
+Wendet man die Definition des Drehimpulses in Polarkoordinaten an, um die Winkelgeschwindigkeit \( \dot{\varphi} \) aus der anderen Differentialgleichung zu eliminieren, so erhält man eine Gleichung für den Abstand \( r \), die Radialgleichung:
 
 \begin{align*}
 	\mu \ddot{r} = \frac{L^2}{\mu r^3} - \frac{G M}{r^2}
 \end{align*}
-Dies kann nach Multiplikation mit \( \dot{r} \) und \( \mu \) in der Form
+
+Durch Multiplikation mit \( \dot{r} \) und \( \mu \) lässt sich diese Gleichung auch in der Form schreiben:
+
 \begin{align*}
 	\frac{d}{dt} \left( \frac{\mu}{2} \dot{r}^2 + \frac{L^2}{2 \mu r^2} - \frac{GM \mu}{r} \right) = 0
 \end{align*}
-geschrieben werden. Die drei Summanden in dieser Gleichung entsprechen der Reihenfolge nach dem Radialanteil der kinetischen Energie, dem Winkelanteil der kinetischen Energie, der als Zentrifugalpotential wie eine potentielle Energie die Radialbewegung beeinflusst, sowie der potentiellen Energie des Körpers im äußeren Zentralpotential. Gemeinsam ergeben sie seine Gesamtenergie:
+
+Die Terme in dieser Gleichung entsprechen dem radialen Anteil der kinetischen Energie, dem winkelabhängigen Anteil der kinetischen Energie, der als Zentrifugalpotential die Radialbewegung beeinflusst, sowie der potenziellen Energie des Körpers im äußeren Zentralpotential. Zusammen ergeben sie die Gesamtenergie:
+
 \begin{align*}
 	E = \frac{\mu}{2} \dot{r}^2 + \frac{L^2}{2 \mu r^2} - \frac{GM \mu}{r}
-\end{align*}
-die laut obiger Gleichung zeitlich konstant und somit ebenfalls ein Integral der Bewegung ist. Die Gesamtenergie muss natürlich schon allein deshalb erhalten sein, weil es sich bei einem Gravitationsfeld um ein konservatives Feld handelt. Genau auch den Artikel Spezifische Bahnenenergie, der sich näher damit befasst.
+\end{align*} ~\cite{Physik-Schule}
+Diese Gesamtenergie bleibt laut der obigen Gleichung zeitlich konstant und ist somit ebenfalls ein Bewegungsintegral. Die Erhaltung der Gesamtenergie folgt direkt daraus, dass es sich bei einem Gravitationsfeld um ein konservatives Feld handelt. Weiterführende Informationen zu diesem Thema finden sich im Artikel zur spezifischen Bahnenenergie, der diese Zusammenhänge detaillierter behandelt.
 
 
 \subsubsection{Bahnkurve-Kegelschnittform}
 
-Gibt man die Werte für die beiden Integrale der Bewegung \( E \) und \( L \) vor, so lässt sich die Bewegungsgleichung lösen, indem man zunächst die radiale Bewegung \( r(t) \) aus der Form des Energieintegrals (letzte Gleichung im obigen Abschnitt) und sodann die Winkelbewegung \( \varphi(t) \) aus dem Drehimpulsintegral \( L = \mu r^2 \dot{\varphi} \) berechnet. 
-Allerdings führt dieser Weg auf Gleichungen, die man als unanschaulich erkennen kann, da man ihnen die Form der Bahn nicht direkt ansehen kann.
-Daher ist es üblich, entweder die Radialgleichung oder das Energieintegral zunächst in eine Differentialgleichung nach dem Winkel \( \varphi \) umzuwandeln. Man nimmt also \( r \) als Funktion von \( \varphi \) an und betrachtet \( r' := \frac{dr}{d\varphi} \), die Ableitung von \( r \) nach dem Winkel \( \varphi \). 
-Hier wird der zweite Weg, das Energieintegral verwendet, vorgestellt. 
+Gibt man die Werte für die beiden Integrale der Bewegung \( E \) und \( L \) vor, so lässt sich die Bewegungsgleichung lösen, indem man zunächst die radiale Bewegung \( r(t) \) aus der Form des Energieintegrals (letzte Gleichung im obigen Abschnitt) und anschliessend die Winkelbewegung \( \varphi(t) \) aus dem Drehimpulsintegral \( L = \mu r^2 \dot{\varphi} \) berechnet. 
+Allerdings führt dieser Ansatz auf Gleichungen, die als unanschaulich gelten, da man ihnen die Form der Bahn nicht direkt entnehmen kann. 
+Daher ist es üblich, entweder die Radialgleichung oder das Energieintegral zunächst in eine Differentialgleichung nach dem Winkel \( \varphi \) umzuwandeln. Dabei wird \( r \) als Funktion von \( \varphi \) betrachtet und die Ableitung \( r' := \frac{dr}{d\varphi} \) nach dem Winkel \( \varphi \) eingeführt. 
+Hier wird der zweite Weg vorgestellt, bei dem das Energieintegral verwendet wird. 
 Mit der Energiegleichung aus dem vorigen Abschnitt und indem man \( \dot{r} \) durch \( r' \dot{\varphi} \) und \( \dot{\varphi} \) mit Hilfe der Drehimpulsgleichung durch \( \frac{L}{\mu r^2} \) ersetzt, erhält man so:
 
 \begin{align*}
@@ -366,13 +369,15 @@ wobei man durch Einsetzen nachrechnen kann, dass für die beiden Parameter
 \begin{align*}
 	p = \frac{L^2}{GM\mu^2} \quad \text{und} \quad \epsilon^2 = \frac{2E L^2}{GM^2 \mu^2} + 1
 \end{align*}
+
 gelten muss. Dies ist die Gleichung eines Kegelschnitts mit numerischer Exzentrizität \( \epsilon \) (wobei \( \epsilon \geq 0 \) gewählt werden kann, denn der Wechsel \( \epsilon \to -\epsilon \) ist äquivalent zu \( \varphi \to \varphi + \pi \)).
 Ist die Gesamtenergie negativ, dann gilt \( \epsilon < 1 \) und die Bewegung ist gebunden, d. h., es gibt einen maximalen Abstand (Aphelion) \( \frac{p}{1 - \epsilon} \) vom Zentrum. Es handelt sich bei der Bahn in diesem Fall um eine Ellipse, in deren einem Brennpunkt das Zentrum liegt, deren große Halbachse
+
 \begin{align*}
 	a = \frac{p}{1 - \epsilon^2}
 \end{align*}
 ist. Dies ist das erste keplersche Gesetz (der Ellipsensatz). Dass die Bahnkurve des gebundenen Zustands immer geschlossen ist, ist bei radialsymmetrischen Kraftfeldern ein Spezialfall, der sonst nur noch beim harmonischen Oszillator vorkommt, dessen Kraftfeld proportional zum Abstand vom Zentrum wächst.
-Ist die Gesamtenergie positiv, so ist \( \epsilon > 1 \) und die Bahn ist eine Hyperbel mit kleinstem Abstand \( \frac{p}{1 + \epsilon} \) vom Zentrum. Der Grenzfall mit Energie \( E = 0 \) und \( \epsilon = 1 \) ist eine Parabel, deren kleinster Abstand vom Zentrum \( \frac{p}{2} \) ist.
+Ist die Gesamtenergie positiv, so ist \( \epsilon > 1 \) und die Bahn ist eine Hyperbel mit kleinstem Abstand \( \frac{p}{1 + \epsilon} \) vom Zentrum. Der Grenzfall mit Energie \( E = 0 \) und \( \epsilon = 1 \) ist eine Parabel, deren kleinster Abstand vom Zentrum \( \frac{p}{2} \) ist ~\cite{Krug2011}.
 
 In einem idealisierten Zwei-Körper-Problem, bei dem nur die gegenseitige Gravitationskraft wirkt und keine anderen Störungen oder relativistischen Effekte berücksichtigt werden, bewegen sich die Körper immer entlang einer Kegelschnittbahn (Ellipse, Parabel oder Hyperbel).
 
@@ -391,13 +396,13 @@ Die wichtigsten Gleichungen, die die Bewegung der drei Körper beschreiben, sind
 \end{align*}
 
 
-Diese Gleichungen beschreiben, wie sich die Beschleunigungen der drei Körper aufgrund ihrer gegenseitigen Gravitationskräfte entwickeln.
+Diese Gleichungen beschreiben, wie sich die Beschleunigungen der drei Körper aufgrund ihrer gegenseitigen Gravitationskräfte entwickeln ~\cite{threebodylibretexts}.
 
 \subsubsection{Bekannte Lösungen des Dreikörperproblems}
 \paragraph{1- Klassische Bahnen: }
-das System kann, das die Bewegung von drei gravitativ wechselwirkenden Körpern beschreibt, im Allgemeinen nicht analytisch gelöst werden. 
-Es gibt jedoch zwei bekannte analytische Lösungen, die auf Euler und Lagrange zurückgehen. Bei der Euler-Bahn beginnen die drei Körper in einer kollinearen Anordnung, und die beiden äußeren Körper bewegen sich auf einem Kreis um den zentralen Körper, der sich im Zentrum dieses Kreises befindet (Siehe Abb. 2a). 
-Bei der Lagrange-Bahn beginnen die drei Körper an den Eckpunkten eines gleichseitigen Dreiecks und bewegen sich auf einem Kreis, wobei sie die dreieckige Struktur beibehalten (siehe Abb. 2b).
+Das System, das die Bewegung von drei gravitativ wechselwirkenden Körpern beschreibt, kann im Allgemeinen nicht analytisch gelöst werden. Es existieren jedoch zwei bekannte analytische Lösungen, die auf Euler und Lagrange zurückgehen.
+Bei der Euler-Bahn beginnen die drei Körper in einer kollinearen Anordnung. Die beiden äußeren Körper bewegen sich auf einem Kreis um den zentralen Körper, der sich im Mittelpunkt dieses Kreises befindet (siehe Abb. 2a).
+Bei der Lagrange-Bahn starten die drei Körper an den Eckpunkten eines gleichseitigen Dreiecks. Während der Bewegung behalten sie diese dreieckige Struktur bei und bewegen sich gemeinsam auf einem Kreis (siehe Abb. 2b).
 
 \begin{figure}[H]
 	\centering
@@ -419,7 +424,7 @@ Der sogenannte Figure-8 Orbit ist die einzige bekannte stabile Lösung des Drei-
 Um diesen Orbit zu konstruieren, können wir die Integrale der Bewegung verwenden, 
 zusammen mit der Bedingung, dass die drei Körper in einer kollinearen Konfiguration (Euler-Konfiguration) starten, um die Anzahl der zu spezifizierenden Parameter zu reduzieren. 
 Wenn die Anfangspositionen in einer Euler-Konfiguration gesetzt werden, erhalten wir fünf Einschränkungen für die Positionen der Körper (sie wurden auf der x-Achse gewählt), bis hin zum Abstand der beiden äußeren Körper zum zentralen Körper, der ohne Verlust der Allgemeinheit auf 1 gesetzt werden kann (dies würde nur zu einem allgemeinen Skalierungsfaktor in der potentiellen Energie führen, und somit die Größe der Anfangsgeschwindigkeiten beeinflussen). 
-Durch Arbeiten im Bezugssystem des Schwerpunkts können wir $P = 0$ setzen, was zwei Einschränkungen für die Parameter ergibt. Darüber hinaus handelt es sich um einen Orbit mit null Drehimpuls, d.h., $L = 0$, was eine weitere Einschränkung liefert. Die Erhaltung der Energie liefert die letzte Einschränkung, wodurch uns nur noch zwei ``freie" Parameter verbleiben, $v_x$ und $v_y$, die beiden Komponenten der Geschwindigkeit eines der drei Körper, wobei dieser auf der Position (1, 0) gewählt wurde. Um den Figure-8 Orbit zu erzeugen, lauten die Werte dieser Parameter:
+Durch Arbeiten im Bezugssystem des Schwerpunkts können wir $P = 0$ setzen, was zwei Einschränkungen für die Parameter ergibt. Darüber hinaus handelt es sich um einen Orbit mit null Drehimpuls, d.h., $L = 0$, was eine weitere Einschränkung liefert. Die Erhaltung der Energie liefert die letzte Einschränkung, wodurch uns nur noch zwei ``freie" Parameter verbleiben, $v_x$ und $v_y$, die beiden Komponenten der Geschwindigkeit eines der drei Körper, wobei dieser auf der Position (1, 0) gewählt wurde. Um den Figure-8 Orbit zu erzeugen, lauten die Werte dieser Parameter ~\cite{Ramos2019}:
 \begin{equation}
 	v_x = 0.3471128135672417, \quad v_y = 0.532726851767674
 	\label{ref1}
@@ -438,9 +443,9 @@ Einige dieser anderen Orbits sind in Abbildung \ref{Abb:andereOrbits} gezeigt, m
 \end{figure}
 
 \paragraph{Das Eingeschränkte Drei-Körper-Problem:}
-Das eingeschränkte Drei-Körper-Problem ist ein Spezialfall der klassischen Mechanik, bei dem die Bewegung eines dritten Körpers mit vernachlässigbarer Masse – wie eines Satelliten – unter dem gravitativen Einfluss zweier massereicher Primärkörper untersucht wird. Diese bewegen sich auf stabilen, kreisförmigen Bahnen um ihren gemeinsamen Schwerpunkt.
+Das eingeschränkte Drei-Körper-Problem ist ein Spezialfall der klassischen Mechanik, bei dem die Bewegung eines dritten Körpers mit vernachlässigbarer Masse - wie eines Satelliten - unter dem gravitativen Einfluss zweier massereicher Primärkörper untersucht wird. Diese bewegen sich auf stabilen, kreisförmigen Bahnen um ihren gemeinsamen Schwerpunkt.
 Das Modell setzt voraus, dass die Masse des dritten Körpers die Bewegung der Primärkörper nicht beeinflusst und dass alle drei Körper in derselben Ebene liegen. Es dient der Vereinfachung komplexer dynamischer Systeme und zur Analyse von Gleichgewichtspunkten.
-Ein zentraler Anwendungsbereich ist die Berechnung von Satellitenbahnen im Erde-Mond- oder Sonne-Erde-System, insbesondere die Untersuchung der Lagrange-Punkte, an denen sich die Gravitationskräfte und die Zentrifugalkraft ausgleichen. Hier kann der dritte Körper eine stabile Position einnehmen.
+Ein zentraler Anwendungsbereich ist die Berechnung von Satellitenbahnen im Erde-Mond- oder Sonne-Erde-System, insbesondere die Untersuchung der Lagrange-Punkte, an denen sich die Gravitationskräfte und die Zentrifugalkraft ausgleichen. Hier kann der dritte Körper eine stabile Position einnehmen ~\cite{Weber}.
 
 
 \subsubsection{Integration Methoden}
@@ -452,7 +457,7 @@ Dies ist der einfachste numerische DGL-Solver. Für ein System, das in Vektorsch
 \begin{equation*}
     y_{i+1} = y_i + f(t, y_i)\delta t
 \end{equation*}
-Dies ist ein Verfahren erster Ordnung, d.h. der Fehler in der Näherung ist von der Ordnung $\delta t$. Dies macht das Verfahren sehr ungenau, und es ist notwendig, einen sehr kleinen Zeitschritt anzugeben, um eine gute Näherung zu erhalten.
+~\cite{Zhou&Long2018}Dies ist ein Verfahren erster Ordnung, d.h. der Fehler in der Näherung ist von der Ordnung $\delta t$. Dies macht das Verfahren sehr ungenau, und es ist notwendig, einen sehr kleinen Zeitschritt anzugeben, um eine gute Näherung zu erhalten.
 
 
 \paragraph{Runge-Kutta-Verfahren vierter Ordnung}
@@ -464,10 +469,9 @@ Das Runge-Kutta-Verfahren vierter Ordnung (rk4-Verfahren) ist eine Erweiterung d
     k_3 &= f\left(t + \frac{\delta t}{2}, y_i + \frac{k_2}{2} \delta t \right) \delta t \\
     k_4 &= f(t + \delta t, y_i + k_3 \delta t) \delta t \\
     y_{i+1} &= y_i + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)
-\end{align*}
+\end{align*}~\cite{Swarthmore2005}
 
 Dies ist ein Verfahren vierter Ordnung, d.h., der Fehler in der Näherung hat die Ordnung $(\delta t)^4$. Dies macht das Verfahren deutlich genauer als das Euler-Verfahren. Zum Vergleich mit dem Euler-Verfahren müssen wir denselben Zeitschritt $\delta t$ wählen, aber viermal so viele Auswertungen pro Zeitschritt vornehmen, da das rk4-Verfahren viermal so viele Auswertungen des Systems pro Zeitschritt erfordert.
-
 
 
 
@@ -476,7 +480,7 @@ Das n-Körper-Problem ist ein klassisches Problem in der Physik und beschreibt d
 
 \begin{align*}
 	m_j \ddot{\vec{r}}_j = G \sum_{\substack{k=1 \\ k \neq j}}^n \frac{m_j m_k (\vec{r}_k - \vec{r}_j)}{|\vec{r}_k - \vec{r}_j|^3}
-\end{align*}
+\end{align*} ~\cite{Schäfer2017}
 
 
 Hier steht \( m_j \) für die Masse des betrachteten Körpers, \( \vec{r}_j \) für dessen Position, und \( G \) für die Gravitationskonstante. Die Summe erstreckt sich über alle anderen Körper \( k \) (mit \( k \neq j \)), die eine Gravitationskraft auf den Körper \( j \) ausüben. Der Ausdruck \( \frac{\vec{r}_k - \vec{r}_j}{|\vec{r}_k - \vec{r}_j|^3} \) beschreibt dabei die Richtung und Stärke der Gravitationskraft zwischen den beiden Körpern \( j \) und \( k \), wobei der Abstand \( |\vec{r}_k - \vec{r}_j| \) hoch drei im Nenner steht, um sicherzustellen, dass die Kraft gemäß dem Gravitationsgesetz mit dem Quadrat des Abstands abnimmt.
@@ -494,7 +498,7 @@ Der Algorithmus basiert auf der Annahme, dass Gruppen von weit entfernten Teilch
 \subsubsection{Algorithmusschritte}
 
 \paragraph{1. Baumerstellung}
-Der gesamte Raum wird in vier (2D) bzw. acht (3D) Quadranten unterteilt. Jedes Teilchen wird entsprechend seiner Position in einen dieser Quadranten einsortiert. Ist ein Quadrant bereits belegt, wird er weiter unterteilt, bis jedes Teilchen in einem eigenen Unterquadranten liegt. Dieses rekursive Unterteilen führt zur Bildung des Quadtrees bzw. Octrees.
+Der gesamte Raum wird in vier (2D) bzw. acht (3D) Quadranten unterteilt. Jedes Teilchen wird entsprechend seiner Position in einen dieser Quadranten einsortiert. Ist ein Quadrant bereits belegt, wird er weiter unterteilt, bis jedes Teilchen in einem eigenen Unterquadranten liegt. Dieses rekursive Unterteilen führt zur Bildung des Quadtrees bzw. Octrees ~\cite{Wu2024}.
 
 \begin{figure}[H]
 	\centering
@@ -506,20 +510,20 @@ Der gesamte Raum wird in vier (2D) bzw. acht (3D) Quadranten unterteilt. Jedes T
 
 
 \paragraph{2. Masseverteilung}
-Nach der Baumerstellung wird für jeden Knoten des Baumes die Gesamtmasse und der Massenschwerpunkt der in ihm enthaltenen Teilchen berechnet. Diese Informationen sind entscheidend für die spätere Kraftberechnung.
+Nach der Baumerstellung wird für jeden Knoten des Baumes die Gesamtmasse und der Massenschwerpunkt der in ihm enthaltenen Teilchen berechnet ~\cite{Burtscher&Pingali2011}. Diese Informationen sind entscheidend für die spätere Kraftberechnung.
 
 \paragraph{3. Kraftberechnung}
-Um die auf ein bestimmtes Teilchen wirkende Kraft zu berechnen, wird der Baum erneut durchlaufen. Für jeden Knoten wird das Verhältnis von dessen Größe zur Entfernung zum betrachteten Teilchen berechnet. Ist dieses Verhältnis kleiner als ein vorgegebener Schwellenwert ($\theta$), wird der gesamte Knoten als eine einzelne Masse im Massenschwerpunkt betrachtet. Andernfalls werden die Unterknoten weiter untersucht. Dieses Verfahren reduziert die Anzahl der notwendigen Kraftberechnungen erheblich.
+Um die auf ein bestimmtes Teilchen wirkende Kraft zu berechnen, wird der Baum erneut durchlaufen. Für jeden Knoten wird das Verhältnis von dessen Größe zur Entfernung zum betrachteten Teilchen berechnet ~\cite{BarnesHutBeltoforion}. Ist dieses Verhältnis kleiner als ein vorgegebener Schwellenwert ($\theta$), wird der gesamte Knoten als eine einzelne Masse im Massenschwerpunkt betrachtet. Andernfalls werden die Unterknoten weiter untersucht. Dieses Verfahren reduziert die Anzahl der notwendigen Kraftberechnungen erheblich.
 
 \subsubsection{Parameter $\theta$}
 Der Schwellenwert $\theta$ bestimmt die Genauigkeit der Näherung. Ein kleiner Wert für $\theta$ führt zu einer höheren Genauigkeit, da weniger Gruppierungen vorgenommen werden und mehr direkte Berechnungen stattfinden. Ein größerer Wert reduziert den Rechenaufwand, kann jedoch die Genauigkeit beeinträchtigen. Typischerweise wird $\theta$ auf Werte um 0,5 bis 1 gesetzt, abhängig von den Anforderungen an die Simulation.
 
 \subsubsection{Vorteile und Anwendungen}
-Der Barnes-Hut-Algorithmus ermöglicht die Simulation von Systemen mit Millionen von Teilchen, was mit direkten Berechnungsmethoden unpraktikabel wäre. Er findet Anwendung in der Astrophysik, beispielsweise bei der Simulation von Galaxien, sowie in anderen Bereichen wie der Molekulardynamik und der Informatik, etwa beim kräftebasierten Zeichnen von Graphen.
+Der Barnes-Hut-Algorithmus ermöglicht die Simulation von Systemen mit Millionen von Teilchen, was mit direkten Berechnungsmethoden unpraktikabel wäre. Er findet Anwendung in der Astrophysik, beispielsweise bei der Simulation von Galaxien, sowie in anderen Bereichen wie der Molekulardynamik und der Informatik, etwa beim kräftebasierten Zeichnen von Graphen ~\cite{Heer2017}.
 
-\subsection{React.js -- Funktionsweise und Anwendungen}
+\subsection{React.js - Funktionsweise und Anwendungen}
 
-React.js ist eine JavaScript-Bibliothek, die zur Entwicklung von Benutzeroberflächen verwendet wird. Sie basiert auf einer komponentenbasierten Architektur, bei der Anwendungen in wiederverwendbare, eigenständige Komponenten unterteilt werden. Jede Komponente verwaltet ihre eigenen Daten und ihr Verhalten. Dies erleichtert die Pflege und Erweiterung komplexer Anwendungen. Ein zentrales Merkmal von React.js ist das virtuelle DOM. Statt Änderungen direkt im echten DOM vorzunehmen, werden diese zunächst im virtuellen DOM simuliert. Anschließend werden nur die tatsächlich geänderten Elemente in den echten DOM übernommen. Dieser Ansatz verbessert die Leistung erheblich, insbesondere bei Anwendungen mit häufigen Aktualisierungen.
+React.js ist eine JavaScript-Bibliothek, die zur Entwicklung von Benutzeroberflächen verwendet wird. Sie basiert auf einer komponentenbasierten Architektur, bei der Anwendungen in wiederverwendbare, eigenständige Komponenten unterteilt werden. Jede Komponente verwaltet ihre eigenen Daten und ihr Verhalten. Dies erleichtert die Pflege und Erweiterung komplexer Anwendungen. Ein zentrales Merkmal von React.js ist das virtuelle DOM. Statt Änderungen direkt im echten DOM vorzunehmen, werden diese zunächst im virtuellen DOM simuliert. Anschließend werden nur die tatsächlich geänderten Elemente in den echten DOM übernommen. Dieser Ansatz verbessert die Leistung erheblich, insbesondere bei Anwendungen mit häufigen Aktualisierungen ~\cite{ReactJSTutorial}.
 
 Ein weiteres wichtiges Konzept in React.js ist der unidirektionale Datenfluss. Daten werden von Eltern- zu Kinderkomponenten weitergegeben, was die Vorhersagbarkeit und Wartbarkeit des Codes erhöht. Seit der Einführung von React Hooks in Version 16.8 können Entwickler Zustände und Lebenszyklusmethoden in funktionalen Komponenten verwenden. Hooks wie \texttt{useState} und \texttt{useEffect} vereinfachen die Verwaltung von Zuständen und Nebenwirkungen.
 
