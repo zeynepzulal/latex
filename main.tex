@@ -637,13 +637,15 @@ Die Hauptanimationsschleife wird durch die Funktion \javascriptinline{animate()}
 context.clearRect(0, 0, canvas.width, canvas.height);
 \end{javascript}
 
-Danach werden die physikalischen Berechnungen aktualisiert, die Bewegungsbahnen gezeichnet und die Körper neu positioniert:
+Danach werden die physikalischen Berechnungen aktualisiert, die Bewegungsbahnen und Massenschwerpunkt gezeichnet sowie die Körper neu positioniert:
 
 \begin{javascript}
 update();
 drawPath(body1, 'blue');
 drawBody(body1, 'blue');
 \\...
+drawCenterOfMass();
+requestAnimationFrame(animate)
 \end{javascript}
 
 Die Funktion \javascriptinline{requestAnimationFrame(animate)} sorgt dafür, dass die Animation kontinuierlich aktualisiert wird.

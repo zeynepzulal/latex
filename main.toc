@@ -48,7 +48,7 @@
 \contentsline {subsubsection}{\numberline {3.3.2}3-Körper Simulation}{25}{subsubsection.3.3.2}%
 \contentsline {subsubsection}{\numberline {3.3.3}N-Körper Simulation}{27}{subsubsection.3.3.3}%
 \contentsline {paragraph}{Die Body-Klasse}{28}{section*.18}%
-\contentsline {paragraph}{Die QuadTree-Klasse}{28}{section*.19}%
+\contentsline {paragraph}{Die QuadTree-Klasse}{29}{section*.19}%
 \contentsline {paragraph}{Simulationslogik und Animation}{33}{section*.20}%
 \contentsline {paragraph}{Steuerung der Simulation}{34}{section*.21}%
 \contentsline {section}{\numberline {4}Resultat}{35}{section.4}%
