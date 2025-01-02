@@ -540,12 +540,13 @@ Ein weiterer Vorteil ist die einfache Integration von Bibliotheken zur Datenvisu
 Zusammenfassend bietet React.js durch seine Effizienz, Modularität und Erweiterbarkeit eine ideale Plattform zur Implementierung von Simulationen auf Basis des Barnes-Hut-Algorithmus. Dies macht es zu einer bevorzugten Wahl für Anwendungen, die sowohl hohe Leistung als auch eine interaktive Benutzeroberfläche erfordern.
 
 \subsection{Erklärung der Simulationen}
+Zuerst wurde das React.js-Paket installiert und in der Datei App.js wurden Komponenten für die drei Simulationen erstellt.
 \subsubsection{2-Körper Simulation}
 Zwei Körper werden definiert, die sich im Gravitationsfeld gegenseitig beeinflussen. Die Eigenschaften der Körper umfassen die Position (\javascriptinline{x}, \javascriptinline{y}), die Geschwindigkeit (\javascriptinline{vx}, \javascriptinline{vy}), die Masse (\javascriptinline{mass}) und eine Liste zur Speicherung der zurückgelegten Positionen (\javascriptinline{path}):
 
 \begin{javascript}
-let body1 = { x: 300, y: 300, vx: 0, vy: 2, mass: 1000, path: [] };
-let body2 = { x: 500, y: 300, vx: 0, vy: -2, mass: 1000, path: [] };
+let body1 = { x: 300, y: 300, vx: 0, vy: 1, mass: 8000, path: [] };
+let body2 = { x: 500, y: 300, vx: 0, vy: -1, mass: 8000, path: [] };
 \end{javascript}
 
 Die Anfangspositionen und Geschwindigkeiten sind so gewählt, dass die Körper eine Umlaufbahn um ihren gemeinsamen Schwerpunkt bilden können.
@@ -555,11 +556,11 @@ Weitere Konstanten werden definiert, darunter die Gravitationskonstante \javascr
 
 \begin{javascript}
 const G = 0.1;
-const maxTrailLength = 100;
-const softening = 0.1;
+const maxTrailLength = 200;
+const softening = 1.0;
 \end{javascript}
 
-Der Parameter \javascriptinline{softening} verhindert eine Singularität (unendliche Kraft), die auftritt, wenn der Abstand zwischen den beiden Körpern gegen null geht. Dies wird durch die Addition von \javascriptinline{softening} zum Abstand kompensiert.
+Der Parameter \javascriptinline{softening} verhindert eine Singularität \footnote{unendliche Kraft}, die auftritt, wenn der Abstand zwischen den beiden Körpern gegen null geht. Dies wird durch die Addition von \javascriptinline{softening} zum Abstand kompensiert.
 
 \paragraph{Berechnung der Gravitationskraft und Bewegung:}
 Die Funktion \javascriptinline{update()} implementiert die Berechnung der Gravitation basierend auf Newtons Gesetz der universellen Gravitation. Zunächst wird der Abstand zwischen den beiden Körpern bestimmt:
@@ -567,7 +568,7 @@ Die Funktion \javascriptinline{update()} implementiert die Berechnung der Gravit
 \begin{javascript}
 const dx = body2.x - body1.x;
 const dy = body2.y - body1.y;
-const distance = Math.sqrt(dx * dx + dy * dy + softening);
+const distance = Math.sqrt(dx * dx + dy * dy + softening * softening);
 \end{javascript}
 
 Die Berechnung des Abstands \javascriptinline{distance} enthält den \javascriptinline{softening}-Parameter, um numerische Instabilitäten zu vermeiden. Anschließend wird die Gravitationskraft zwischen den Körpern berechnet:
@@ -580,23 +581,17 @@ Die Richtung der Kraft wird durch die Komponenten der Beschleunigung (\javascrip
 
 \begin{javascript}
 const ax1 = (force * dx) / (body1.mass * distance);
-const ay1 = (force * dy) / (body1.mass * distance);
-const ax2 = -(force * dx) / (body2.mass * distance);
-const ay2 = -(force * dy) / (body2.mass * distance);
+\\...
 \end{javascript}
 
 Diese Werte werden genutzt, um die Geschwindigkeiten und Positionen der Körper zu aktualisieren:
 
 \begin{javascript}
 body1.vx += ax1;
-body1.vy += ay1;
-body2.vx += ax2;
-body2.vy += ay2;
+\\...
 
 body1.x += body1.vx;
-body1.y += body1.vy;
-body2.x += body2.vx;
-body2.y += body2.vy;
+\\...
 \end{javascript}
 
 Die neue Geschwindigkeit ergibt sich aus der aktuellen Geschwindigkeit plus der Änderung aufgrund der Beschleunigung. Die neue Position wird entsprechend der Gleichung \( s = s_0 + v \cdot t \) berechnet, wobei \( t \) implizit auf 1 gesetzt ist (jede Iteration entspricht einem Zeitschritt).
@@ -647,9 +642,8 @@ Danach werden die physikalischen Berechnungen aktualisiert, die Bewegungsbahnen 
 \begin{javascript}
 update();
 drawPath(body1, 'blue');
-drawPath(body2, 'red');
 drawBody(body1, 'blue');
-drawBody(body2, 'red');
+\\...
 \end{javascript}
 
 Die Funktion \javascriptinline{requestAnimationFrame(animate)} sorgt dafür, dass die Animation kontinuierlich aktualisiert wird.
@@ -686,41 +680,17 @@ Diese Funktion ist notwendig, da die Kräfte zwischen jedem Körperpaar unabhän
 Während im Zwei-Körper-Problem nur eine einzige Wechselwirkung existiert, müssen im Drei-Körper-Problem die Kräfte aus zwei Quellen kombiniert werden, um die Gesamtbeschleunigung jedes Körpers zu bestimmen. Dies erfolgt in der Funktion \texttt{update()}, die alle Kräfte separat berechnet und dann addiert:
 
 \begin{javascript}
+//for body1
 const force12 = calculateForces(bodies[0], bodies[1]);
 const force13 = calculateForces(bodies[0], bodies[2]);
-
 bodies[0].vx += force12.ax + force13.ax;
 bodies[0].vy += force12.ay + force13.ay;
-
 bodies[0].x += bodies[0].vx;
 bodies[0].y += bodies[0].vy;
 \end{javascript}
 
 Die Geschwindigkeit jedes Körpers wird durch die Addition der Beschleunigungen aufgrund der beiden anderen Körper aktualisiert. Anschließend werden die Positionen anhand der neuen Geschwindigkeiten berechnet. Dieser Ansatz berücksichtigt die gleichzeitigen Wechselwirkungen zwischen allen Körpern und ermöglicht eine präzise Simulation ihrer Bewegungen.
 
-Eine weitere wichtige Erweiterung des Drei-Körper-Codes betrifft die Verwaltung der Bewegungsbahnen. Da sich die Körper unabhängig voneinander bewegen, wird für jeden Körper ein eigenes Array zur Speicherung seiner bisherigen Positionen verwendet:
-
-\begin{javascript}
-let path1 = [];
-let path2 = [];
-let path3 = [];
-\end{javascript}
-
-Diese Arrays speichern die Koordinaten der Körper, während sie sich durch die Simulation bewegen. Die Funktion \texttt{drawPath()} zeichnet die zurückgelegten Pfade, indem sie die gespeicherten Positionen durch Linien miteinander verbindet:
-
-\begin{javascript}
-function drawPath(path, color) {
-    context.beginPath();
-    context.moveTo(path[0].x, path[0].y);
-    for (let i = 1; i < path.length; i++) {
-        context.lineTo(path[i].x, path[i].y);
-    }
-    context.strokeStyle = color;
-    context.stroke();
-}
-\end{javascript}
-
-Die Pfade bieten eine visuelle Darstellung der Trajektorien der Körper und ermöglichen es, Muster und Stabilitäten in der Bewegung zu erkennen. Dies ist insbesondere für das „Figure-Eight“-Muster von Bedeutung, da es ein Beispiel für eine symmetrische und periodische Lösung des Drei-Körper-Problems darstellt.
 
 Die Simulation enthält zusätzlich eine Benutzeroberfläche, die es ermöglicht, verschiedene Anfangsbedingungen auszuwählen. Dies wird durch ein Dropdown-Menü realisiert, dessen Auswahl den Zustand der Körper entsprechend aktualisiert:
 
@@ -734,33 +704,7 @@ const handleSelectChange = (event) => {
 
 Die Integration dieser Auswahlmöglichkeit erhöht die Flexibilität der Simulation und ermöglicht es, neue Konfigurationen oder Anfangsbedingungen problemlos zu ergänzen.
 
-Ein weiterer Unterschied zum Zwei-Körper-Code ist die Anpassung der Darstellung der Körper selbst. Während im Zwei-Körper-Code einfache Kreise gezeichnet werden, wird im Drei-Körper-Code zusätzlich ein visueller Effekt implementiert, der die Körper durch einen leichten Leuchteffekt hervorhebt:
-
-\begin{javascript}
-context.arc(body.x, body.y, 3, 0, 2 * Math.PI);
-context.fillStyle = color;
-context.shadowColor = color;
-context.shadowBlur = 10;
-context.fill();
-\end{javascript}
-
-Dieser Effekt verbessert die visuelle Darstellung und hebt die Körper deutlicher von den Pfaden ab, was insbesondere bei komplexen Mustern wie dem „Figure-Eight“ hilfreich ist.
-
-Die Animation der Simulation erfolgt schließlich über die Funktion \texttt{animate()}, die kontinuierlich die Positionen aktualisiert und sowohl die Körper als auch ihre Pfade neu zeichnet:
-
-\begin{javascript}
-function animate() {
-    context.fillStyle = 'rgba(0,0,0,1)';
-    context.fillRect(0, 0, canvas.width, canvas.height);
-    update();
-    drawPath(path1, 'rgb(66, 135, 245)');
-    //...
-    drawBody(bodies[0], 'rgb(66, 135, 245)');
-	//...
-    requestAnimationFrame(animate);
-}
-\end{javascript}
-Die kontinuierliche Aktualisierung der Bewegungen und Pfade sorgt für eine flüssige Animation, die die dynamischen Wechselwirkungen zwischen den Körpern in Echtzeit darstellt.
+Die Animation der Simulation erfolgt schliesslich über die Funktion \javascriptinline{animate()} wie bei der 2-Körper Simulation, die kontinuierlich die Positionen aktualisiert und sowohl die Körper als auch ihre Pfade neu zeichnet. Die kontinuierliche Aktualisierung der Bewegungen und Pfade sorgt für eine flüssige Animation, die die dynamischen Wechselwirkungen zwischen den Körpern in Echtzeit darstellt.
 
 \subsubsection{N-Körper Simulation}
 
@@ -842,9 +786,9 @@ if (!this.divided) {
         if (other !== body) {
             const dx = other.x - body.x;
             const dy = other.y - body.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
+            const distance = Math.sqrt(dx * dx + dy * dy + softening * softening);
             
-            const force = (G * body.mass * other.mass) / (distance * distance);
+            const force = (G * body.mass * other.mass) / (distance * distance, 50);
             forces.fx += (force * dx) / distance;
             forces.fy += (force * dy) / distance;
         }
@@ -853,9 +797,9 @@ if (!this.divided) {
 }
 \end{javascript}
 
-- \javascriptinline{dx} und \javascriptinline{dy} repräsentieren die Differenzen der Positionen der beiden Körper.
-- \javascriptinline{distance} berechnet die Entfernung zwischen den Körpern.
-- Die Gravitationskraft \javascriptinline{force} wird anhand der Masse der beiden Körper und der Entfernung berechnet.
+Die Gravitationskraft \javascriptinline{force} wird anhand der Masse der beiden Körper und der Entfernung berechnet.
+Die Begrenzung der Kraft auf 50 verhindert extrem hohe Beschleunigungen bei kleinen Abständen, stabilisiert die Simulation und sorgt dafür, dass nahe Körper nicht 
+unphysikalisch stark interagieren.
 
 
 Wenn der Quadrant unterteilt wurde, wird die Gravitationskraft nicht direkt zwischen allen Körpern berechnet, sondern durch den Schwerpunkt des gesamten Quadranten. Diese Methode wird verwendet, wenn der Körper weit genug vom Quadranten entfernt ist, um eine Approximation durch den Schwerpunkt zu rechtfertigen. Der Abstand zum Schwerpunkt wird als \javascriptinline{distanceToCOM} berechnet, und wenn dieser groß genug ist, wird die Gravitationskraft basierend auf dem gesamten Quadranten berechnet:
@@ -866,16 +810,14 @@ const centerOfMass = {
   x: this.bodies.reduce((acc, b) => acc + b.x * b.mass, 0) / totalMass,
   y: this.bodies.reduce((acc, b) => acc + b.y * b.mass, 0) / totalMass,
 };
-const distanceToCOM = Math.sqrt(
-  (centerOfMass.x - body.x) ** 2 + (centerOfMass.y - body.y) ** 2
-);
+const distanceToCOM = Math.sqrt((centerOfMass.x - body.x) ** 2 + (centerOfMass.y - body.y) ** 2 + softening * softening);
 \end{javascript}
 
 - \javascriptinline{totalMass} berechnet die Gesamtmasse der Körper im Quadranten.
 - \javascriptinline{centerOfMass} ermittelt den Schwerpunkt des Quadranten unter Berücksichtigung der Massen und Positionen der Körper.
 - \javascriptinline{distanceToCOM} berechnet den Abstand des Körpers zum Schwerpunkt des Quadranten.
 
-Wenn der Abstand zum Zentrum des Quadranten groß genug ist (d.h., \( \frac{\text{width}}{\text{distanceToCOM}} < \theta \)), wird die Gravitationskraft basierend auf dem Schwerpunkt des Quadranten berechnet:
+Wenn der Abstand zum Zentrum des Quadranten gross genug ist (d.h., \( \frac{\text{width}}{\text{distanceToCOM}} < \theta \)), wird die Gravitationskraft basierend auf dem Schwerpunkt des Quadranten berechnet:
 
 \begin{javascript}
 if ((this.boundary.width / distanceToCOM) < theta) {
@@ -911,20 +853,15 @@ Die Funktion \javascriptinline{query(body, theta)} verwendet eine rekursive Stru
 
 \paragraph{Simulationslogik und Animation}
 
-Bei jeder Änderung der Körperliste (\javascriptinline{bodies}) wird das Canvas mit \javascriptinline{ctx.clearRect} gelöscht, um alte Zeichnungen zu entfernen. Für jeden Körper wird anschließend ein blauer Kreis an den Positionen des Körpers gezeichnet, wobei \javascriptinline{ctx.arc} den Kreis mit einem Radius von 4 Pixeln erstellt. Mit \javascriptinline{ctx.fillStyle} wird die Farbe Blau gesetzt, und \javascriptinline{ctx.fill} füllt den Kreis, um die Körper auf dem Canvas darzustellen.
+Bei jeder Änderung der Körperliste (\javascriptinline{bodies}) wird das Canvas mit \javascriptinline{ctx.clearRect} gelöscht, um alte Zeichnungen zu entfernen. Für jeden Körper wird anschliessend ein roter Kreis an den Positionen des Körpers gezeichnet, wobei \javascriptinline{ctx.arc} den Kreis mit einem Radius von 5 Pixeln erstellt.
 
 \begin{javascript}
-	useEffect(() => {
-        const canvas = canvasRef.current;
-        const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-        bodies.forEach((body) => {
-            ctx.beginPath();
-            ctx.arc(body.x, body.y, 4, 0, 2 * Math.PI);
-            ctx.fillStyle = 'blue';
-            ctx.fill();
-        });
-    }, [bodies])
+    useEffect(() => {
+        //...
+        //Bodies will be shown at canvas
+        //Center of Mass will be shown at canvas.
+    }, [bodies]);
+
 \end{javascript}
 
 
@@ -952,13 +889,22 @@ useEffect(() => {
 
 
 \paragraph{Steuerung der Simulation}
-Die Simulation wird über zwei Hauptbuttons gesteuert: einer zum Hinzufügen neuer Körper (\javascriptinline{addBody}) und einer zum Starten oder Stoppen der Simulation (\javascriptinline{toggleSimulation}). Die Funktion \javascriptinline{addBody()} fügt der Simulation zufällig positionierte Körper hinzu, die mit zufälligen Massen und Geschwindigkeiten ausgestattet werden. Die Funktion \javascriptinline{toggleSimulation()} startet oder stoppt die Simulation, indem der Zustand \javascriptinline{isRunning} geändert wird. Wenn die Simulation läuft, wird die Simulation durch den vorher beschriebenen \javascriptinline{setInterval()}-Aufruf kontinuierlich aktualisiert.
+Der letzte Abschnitt des Codes definiert die Benutzeroberfläche zur Steuerung der Simulation. Das \javascriptinline{<canvas>}-Element dient als Zeichenfläche, auf der die Simulation visuell dargestellt wird, 
+während ein Klick mithilfe der Funktion \javascriptinline{handleCanvasClick}, die bei den ersten beiden Klicks die Körper mit Geschwindigkeit zur Canvas hinzufügt und bei den folgenden Klicks die Körper mit Geschwindigkeit 0 und Masse 8000 zur angeklickten Position hinzufügt.
+Drei Buttons ermöglichen die Interaktion: \javascriptinline{toggleSimulation }startet oder stoppt die Simulation durch Umschalten des Zustands \javascriptinline{isRunning}, \javascriptinline{add50Bodies} erzeugt 50 zufällig verteilte Körper, 
+und \javascriptinline{resetSimulation} löscht alle vorhandenen Körper, um die Simulation zurückzusetzen.
+
+
 \begin{javascript}
-	return (
+    return (
         <div>
-            <canvas ref={canvasRef} width={400} height={400} style={{ border: '1px solid black' }} />
-            <button onClick={addBody}>Add Body</button>
-            <button onClick={toggleSimulation}> {isRunning ? 'Stop' : 'Start'} Simulation</button>
+            <p>Click to add a body</p>
+            <canvas ref={canvasRef} width={400} height={400} style={{ border: '1px solid white' }} onClick={handleCanvasClick} />
+            <div style={{ marginTop: '10px' }}>
+                <button onClick={toggleSimulation}> {isRunning ? 'Stop' : 'Start'} Simulation</button>
+                <button onClick={add50Bodies}>Add 50 Bodies</button>
+                <button onClick={resetSimulation}>Reset</button>
+            </div>
         </div>
     )
 \end{javascript}
