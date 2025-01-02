@@ -103,14 +103,14 @@
 	\vspace{4cm}
 	{
 		\centering
-		\Huge\bfseries N-Körper Problem\par
+		\Huge\bfseries Simulationen des N-Körper-Problems mit dem Barnes-Hut-Algorithmus \par
 		\vspace{1cm}
-		\includegraphics[width=0.15\textwidth]{example-image-1x1}\par
+		\includegraphics[width=0.15\textwidth]{Barnes_hut_tree.png}\par
 	}
 	
 	\vspace{9cm}	
 	\noindent
-    Fach: Physik, Mathematik, Informatik \noindent\\
+    Fach: Physik \noindent\\
 	Betreuungsperson: Dr. Andreas Schärer\\
 	Abgabetermin: 6. Januar 2025
 	
@@ -965,16 +965,73 @@ Die Simulation wird über zwei Hauptbuttons gesteuert: einer zum Hinzufügen neu
 
 
 \section{Resultat}
-\subsection{Vergleich der Simulationsergebnisse}
+
+In diesem Abschnitt werden die Ergebnisse der implementierten Simulationen detailliert analysiert und miteinander verglichen. Die untersuchten Szenarien umfassen eine Zwei-Körper-Simulation, eine Drei-Körper-Simulation sowie eine allgemeine N-Körper-Simulation. Die Simulationsergebnisse bieten wertvolle Einblicke in die Dynamik gravitativer Wechselwirkungen und ermöglichen eine kritische Bewertung der verwendeten Algorithmen.
+\subsection{Ergebnisse der Zwei- und Drei-Körper Simulationen}
+Die Zwei- und Drei-Körper Simulationen bieten eine hohe Genauigkeit und können analytisch validiert werden. Ihre Implementierung ist leicht verständlich und bildet eine solide Grundlage für komplexere Modelle. Der Barnes-Hut Algorithmus ermöglicht eine erhebliche Effizienzsteigerung, insbesondere bei der Simulation vieler Körper. Durch die QuadTree-Struktur werden die Berechnungen optimiert, sodass der Algorithmus mit einer Zeitkomplexität von O(N log N) arbeitet, was ihn für große Systeme besonders geeignet macht. Zudem sorgen die Implementierung einer maximalen Kraftbegrenzung und eines Softening-Faktors für eine numerische Stabilisierung. Dies verhindert Instabilitäten und ermöglicht eine realistische Simulation selbst bei sehr kurzen Distanzen zwischen den Körpern.
+
+\subsection{Ergebnisse der N-Körper Simulation mit Barnes Hut Algorithmus}
+Die N-Körper Simulation demonstriert das Verhalten von bis zu 50 zufällig platzierten Körpern. Der Barnes-Hut Algorithmus ermöglicht eine effiziente Berechnung der Gravitationskräfte und gewährleistet selbst bei einer großen Anzahl von Teilchen eine stabile und realistische Simulation. Der Schwerpunkt des Systems wird ebenfalls korrekt berechnet und dargestellt, was die Präzision der resultierenden Kräfte unterstreicht. Besonders hervorzuheben ist die Skalierbarkeit des Algorithmus, der trotz wachsender Komplexität eine hohe Leistungsfähigkeit beibehält.
+
 
 \section{Diskussion}
+
 \subsection{Vorteile der verwendeten Algorithmen}
+Die Zwei- und Drei-Körper Simulationen bieten eine hohe Genauigkeit und können analytisch validiert werden. Ihre Implementierung ist leicht verständlich und bildet eine solide Grundlage für komplexere Modelle. Der Barnes-Hut Algorithmus ermöglicht eine erhebliche Effizienzsteigerung, insbesondere bei der Simulation vieler Körper. Durch die QuadTree-Struktur werden die Berechnungen optimiert, sodass der Algorithmus mit einer Zeitkomplexität von O(N log N) arbeitet, was ihn für große Systeme besonders geeignet macht. Zudem sorgen die Implementierung einer maximalen Kraftbegrenzung und eines Softening-Faktors für eine numerische Stabilisierung. Dies verhindert Instabilitäten und ermöglicht eine realistische Simulation selbst bei sehr kurzen Distanzen zwischen den Körpern.
+
 \subsection{Herausforderungen und Limitierungen}
+Obwohl die Simulationen insgesamt stabile und präzise Ergebnisse liefern, bestehen einige Herausforderungen und Einschränkungen. Besonders in der Drei-Körper Simulation kann es bei längeren Laufzeiten zu Abweichungen von den theoretischen Bahnen kommen, die auf kumulierte Rundungsfehler zurückzuführen sind. Der Softening-Faktor trägt zur Stabilisierung bei, führt jedoch zu geringfügigen Abweichungen von den exakten Gravitationskräften, insbesondere bei sehr kurzen Distanzen. Darüber hinaus wurde eine maximale Kraftbegrenzung von 50 implementiert, um numerische Instabilitäten zu verhindern. Diese Begrenzung kann jedoch in extremen Szenarien physikalisch nicht immer exakt sein und sollte daher je nach Anwendungsfall angepasst werden. Ein weiteres Hindernis ist die Skalierbarkeit. Obwohl der Barnes-Hut Algorithmus effizient ist, bleibt die Implementierung für sehr grosse Systeme mit mehr als 10.000 Körpern speicher- und rechenintensiv.
+
 \subsection{Vergleich mit bestehenden Methoden}
+Im Vergleich zu direkten Berechnungen, die eine Zeitkomplexität von \( O(N^2) \) aufweisen, zeigt der Barnes-Hut Algorithmus eine drastische Verbesserung der Rechenzeit. Während direkte Methoden für kleinere Systeme praktikabel sind, wird der Barnes-Hut Algorithmus für größere Simulationen unverzichtbar. Im Gegensatz zu analytischen Lösungen, die für das Zwei-Körper Problem exakte Ergebnisse liefern, erfordern Systeme mit mehreren Körpern numerische Methoden, um chaotisches Verhalten oder komplexe Wechselwirkungen zu simulieren.
 
 \section{Schlussfolgerung}
-\section{Literaturverzeichnis}
-\section{Abbildungsverzeichnis}
+Die durchgeführten Simulationen demonstrieren eine ausgewogene Kombination aus Genauigkeit und Effizienz. Während die Zwei- und Drei-Körper Simulationen grundlegende physikalische Prinzipien validierten, zeigte die N-Körper Simulation die Leistungsfähigkeit des Barnes-Hut Algorithmus bei der Modellierung komplexer Systeme.
+
+Die Ergebnisse verdeutlichen die Relevanz numerischer Methoden für die Simulation physikalischer Prozesse. Gleichzeitig werden die Herausforderungen solcher Verfahren, insbesondere in Bezug auf numerische Stabilität und Rechenleistung, hervorgehoben.
+
+Zukünftige Erweiterungen könnten die Implementierung von Parallelverarbeitung und GPU-Optimierungen (Graphics Processing Unit) umfassen, um noch größere Systeme effizient simulieren zu können. Darüber hinaus bietet eine adaptive Anpassung der Kraftbegrenzung und des Softening-Faktors Potenzial für eine weitere Verbesserung der Simulationsergebnisse.
+
+
+\section{Erster Anhang}
+
+Ergänzende Informationen gehören in den Anhang. Wären diese Informationen im Haupttext der Arbeit, würden sie stören, zum Beispiel weil es zu viel und zu detailliert ist. In den Anhang (unter Umständen) gehören:
+\begin{itemize}
+	\item Code einer Programmierarbeit (Zeige im Haupttext nur Codeausschnitte, die der Argumentation helfen)
+	\item detaillierte Berechnungen
+	\item Ergebnisse einer Umfrage
+	\item Interviews
+	\item \ldots
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section{Zweiter Anhang}
+
+Anhang der Zweite.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%% AB HIER NICHTS MERH VERAENDERN!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\clearpage
+
+\bibliography{biblio}
+
+\newpage
+\addcontentsline{toc}{section}{\listfigurename} % Fuege Abb.vz zu TOC hinzu
+\listoffigures % Abbildungsverzeichnis
 
 \end{document}
 
