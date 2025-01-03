@@ -128,7 +128,11 @@
 
 \section*{Abstract}
 
-Das N-Körper-Problem ist ein fundamentales Problem der Himmelsmechanik, das die Bewegung von N Massenpunkten unter gegenseitiger gravitativer Anziehung beschreibt. Diese Arbeit untersucht zwei verschiedene Simulationsmethoden für das N-Körper-Problem: die direkte Methode und den Barnes-Hut-Algorithmus. Ziel ist es, die Genauigkeit und Effizienz dieser Methoden zu analysieren und zu vergleichen.
+Das N-Körper-Problem ist ein fundamentales Problem der Himmelsmechanik, 
+das die Bewegung von N Massenpunkten unter gegenseitiger gravitativer Anziehung beschreibt. 
+Diese Arbeit untersucht zwei verschiedene Simulationsmethoden für das N-Körper-Problem: 
+die direkte Methode und den Barnes-Hut-Algorithmus. Ziel ist es, die Genauigkeit und 
+Effizienz dieser Methoden zu analysieren und zu vergleichen.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -152,13 +156,27 @@ Das N-Körper-Problem ist ein fundamentales Problem der Himmelsmechanik, das die
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Einleitung}
-Diese Arbeit befasst sich mit einem der grundlegendsten und komplexesten Probleme der Himmelsmechanik und -dynamik: dem N-Körper-Problem in der Physik. Dieses Problem ist nicht nur von theoretischem Interesse, sondern findet auch praktische Anwendungen in der Astronomie, Raumfahrt und vielen anderen Bereichen der Physik. Die zentrale Forschungsfrage dieser Arbeit lautet: Welche mathematischen und physikalischen Methoden können verwendet werden, um die Bewegung von N-Körpern zu beschreiben und zu verstehen? 
-Das Ziel dieser Arbeit ist es, die Bewegung von N-Körpern zu definieren und umfassend zu analysieren. Dabei soll der physikalische Hintergrund dieses Problems beleuchtet und seine historische Entwicklung nachgezeichnet werden. Ein besonderer Schwerpunkt liegt auf der Darstellung und Untersuchung der verschiedenen mathematischen und physikalischen Methoden, die im Laufe der Zeit entwickelt wurden, um die Dynamik von N-Körpern zu erklären.
-Darüber hinaus werden zwei detaillierte Simulationen entwickelt, um die theoretischen Konzepte praktisch zu veranschaulichen. Diese Simulationen dienen nicht nur der Erklärung des Problems, sondern auch dem Vergleich verschiedener Lösungsansätze. Durch diese Herangehensweise soll ein tieferes Verständnis für die Komplexität des N-Körper-Problems und die Herausforderungen bei seiner Lösung vermittelt werden.
-Ein weiterer Aspekt dieser Arbeit ist die Untersuchung der praktischen Relevanz des N-Körper-Problems. Dabei wird aufgezeigt, wie die theoretischen Erkenntnisse in der Astronomie zur Berechnung von Planetenbahnen, in der Raumfahrt zur Planung von Satellitenmissionen und in anderen Bereichen der Physik zur Modellierung komplexer Systeme angewendet werden können.
-Zusammenfassend strebt diese Arbeit an, einen umfassenden Überblick über das N-Körper-Problem zu geben, seine Bedeutung in der modernen Physik aufzuzeigen und durch die Entwicklung und den Vergleich von Simulationen einen Beitrag zur Lösung dieses faszinierenden und herausfordernden Problems zu leisten.
-
+Diese Arbeit befasst sich mit einem der grundlegendsten und komplexesten Probleme der Himmelsmechanik und -dynamik: 
+dem N-Körper-Problem in der Physik. Dieses Problem ist nicht nur von theoretischem Interesse, 
+sondern findet auch praktische Anwendungen in der Astronomie, Raumfahrt und vielen anderen Bereichen der Physik. 
+Die zentrale Forschungsfrage dieser Arbeit lautet: Welche mathematischen und physikalischen Methoden können verwendet werden, 
+um die Bewegung von N-Körpern zu beschreiben und zu verstehen? 
+Das Ziel dieser Arbeit ist es, die Bewegung von N-Körpern zu definieren und umfassend zu analysieren. 
+Dabei soll der physikalische Hintergrund dieses Problems beleuchtet und seine historische Entwicklung nachgezeichnet werden. 
+Ein besonderer Schwerpunkt liegt auf der Darstellung und Untersuchung der verschiedenen mathematischen und physikalischen Methoden, 
+die im Laufe der Zeit entwickelt wurden, um die Dynamik von N-Körpern zu erklären.
+Darüber hinaus werden zwei detaillierte Simulationen entwickelt, um die theoretischen Konzepte praktisch zu veranschaulichen. 
+Diese Simulationen dienen nicht nur der Erklärung des Problems, sondern auch dem Vergleich verschiedener Lösungsansätze. 
+Durch diese Herangehensweise soll ein tieferes Verständnis für die Komplexität des N-Körper-Problems und die Herausforderungen bei seiner Lösung vermittelt werden.
+Ein weiterer Aspekt dieser Arbeit ist die Untersuchung der praktischen Relevanz des N-Körper-Problems. 
+Dabei wird aufgezeigt, wie die theoretischen Erkenntnisse in der Astronomie zur Berechnung von Planetenbahnen, 
+in der Raumfahrt zur Planung von Satellitenmissionen und in anderen Bereichen der Physik zur Modellierung komplexer Systeme angewendet werden können.
+Zusammenfassend strebt diese Arbeit an, einen umfassenden Überblick über das N-Körper-Problem zu geben, seine Bedeutung 
+in der modernen Physik aufzuzeigen und durch die Entwicklung und den Vergleich von Simulationen einen Beitrag zur Lösung 
+dieses faszinierenden und herausfordernden Problems zu leisten.
 \newpage
+
+
 \section{Theoretische Grundlagen}
 
 \subsection{Problembeschreibung und historische Entwicklung}
@@ -167,15 +185,14 @@ Das N-Körper-Problem beschäftigt sich mit der dynamischen Analyse von N Massep
 \subsection{Gravitationskraft}
 Die Gravitationskraft $\vec{F}_{12}$ zwischen zwei punktförmigen Massen $m_1$ und $m_2$ liegt auf der Verbindungslinie der beiden Massen.
 Der Betrag $F$ der Gravitationskraft ist proportional zu den Massen $m_1$ und $m_2$ sowie umgekehrt proportional zum Quadrat des Abstands $r$ 
-(die relative Position ist die Position eines Körpers relativ zu einem anderen: \(\vec{r} = \vec{r}_2 - \vec{r}_1\)) der Massen ~\cite{LeifiPhysikGravitation}. Er berechnet sich durch:
+(die relative Position ist die Position eines Körpers relativ zu einem anderen: \(\vec{r} = \vec{r}_2 - \vec{r}_1\)) der Massen~\cite{LeifiPhysikGravitation}. Er berechnet sich durch:
 \begin{align*}
 	F = G \frac{m_1 m_2}{r^2}
 \end{align*}
 mit der Gravitationskonstante $G = \SI{6.674e-11}{\frac{m^3}{kg\,s^2}}$.
 
 \subsection{Die Keplerschen Gesetze}
-Die Keplerschen Gesetze beschreiben die Bewegung von Planeten um die Sonne und sind grundlegende Prinzipien der Himmelsmechanik. Johannes Kepler formulierte sie im frühen 17. Jahrhundert auf Basis der Beobachtungen von Tycho Brahe. Diese Gesetze markierten einen Wendepunkt von der klassischen, kreisförmigen Vorstellung der Planetenbewegung zu einem elliptischen Modell. Im Folgenden werde ich die drei Keplerschen Gesetze erläutern.
-~\cite{LeifiPhysikKepler}
+Die Keplerschen Gesetze beschreiben die Bewegung von Planeten um die Sonne und sind grundlegende Prinzipien der Himmelsmechanik. Johannes Kepler formulierte sie im frühen 17. Jahrhundert auf Basis der Beobachtungen von Tycho Brahe. Diese Gesetze markierten einen Wendepunkt von der klassischen, kreisförmigen Vorstellung der Planetenbewegung zu einem elliptischen Modell. Im Folgenden werde ich die drei Keplerschen Gesetze erläutern~\cite{LeifiPhysikKepler}.
 \subsubsection{1. Keplersches Gesetz: Das Gesetz der Ellipsen}
 Das erste Keplersche Gesetz besagt:
 \begin{quote}
@@ -186,7 +203,7 @@ Mathematisch lässt sich eine Ellipse durch die Gleichung
 	\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
 \end{align*}
 
-beschreiben, wobei \(a\) die große Halbachse und \(b\) die kleine Halbachse der Ellipse ist. Der Planet bewegt sich auf einer solchen Ellipsenbahn, wobei sich die Sonne nicht im Zentrum der Ellipse befindet, sondern in einem der beiden Brennpunkte. Dies war ein entscheidender Unterschied zur zuvor angenommenen Kreisbahn der Planeten.
+beschreiben, wobei \(a\) die grosse Halbachse und \(b\) die kleine Halbachse der Ellipse ist. Der Planet bewegt sich auf einer solchen Ellipsenbahn, wobei sich die Sonne nicht im Zentrum der Ellipse befindet, sondern in einem der beiden Brennpunkte. Dies war ein entscheidender Unterschied zur zuvor angenommenen Kreisbahn der Planeten.
 \subsubsection{2. Keplersches Gesetz: Das Gesetz der Flächen}
 Das zweite Keplersche Gesetz lautet:
 
@@ -210,11 +227,10 @@ Mathematisch wird dies durch die Gleichung
 	\frac{T_1^2}{T_2^2} = \frac{a_1^3}{a_2^3}
 \end{align*}
 
-ausgedrückt, wobei \(T_1\) und \(T_2\) die Umlaufzeiten der beiden Planeten und \(a_1\) und \(a_2\) die großen Halbachsen ihrer Bahnen sind. Dies zeigt, dass Planeten, die weiter von der Sonne entfernt sind, eine längere Umlaufzeit haben als solche, die sich näher an der Sonne befinden ~\cite{Haase1998}.
-
+ausgedrückt, wobei \(T_1\) und \(T_2\) die Umlaufzeiten der beiden Planeten und \(a_1\) und \(a_2\) die grossen Halbachsen ihrer Bahnen sind. Dies zeigt, dass Planeten, die weiter von der Sonne entfernt sind, eine längere Umlaufzeit haben als solche, die sich näher an der Sonne befinden~\cite{Haase1998}.
 
 \subsection{Zwei-Körper-Problem}
-Das 2-Körper-Problem ist ein zentrales Modell der Himmelsmechanik, das die Bewegung zweier Massen untersucht, die sich unter dem Einfluss ihrer gegenseitigen Gravitation befinden. Es beschreibt ein isoliertes System, in dem keine äusseren Kräfte wirken, und ermöglicht die analytische Bestimmung der Bahnen, auf denen sich die Körper bewegen  ~\cite{Spektrum}. Diese Bahnen, die je nach Anfangsbedingungen elliptisch, parabolisch oder hyperbolisch sein können, liefern wichtige Erkenntnisse über die Dynamik von Planeten, Monden und Satelliten. Als analytisch lösbares Problem bildet es die Grundlage für die Erweiterung auf komplexere Mehrkörpersysteme und spielt eine wesentliche Rolle in der Astronomie und Physik.
+Das 2-Körper-Problem ist ein zentrales Modell der Himmelsmechanik, das die Bewegung zweier Massen untersucht, die sich unter dem Einfluss ihrer gegenseitigen Gravitation befinden. Es beschreibt ein isoliertes System, in dem keine äusseren Kräfte wirken, und ermöglicht die analytische Bestimmung der Bahnen, auf denen sich die Körper bewegen~\cite{Spektrum}. Diese Bahnen, die je nach Anfangsbedingungen elliptisch, parabolisch oder hyperbolisch sein können, liefern wichtige Erkenntnisse über die Dynamik von Planeten, Monden und Satelliten. Als analytisch lösbares Problem bildet es die Grundlage für die Erweiterung auf komplexere Mehrkörpersysteme und spielt eine wesentliche Rolle in der Astronomie und Physik.
 
 \subsubsection{Die Mathematische Beschreibung}
 
@@ -225,7 +241,7 @@ Da sich die beiden Körper (Massen \( m_1, m_2 \), Positionen \( \vec{x_1}, \vec
 	m_2 \ddot{\vec{x}}_2 &= \vec{F}_{2,1}
 \end{align*}
 
-Die Kräfte \( \vec{F}_{1,2} und \vec{F}_{2,1} \) hängen gemäß dem Relativitätsprinzip nur von der relativen Position der Körper zueinander ab. Der Vektor \( \vec{r} := \vec{x_1} - \vec{x_2} \) 
+Die Kräfte \( \vec{F}_{1,2} und \vec{F}_{2,1} \) hängen gemäss dem Relativitätsprinzip nur von der relativen Position der Körper zueinander ab. Der Vektor \( \vec{r} := \vec{x_1} - \vec{x_2} \) 
 beschreibt die Position des zweiten Körpers relativ zum ersten, während der Vektor \( \vec{R} \) den Ortsvektor des Schwerpunkts oder Baryzentrums des Systems darstellt. 
 Darüber hinaus sind die beiden Kräfte nach dem 3. Newtonschen Axiom einander entgegengesetzt und gleich gross:
 
@@ -234,13 +250,13 @@ Darüber hinaus sind die beiden Kräfte nach dem 3. Newtonschen Axiom einander e
 \end{align*}
 
 \subsubsection{Übergang zum äquivalenten Einkörperproblem}
-Die mathematische Modellierung der Position zweier Körper im Raum basiert auf Positionsvektoren, die vom Koordinatenursprung ausgehen. Dabei erfolgt die Berechnung in Relativ- und Schwerpunktkoordinaten (siehe Abbildung 1).
+Die mathematische Modellierung der Position zweier Körper im Raum basiert auf Positionsvektoren, die vom Koordinatenursprung ausgehen. Dabei erfolgt die Berechnung in Relativ- und Schwerpunktkoordinaten siehe Abb.\ref{Zwei-Körper}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{Zwei-Körper.png}
-	\caption[Eintrag in Abbildungsverzeichnis von Grumpy Cat]{Mathematische Modellierung der Lage zweier Körper im Raum, x1 und x2 sind vom Koordinatenursprung ausgehende Positionsvektoren.}
-	\label{Zwei-Körper .}
+	\caption[Eintrag in Abbildungsverzeichnis von der Mathematische Modellierung der Zwei Körper]{Mathematische Modellierung der Lage zweier Körper im Raum, x1 und x2 sind vom Koordinatenursprung ausgehende Positionsvektoren.}
+	\label{Zwei-Körper}
 \end{figure}
 
 \begin{align*}
@@ -266,7 +282,7 @@ wobei,
 \begin{align*}
 \mu = \left( \frac{1}{m_1} + \frac{1}{m_2} \right)^{-1} = \frac{m_1 m_2}{M}
 \end{align*}
-Die reduzierte Masse des Zweikörperproblems wird als $\mu$ bezeichnet. Sie ist stets kleiner als die kleinere der beiden Massen und nähert sich dieser an, wenn die grössere Masse gegen unendlich geht. Die zugehörige Bewegungsgleichung beschreibt, dass die Relativkoordinate $\vec{r}(t)$ sich so verhält, als ob ein Körper der Masse $\mu$ sich in einem ortsfesten Kraftfeld $\vec{F}(\vec{r})$ bewegt wird. Dies entspricht dem äquivalenten Einkörperproblem. Für alle Fälle, in denen die Stärke der Kraft von einer Potenz des Abstandes $r$ abhängt, wurde es zuerst von Newton gelöst ~\cite{Gleisner2013}.
+Die reduzierte Masse des Zweikörperproblems wird als $\mu$ bezeichnet. Sie ist stets kleiner als die kleinere der beiden Massen und nähert sich dieser an, wenn die grössere Masse gegen unendlich geht. Die zugehörige Bewegungsgleichung beschreibt, dass die Relativkoordinate $\vec{r}(t)$ sich so verhält, als ob ein Körper der Masse $\mu$ sich in einem ortsfesten Kraftfeld $\vec{F}(\vec{r})$ bewegt wird. Dies entspricht dem äquivalenten Einkörperproblem. Für alle Fälle, in denen die Stärke der Kraft von einer Potenz des Abstandes $r$ abhängt, wurde es zuerst von Newton gelöst~\cite{Gleisner2013}.
 
 \subsubsection{Gemeinsame Bewegung}
 Nachdem das Einkörperproblem durch die Bahnkurve $\vec{r}(t)$
@@ -278,7 +294,7 @@ ebenfalls bekannt ist, lässt sich das System wieder in die ursprünglichen Koor
 	\vec{x_2}(t) &= \vec{R}(t) - \frac{m_1}{M} \vec{r}(t)
 \end{align*}
 
-Wird das System im Schwerpunkt betrachtet (mathematisch, durch eine Koordinatentransformation, insbesondere eine Verschiebung um \( \vec{R} \) anwendet), so bewegen sich beide Körper um den Schwerpunkt, der stets auf ihrer Verbindungsline liegt und beschreibt zwei zur Kurve \( \mathbf{r}(t) \) ähnliche Bahnen, deren Größenverhältnis durch das reziproke Massenverhältnis bestimmt ist. Durch zweimaliges Differenzieren von \( \vec{x_1}(t) \) und Einsetzen von
+Wird das System im Schwerpunkt betrachtet (mathematisch, durch eine Koordinatentransformation, insbesondere eine Verschiebung um \( \vec{R} \) anwendet), so bewegen sich beide Körper um den Schwerpunkt, der stets auf ihrer Verbindungsline liegt und beschreibt zwei zur Kurve \( \mathbf{r}(t) \) ähnliche Bahnen, deren Grössenverhältnis durch das reziproke Massenverhältnis bestimmt ist. Durch zweimaliges Differenzieren von \( \vec{x_1}(t) \) und Einsetzen von
 
 \begin{align*}
 	\vec{r} = \frac{M}{m_2} \vec{x_1}
@@ -321,7 +337,6 @@ Die zweite dieser Gleichungen bestätigt erneut die Erhaltung des Drehimpulses \
 	L = \mu r^2 \dot{\varphi}
 \end{align*}
 
-
 \subsubsection{Energieerhaltung}
 Für das Keplerproblem im engeren Sinne wird die Kraft durch die Gravitation beschrieben:
 
@@ -340,13 +355,12 @@ Durch Multiplikation mit \( \dot{r} \) und \( \mu \) lässt sich diese Gleichung
 	\frac{d}{dt} \left( \frac{\mu}{2} \dot{r}^2 + \frac{L^2}{2 \mu r^2} - \frac{GM \mu}{r} \right) = 0
 \end{align*}
 
-Die Terme in dieser Gleichung entsprechen dem radialen Anteil der kinetischen Energie, dem winkelabhängigen Anteil der kinetischen Energie, der als Zentrifugalpotential die Radialbewegung beeinflusst, sowie der potenziellen Energie des Körpers im äußeren Zentralpotential. Zusammen ergeben sie die Gesamtenergie:
+Die Terme in dieser Gleichung entsprechen dem radialen Anteil der kinetischen Energie, dem winkelabhängigen Anteil der kinetischen Energie, der als Zentrifugalpotential die Radialbewegung beeinflusst, sowie der potenziellen Energie des Körpers im äusseren Zentralpotential. Zusammen ergeben sie die Gesamtenergie~\cite{Physik-Schule}:
 
 \begin{align*}
 	E = \frac{\mu}{2} \dot{r}^2 + \frac{L^2}{2 \mu r^2} - \frac{GM \mu}{r}
-\end{align*} ~\cite{Physik-Schule}
+\end{align*}
 Diese Gesamtenergie bleibt laut der obigen Gleichung zeitlich konstant und ist somit ebenfalls ein Bewegungsintegral. Die Erhaltung der Gesamtenergie folgt direkt daraus, dass es sich bei einem Gravitationsfeld um ein konservatives Feld handelt. Weiterführende Informationen zu diesem Thema finden sich im Artikel zur spezifischen Bahnenenergie, der diese Zusammenhänge detaillierter behandelt.
-
 
 \subsubsection{Bahnkurve-Kegelschnittform}
 
@@ -377,14 +391,19 @@ Ist die Gesamtenergie negativ, dann gilt \( \epsilon < 1 \) und die Bewegung ist
 	a = \frac{p}{1 - \epsilon^2}
 \end{align*}
 ist. Dies ist das erste keplersche Gesetz (der Ellipsensatz). Dass die Bahnkurve des gebundenen Zustands immer geschlossen ist, ist bei radialsymmetrischen Kraftfeldern ein Spezialfall, der sonst nur noch beim harmonischen Oszillator vorkommt, dessen Kraftfeld proportional zum Abstand vom Zentrum wächst.
-Ist die Gesamtenergie positiv, so ist \( \epsilon > 1 \) und die Bahn ist eine Hyperbel mit kleinstem Abstand \( \frac{p}{1 + \epsilon} \) vom Zentrum. Der Grenzfall mit Energie \( E = 0 \) und \( \epsilon = 1 \) ist eine Parabel, deren kleinster Abstand vom Zentrum \( \frac{p}{2} \) ist ~\cite{Krug2011}.
+Ist die Gesamtenergie positiv, so ist \( \epsilon > 1 \) und die Bahn ist eine Hyperbel mit kleinstem Abstand \( \frac{p}{1 + \epsilon} \) vom Zentrum. Der Grenzfall mit Energie \( E = 0 \) und \( \epsilon = 1 \) ist eine Parabel, deren kleinster Abstand vom Zentrum \( \frac{p}{2} \) ist~\cite{Krug2011}.
 
 In einem idealisierten Zwei-Körper-Problem, bei dem nur die gegenseitige Gravitationskraft wirkt und keine anderen Störungen oder relativistischen Effekte berücksichtigt werden, bewegen sich die Körper immer entlang einer Kegelschnittbahn (Ellipse, Parabel oder Hyperbel).
-
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{exzentrizitaet.jpg}
+	\caption[Eintrag in Abbildungsverzeichnis von Kegelschnittbahnen]{Kegelschnittbahnen}
+	\label{Exzentrizität}
+\end{figure}
 
 \subsection{Drei-Körper-Problem}
-Im Gegensatz zum Zwei-Körper-Problem, das durch die Kepler-Gesetze vollständig analytisch lösbar ist, gibt es für das Drei-Körper-Problem keine allgemeine analytische Lösung. Das Problem beschreibt die Bewegung dreier Objekte (z.\,B.\ Sterne, Planeten oder Monde), die sich gegenseitig aufgrund der Gravitation anziehen. Jedes Objekt wird durch die resultierende Gravitationskraft der beiden anderen beeinflusst, was zu einer sehr komplizierten Dynamik führt.
-Für das Zwei-Körper-Problem kann die Bewegung der beiden Objekte auf elliptische, parabolische oder hyperbolische Bahnen reduziert werden, je nach den Anfangsbedingungen. Das Drei-Körper-Problem hingegen führt oft zu unvorhersehbaren, chaotischen Bewegungen, außer in speziellen Fällen mit symmetrischen oder stark eingeschränkten Anfangsbedingungen.
+Im Gegensatz zum Zwei-Körper-Problem, das durch die Kepler-Gesetze vollständig analytisch lösbar ist, gibt es für das Drei-Körper-Problem keine allgemeine analytische Lösung. Das Problem beschreibt die Bewegung dreier Körper (z.\,B.\ Sterne, Planeten oder Monde), die sich gegenseitig aufgrund der Gravitation anziehen. Jeder Körper wird durch die resultierende Gravitationskraft der beiden anderen beeinflusst, was zu einer sehr komplizierten Dynamik führt.
+Für das Zwei-Körper-Problem kann die Bewegung der beiden Körper auf elliptische, parabolische oder hyperbolische Bahnen reduziert werden, je nach den Anfangsbedingungen. Das Drei-Körper-Problem hingegen führt oft zu unvorhersehbaren, chaotischen Bewegungen, außer in speziellen Fällen mit symmetrischen oder stark eingeschränkten Anfangsbedingungen.
 
 \subsubsection{Mathematische Beschreibung}
 Das Drei-Körper-Problem befasst sich mit der Bestimmung der Bewegung von drei Massen \( m_1 \), \( m_2 \) und \( m_3 \), die durch ihre wechselseitigen Gravitationskräfte miteinander interagieren. Die Beschleunigung jeder dieser Körper wird durch die Gravitationsanziehung der beiden anderen Massen bestimmt, gemäß dem Gravitationsgesetz von Newton. Die Position jedes Körpers wird durch seinen Vektor \( \mathbf{r}_i \) im dreidimensionalen Raum beschrieben. Die Gravitationskraft zwischen zwei Körpern nimmt mit der dritten Potenz des Abstands zwischen ihnen ab, wobei die resultierende Kraft auf jeden Körper die Summe der von den beiden anderen Körpern ausgeübten Kräfte ist. Dies führt zu einem System gekoppelter, nichtlinearer Differentialgleichungen, bei dem die Beschleunigung jedes Körpers von den relativen Positionen aller drei Massen abhängt. Aufgrund der Komplexität dieses Systems ist eine exakte analytische Lösung im Allgemeinen nicht möglich, weshalb es in der Regel numerisch gelöst wird.
@@ -396,69 +415,62 @@ Die wichtigsten Gleichungen, die die Bewegung der drei Körper beschreiben, sind
 \end{align*}
 
 
-Diese Gleichungen beschreiben, wie sich die Beschleunigungen der drei Körper aufgrund ihrer gegenseitigen Gravitationskräfte entwickeln ~\cite{threebodylibretexts}.
+Diese Gleichungen beschreiben, wie sich die Beschleunigungen der drei Körper aufgrund ihrer gegenseitigen Gravitationskräfte entwickeln~\cite{threebodylibretexts}.
 
 \subsubsection{Bekannte Lösungen des Dreikörperproblems}
-\paragraph{1- Klassische Bahnen: }
-Das System, das die Bewegung von drei gravitativ wechselwirkenden Körpern beschreibt, kann im Allgemeinen nicht analytisch gelöst werden. Es existieren jedoch zwei bekannte analytische Lösungen, die auf Euler und Lagrange zurückgehen.
-Bei der Euler-Bahn beginnen die drei Körper in einer kollinearen Anordnung. Die beiden äußeren Körper bewegen sich auf einem Kreis um den zentralen Körper, der sich im Mittelpunkt dieses Kreises befindet (siehe Abb. 2a).
-Bei der Lagrange-Bahn starten die drei Körper an den Eckpunkten eines gleichseitigen Dreiecks. Während der Bewegung behalten sie diese dreieckige Struktur bei und bewegen sich gemeinsam auf einem Kreis (siehe Abb. 2b).
+\paragraph{1- Klassische Bahnen:}
+Das System, das die Bewegung von drei gravitativ wechselwirkenden Körpern beschreibt, 
+kann im Allgemeinen nicht analytisch gelöst werden. 
+Es existieren jedoch zwei bekannte analytische Lösungen, 
+die auf Euler und Lagrange zurückgehen.
+Bei der Euler-Bahn beginnen die drei Körper in einer kollinearen Anordnung. 
+Die beiden äusseren Körper bewegen sich auf einem Kreis um den zentralen Körper, 
+der sich im Mittelpunkt dieses Kreises befindet (siehe Abb.\ref{EulerUndLagrange} 2a).
+Bei der Lagrange-Bahn starten die drei Körper an den Eckpunkten eines gleichseitigen 
+Dreiecks. Während der Bewegung behalten sie diese dreieckige Struktur bei und 
+bewegen sich gemeinsam auf einem Kreis (siehe Abb.\ref{EulerUndLagrange} 2b)~\cite{Ramos2019}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{EulerUndLagrange.png}
-	\caption[Eintrag in Abbildungsverzeichnis von Grumpy Cat]{Klassische Drei-Körper-Orbits: (a) Euler-Orbit, (b) Lagrange-Orbit.}
-	\label{EulerUndLagrange .}
+	\caption[Eintrag in Abbildungsverzeichnis von Euler und Lagrange Orbit]{Klassische Drei-Körper-Orbits: (a) Euler-Orbit, (b) Lagrange-Orbit.}
+	\label{EulerUndLagrange}
 \end{figure}
 
-\paragraph{2- Figure-8: }
-Der sogenannte Figure-8 Orbit ist die einzige bekannte stabile Lösung des Drei-Körper-Problems. In diesem Orbit starten die drei Körper in einer kollinearen Konfiguration und bewegen sich entlang einer 8-förmigen Bahn (Siehe Abb.3).
-
+\paragraph{2- Figure-8:}
+Die Figure-Eight-Bahn ist eine spezielle, periodische Lösung des 
+Drei-Körper-Problems in der Himmelsmechanik. 
+Drei Massenpunkte gleicher Masse bewegen sich dabei entlang 
+einer symmetrischen Bahn in Form einer Acht. 
+Diese Lösung wurde 1993 von Christopher Moore entdeckt und 
+später von Carles Simó analysiert. 
+Sie zeichnet sich durch Null-Drehimpuls und 
+eine perfekte Balance der Gravitationskräfte aus, 
+wodurch die Bewegung stabil bleibt. Die Bahn ist ein seltenes 
+Beispiel für geordnete Dynamik in einem ansonsten chaotischen System und 
+bietet wertvolle Einblicke in die Theorie der Mehrkörperprobleme.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{figure8Orbit.png}
-    \caption{Figure-8 Orbit.}
-    \label{fig:figure8Orbit}
+    \includegraphics[width=0.7\textwidth]{figure8.png}
+    \caption[Eintrag in Abbildungsverzeichnis von Figure-8]{Figure-8}
+    \label{figure8}
 \end{figure}
 
-Um diesen Orbit zu konstruieren, können wir die Integrale der Bewegung verwenden, 
-zusammen mit der Bedingung, dass die drei Körper in einer kollinearen Konfiguration (Euler-Konfiguration) starten, um die Anzahl der zu spezifizierenden Parameter zu reduzieren. 
-Wenn die Anfangspositionen in einer Euler-Konfiguration gesetzt werden, erhalten wir fünf Einschränkungen für die Positionen der Körper (sie wurden auf der x-Achse gewählt), bis hin zum Abstand der beiden äußeren Körper zum zentralen Körper, der ohne Verlust der Allgemeinheit auf 1 gesetzt werden kann (dies würde nur zu einem allgemeinen Skalierungsfaktor in der potentiellen Energie führen, und somit die Größe der Anfangsgeschwindigkeiten beeinflussen). 
-Durch Arbeiten im Bezugssystem des Schwerpunkts können wir $P = 0$ setzen, was zwei Einschränkungen für die Parameter ergibt. Darüber hinaus handelt es sich um einen Orbit mit null Drehimpuls, d.h., $L = 0$, was eine weitere Einschränkung liefert. Die Erhaltung der Energie liefert die letzte Einschränkung, wodurch uns nur noch zwei ``freie" Parameter verbleiben, $v_x$ und $v_y$, die beiden Komponenten der Geschwindigkeit eines der drei Körper, wobei dieser auf der Position (1, 0) gewählt wurde. Um den Figure-8 Orbit zu erzeugen, lauten die Werte dieser Parameter ~\cite{Ramos2019}:
-\begin{equation}
-	v_x = 0.3471128135672417, \quad v_y = 0.532726851767674
-	\label{ref1}
-\end{equation}
 
-
-\paragraph{3- Andere Orbits: } 
-Die Figur-8-Orbit-Methode ermöglicht die Identifizierung einer Vielzahl alternativer Orbits (die allesamt instabil sind), durch die Angabe unterschiedlicher Werte für $v_x$ und $v_y$.
-Einige dieser anderen Orbits sind in Abbildung \ref{Abb:andereOrbits} gezeigt, mit den Werten von $v_x$ und $v_y$, die unter den Abbildungen angegeben sind.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{AndereOrbits.png}
-    \caption{Andere Orbits.}
-    \label{Abb:andereOrbits}
-\end{figure}
-
-\paragraph{Das Eingeschränkte Drei-Körper-Problem:}
+\paragraph{3- Das Eingeschränkte Drei-Körper-Problem:}
 Das eingeschränkte Drei-Körper-Problem ist ein Spezialfall der klassischen Mechanik, bei dem die Bewegung eines dritten Körpers mit vernachlässigbarer Masse - wie eines Satelliten - unter dem gravitativen Einfluss zweier massereicher Primärkörper untersucht wird. Diese bewegen sich auf stabilen, kreisförmigen Bahnen um ihren gemeinsamen Schwerpunkt.
 Das Modell setzt voraus, dass die Masse des dritten Körpers die Bewegung der Primärkörper nicht beeinflusst und dass alle drei Körper in derselben Ebene liegen. Es dient der Vereinfachung komplexer dynamischer Systeme und zur Analyse von Gleichgewichtspunkten.
-Ein zentraler Anwendungsbereich ist die Berechnung von Satellitenbahnen im Erde-Mond- oder Sonne-Erde-System, insbesondere die Untersuchung der Lagrange-Punkte, an denen sich die Gravitationskräfte und die Zentrifugalkraft ausgleichen. Hier kann der dritte Körper eine stabile Position einnehmen ~\cite{Weber}.
-
+Ein zentraler Anwendungsbereich ist die Berechnung von Satellitenbahnen im Erde-Mond- oder Sonne-Erde-System, insbesondere die Untersuchung der Lagrange-Punkte, an denen sich die Gravitationskräfte und die Zentrifugalkraft ausgleichen. Hier kann der dritte Körper eine stabile Position einnehmen~\cite{Weber}.
 
 \subsubsection{Integration Methoden}
 Zur Lösung des Systems von gewöhnlichen Differentialgleichungen (DGL), das die Bewegung der Körper beschreibt, ist der Einsatz eines numerischen Solvers erforderlich, um eine approximative Lösung zu erhalten. Es existiert eine Vielzahl von Solvern, die je nach ihrer Genauigkeit (Ordnung) sowie den spezifischen Eigenschaften, die sie aufweisen, ausgewählt werden können.
 
 \paragraph{4.1 Euler-Verfahren: }
-Dies ist der einfachste numerische DGL-Solver. Für ein System, das in Vektorschreibweise als $ \dot{y} = f(t, y) $, und mit einem Zeitschritt $\delta t$, geschrieben wird, wird der Wert von $y$ zum Zeitpunkt $t + \delta t$, $y_{i+1}$, in Bezug auf den Wert von $y$ zum Zeitpunkt $t$, $y_i$, berechnet als:
-
+Dies ist der einfachste numerische DGL-Solver. Für ein System, das in Vektorschreibweise als $ \dot{y} = f(t, y) $, und mit einem Zeitschritt $\delta t$, geschrieben wird, wird der Wert von $y$ zum Zeitpunkt $t + \delta t$, $y_{i+1}$, in Bezug auf den Wert von $y$ zum Zeitpunkt $t$, $y_i$, berechnet als~\cite{Zhou&Long2018}:
 \begin{equation*}
     y_{i+1} = y_i + f(t, y_i)\delta t
 \end{equation*}
-~\cite{Zhou&Long2018}Dies ist ein Verfahren erster Ordnung, d.h. der Fehler in der Näherung ist von der Ordnung $\delta t$. Dies macht das Verfahren sehr ungenau, und es ist notwendig, einen sehr kleinen Zeitschritt anzugeben, um eine gute Näherung zu erhalten.
-
+Dies ist ein Verfahren erster Ordnung, d.h. der Fehler in der Näherung ist von der Ordnung $\delta t$. Dies macht das Verfahren sehr ungenau, und es ist notwendig, einen sehr kleinen Zeitschritt anzugeben, um eine gute Näherung zu erhalten.
 
 \paragraph{Runge-Kutta-Verfahren vierter Ordnung}
 Das Runge-Kutta-Verfahren vierter Ordnung (rk4-Verfahren) ist eine Erweiterung des Euler-Verfahrens, das die Genauigkeit verbessert, indem mehr Auswertungen des Systems pro Schritt vorgenommen werden. Für ein System, das in Vektorschreibweise als $\dot{y} = f(t, y)$ und mit einem Zeitschritt $\delta t$ geschrieben wird, wird der Wert von $y$ zum Zeitpunkt $t + \delta t$, $y_{i+1}$, in Bezug auf den Wert von $y$ zum Zeitpunkt $t$, $y_i$, berechnet als:
@@ -469,21 +481,18 @@ Das Runge-Kutta-Verfahren vierter Ordnung (rk4-Verfahren) ist eine Erweiterung d
     k_3 &= f\left(t + \frac{\delta t}{2}, y_i + \frac{k_2}{2} \delta t \right) \delta t \\
     k_4 &= f(t + \delta t, y_i + k_3 \delta t) \delta t \\
     y_{i+1} &= y_i + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)
-\end{align*}~\cite{Swarthmore2005}
+\end{align*}
 
-Dies ist ein Verfahren vierter Ordnung, d.h., der Fehler in der Näherung hat die Ordnung $(\delta t)^4$. Dies macht das Verfahren deutlich genauer als das Euler-Verfahren. Zum Vergleich mit dem Euler-Verfahren müssen wir denselben Zeitschritt $\delta t$ wählen, aber viermal so viele Auswertungen pro Zeitschritt vornehmen, da das rk4-Verfahren viermal so viele Auswertungen des Systems pro Zeitschritt erfordert.
-
-
+Dies ist ein Verfahren vierter Ordnung, d.h., der Fehler in der Näherung hat die Ordnung $(\delta t)^4$. Dies macht das Verfahren deutlich genauer als das Euler-Verfahren. Zum Vergleich mit dem Euler-Verfahren müssen wir denselben Zeitschritt $\delta t$ wählen, aber viermal so viele Auswertungen pro Zeitschritt vornehmen, da das rk4-Verfahren viermal so viele Auswertungen des Systems pro Zeitschritt erfordert~\cite{Swarthmore2005}.
 
 \subsection{N-Körper Problem}
 Das n-Körper-Problem ist ein klassisches Problem in der Physik und beschreibt die Bewegung mehrerer Massenpunkte, die sich gegenseitig durch ihre Gravitationskräfte beeinflussen. Die Grundgleichung für die Beschleunigung eines Körpers \( j \) in einem solchen System ist gegeben durch:
 
 \begin{align*}
 	m_j \ddot{\vec{r}}_j = G \sum_{\substack{k=1 \\ k \neq j}}^n \frac{m_j m_k (\vec{r}_k - \vec{r}_j)}{|\vec{r}_k - \vec{r}_j|^3}
-\end{align*} ~\cite{Schäfer2017}
+\end{align*}
 
-
-Hier steht \( m_j \) für die Masse des betrachteten Körpers, \( \vec{r}_j \) für dessen Position, und \( G \) für die Gravitationskonstante. Die Summe erstreckt sich über alle anderen Körper \( k \) (mit \( k \neq j \)), die eine Gravitationskraft auf den Körper \( j \) ausüben. Der Ausdruck \( \frac{\vec{r}_k - \vec{r}_j}{|\vec{r}_k - \vec{r}_j|^3} \) beschreibt dabei die Richtung und Stärke der Gravitationskraft zwischen den beiden Körpern \( j \) und \( k \), wobei der Abstand \( |\vec{r}_k - \vec{r}_j| \) hoch drei im Nenner steht, um sicherzustellen, dass die Kraft gemäß dem Gravitationsgesetz mit dem Quadrat des Abstands abnimmt.
+Hier steht \( m_j \) für die Masse des betrachteten Körpers, \( \vec{r}_j \) für dessen Position, und \( G \) für die Gravitationskonstante. Die Summe erstreckt sich über alle anderen Körper \( k \) (mit \( k \neq j \)), die eine Gravitationskraft auf den Körper \( j \) ausüben. Der Ausdruck \( \frac{\vec{r}_k - \vec{r}_j}{|\vec{r}_k - \vec{r}_j|^3} \) beschreibt dabei die Richtung und Stärke der Gravitationskraft zwischen den beiden Körpern \( j \) und \( k \), wobei der Abstand \( |\vec{r}_k - \vec{r}_j| \) hoch drei im Nenner steht, um sicherzustellen, dass die Kraft gemäss dem Gravitationsgesetz mit dem Quadrat des Abstands abnimmt~\cite{Schäfer2017}.
 
 Das n-Körper-Problem stellt eine Herausforderung dar, weil ab mehr als zwei Körpern eine chaotische Dynamik entsteht, die eine exakte analytische Lösung unmöglich macht. Während das Zwei-Körper-Problem stabile, vorhersagbare Bahnen liefert, wird das System bei drei oder mehr Körpern extrem empfindlich gegenüber Anfangsbedingungen.
 Dadurch sind die Bewegungen der Körper langfristig unvorhersehbar und schwer exakt zu berechnen. Numerische Simulationen, die die Bewegung der Körper Schritt für Schritt berechnen, bieten eine Lösungsmöglichkeit, jedoch nur in Form von Näherungen. Die Berechnungen sind dabei extrem aufwendig, da für jede Wechselwirkung die Kräfte separat berücksichtigt werden müssen, was bei steigender Körperanzahl exponentiell mehr Rechenleistung erfordert.
@@ -497,35 +506,40 @@ Der Algorithmus basiert auf der Annahme, dass Gruppen von weit entfernten Teilch
 
 \subsubsection{Algorithmusschritte}
 
-\paragraph{1. Baumerstellung}
-Der gesamte Raum wird in vier (2D) bzw. acht (3D) Quadranten unterteilt. Jedes Teilchen wird entsprechend seiner Position in einen dieser Quadranten einsortiert. Ist ein Quadrant bereits belegt, wird er weiter unterteilt, bis jedes Teilchen in einem eigenen Unterquadranten liegt. Dieses rekursive Unterteilen führt zur Bildung des Quadtrees bzw. Octrees ~\cite{Wu2024}.
+\paragraph{1. Baumerstellung:}
+Der gesamte Raum wird in vier (2D) bzw. acht (3D) Quadranten unterteilt. Jedes Teilchen wird entsprechend seiner Position in einen dieser Quadranten einsortiert. Ist ein Quadrant bereits belegt, wird er weiter unterteilt, bis jedes Teilchen in einem eigenen Unterquadranten liegt. Dieses rekursive Unterteilen führt zur Bildung des Quadtrees bzw. Octrees~\cite{Wu2024}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Baumstruktur.png}
-	\caption[Eintrag in Abbildungsverzeichnis von Grumpy Cat]{Baumstruktur}
-	\label{Baumstruktur .}
+	\caption[Eintrag in Abbildungsverzeichnis von Baumstruktur]{Baumstruktur}
+	\label{Baumstruktur}
 \end{figure}
 
+\paragraph{2. Masseverteilung:}
+Nach der Baumerstellung wird für jeden Knoten des Baumes die Gesamtmasse und der Massenschwerpunkt der in ihm enthaltenen Teilchen berechnet~\cite{Burtscher&Pingali2011}. Diese Informationen sind entscheidend für die spätere Kraftberechnung.
 
-
-\paragraph{2. Masseverteilung}
-Nach der Baumerstellung wird für jeden Knoten des Baumes die Gesamtmasse und der Massenschwerpunkt der in ihm enthaltenen Teilchen berechnet ~\cite{Burtscher&Pingali2011}. Diese Informationen sind entscheidend für die spätere Kraftberechnung.
-
-\paragraph{3. Kraftberechnung}
-Um die auf ein bestimmtes Teilchen wirkende Kraft zu berechnen, wird der Baum erneut durchlaufen. Für jeden Knoten wird das Verhältnis von dessen Größe zur Entfernung zum betrachteten Teilchen berechnet ~\cite{BarnesHutBeltoforion}. Ist dieses Verhältnis kleiner als ein vorgegebener Schwellenwert ($\theta$), wird der gesamte Knoten als eine einzelne Masse im Massenschwerpunkt betrachtet. Andernfalls werden die Unterknoten weiter untersucht. Dieses Verfahren reduziert die Anzahl der notwendigen Kraftberechnungen erheblich.
+\paragraph{3. Kraftberechnung:}
+Um die auf ein bestimmtes Teilchen wirkende Kraft zu berechnen, wird der Baum erneut durchlaufen. Für jeden Knoten wird das Verhältnis von dessen Grösse zur Entfernung zum betrachteten Teilchen berechnet~\cite{BarnesHutBeltoforion}. Ist dieses Verhältnis kleiner als ein vorgegebener Schwellenwert ($\theta$), wird der gesamte Knoten als eine einzelne Masse im Massenschwerpunkt betrachtet. Andernfalls werden die Unterknoten weiter untersucht. Dieses Verfahren reduziert die Anzahl der notwendigen Kraftberechnungen erheblich.
 
 \subsubsection{Parameter $\theta$}
-Der Schwellenwert $\theta$ bestimmt die Genauigkeit der Näherung. Ein kleiner Wert für $\theta$ führt zu einer höheren Genauigkeit, da weniger Gruppierungen vorgenommen werden und mehr direkte Berechnungen stattfinden. Ein größerer Wert reduziert den Rechenaufwand, kann jedoch die Genauigkeit beeinträchtigen. Typischerweise wird $\theta$ auf Werte um 0,5 bis 1 gesetzt, abhängig von den Anforderungen an die Simulation.
+Der Schwellenwert $\theta$ bestimmt die Genauigkeit der Näherung. Ein kleiner Wert für $\theta$ führt zu einer höheren Genauigkeit, da weniger Gruppierungen vorgenommen werden und mehr direkte Berechnungen stattfinden. Ein grösserer Wert reduziert den Rechenaufwand, kann jedoch die Genauigkeit beeinträchtigen. Typischerweise wird $\theta$ auf Werte um 0.5 bis 1 gesetzt, abhängig von den Anforderungen an die Simulation.
 
 \subsubsection{Vorteile und Anwendungen}
-Der Barnes-Hut-Algorithmus ermöglicht die Simulation von Systemen mit Millionen von Teilchen, was mit direkten Berechnungsmethoden unpraktikabel wäre. Er findet Anwendung in der Astrophysik, beispielsweise bei der Simulation von Galaxien, sowie in anderen Bereichen wie der Molekulardynamik und der Informatik, etwa beim kräftebasierten Zeichnen von Graphen ~\cite{Heer2017}.
+Der Barnes-Hut-Algorithmus ermöglicht die Simulation von Systemen mit Millionen von Teilchen, was mit direkten Berechnungsmethoden unpraktikabel wäre. Er findet Anwendung in der Astrophysik, beispielsweise bei der Simulation von Galaxien, sowie in anderen Bereichen wie der Molekulardynamik und der Informatik, etwa beim kräftebasierten Zeichnen von Graphen~\cite{Heer2017}.
 
 \subsection{React.js - Funktionsweise und Anwendungen}
 
-React.js ist eine JavaScript-Bibliothek, die zur Entwicklung von Benutzeroberflächen verwendet wird. Sie basiert auf einer komponentenbasierten Architektur, bei der Anwendungen in wiederverwendbare, eigenständige Komponenten unterteilt werden. Jede Komponente verwaltet ihre eigenen Daten und ihr Verhalten. Dies erleichtert die Pflege und Erweiterung komplexer Anwendungen. Ein zentrales Merkmal von React.js ist das virtuelle DOM. Statt Änderungen direkt im echten DOM vorzunehmen, werden diese zunächst im virtuellen DOM simuliert. Anschließend werden nur die tatsächlich geänderten Elemente in den echten DOM übernommen. Dieser Ansatz verbessert die Leistung erheblich, insbesondere bei Anwendungen mit häufigen Aktualisierungen ~\cite{ReactJSTutorial}.
+React.js ist eine JavaScript-Bibliothek, die zur Entwicklung 
+von Benutzeroberflächen verwendet wird. 
+Sie basiert auf einer komponentenbasierten Architektur, 
+bei der Anwendungen in wiederverwendbare, eigenständige 
+Komponenten unterteilt werden. 
+Jede Komponente verwaltet ihre eigenen Daten und ihr Verhalten. 
+Dies erleichtert die Pflege und Erweiterung komplexer Anwendungen. 
+Ein zentrales Merkmal von React.js ist das virtuelle DOM\footnote{Document Object Model}. Statt Änderungen direkt im echten DOM vorzunehmen, werden diese zunächst im virtuellen DOM simuliert. Anschließend werden nur die tatsächlich geänderten Elemente in den echten DOM übernommen. Dieser Ansatz verbessert die Leistung erheblich, insbesondere bei Anwendungen mit häufigen Aktualisierungen~\cite{ReactJSTutorial}.
 
-Ein weiteres wichtiges Konzept in React.js ist der unidirektionale Datenfluss. Daten werden von Eltern- zu Kinderkomponenten weitergegeben, was die Vorhersagbarkeit und Wartbarkeit des Codes erhöht. Seit der Einführung von React Hooks in Version 16.8 können Entwickler Zustände und Lebenszyklusmethoden in funktionalen Komponenten verwenden. Hooks wie \texttt{useState} und \texttt{useEffect} vereinfachen die Verwaltung von Zuständen und Nebenwirkungen.
+Ein weiteres wichtiges Konzept in React.js ist der unidirektionale Datenfluss. Daten werden von Eltern- zu Kinderkomponenten weitergegeben, was die Vorhersagbarkeit und Wartbarkeit des Codes erhöht. Seit der Einführung von React Hooks in Version 16.8 können Entwickler Zustände und Lebenszyklusmethoden in funktionalen Komponenten verwenden. Hooks wie \javascriptinline{useState} und \javascriptinline{useEffect} vereinfachen die Verwaltung von Zuständen und Nebenwirkungen.
 
 \subsubsection{Anwendungen von React.js}
 React.js eignet sich besonders gut für Single-Page Applications (SPAs). In solchen Anwendungen werden nur die benötigten Inhalte aktualisiert, anstatt komplette Seiten neu zu laden. Dies führt zu einer flüssigen und reaktionsschnellen Benutzererfahrung. Darüber hinaus ist React.js ideal für datenintensive Anwendungen, wie z.B. Dashboards und Simulationen, die häufige Aktualisierungen und eine effiziente Verwaltung des Zustands erfordern. Weitere Anwendungen finden sich in der Datenvisualisierung, insbesondere in Kombination mit Bibliotheken wie D3.js und Chart.js, sowie in interaktiven Simulationen und Modellen.
@@ -533,7 +547,7 @@ React.js eignet sich besonders gut für Single-Page Applications (SPAs). In solc
 \subsubsection{Warum eignet sich React.js für den Barnes-Hut-Algorithmus?}
 React.js bietet eine ideale Grundlage für die Implementierung des Barnes-Hut-Algorithmus, da dieser auf häufigen Aktualisierungen und dynamischen Daten basiert. Das virtuelle DOM sorgt dafür, dass nur die tatsächlich betroffenen Teile der Benutzeroberfläche aktualisiert werden. Dies ist besonders wichtig bei der Visualisierung von Simulationen mit vielen Teilchen, bei denen laufend neue Positionen und Kräfte berechnet werden.
 
-Die komponentenbasierte Struktur von React.js ermöglicht es, jede Simulationseinheit -- sei es ein Teilchen oder ein Knoten im Baum -- als eigenständige Komponente zu modellieren. Dies erleichtert die Verwaltung von Zuständen und Interaktionen innerhalb der Simulation. Mit React Hooks wie \texttt{useState} und \texttt{useEffect} können diese Zustände effizient aktualisiert werden, ohne den gesamten Baum neu zu rendern.
+Die komponentenbasierte Struktur von React.js ermöglicht es, jede Simulationseinheit -- sei es ein Teilchen oder ein Knoten im Baum -- als eigenständige Komponente zu modellieren. Dies erleichtert die Verwaltung von Zuständen und Interaktionen innerhalb der Simulation. Mit React Hooks wie \javascriptinline{useState} und \javascriptinline{useEffect} können diese Zustände effizient aktualisiert werden, ohne den gesamten Baum neu zu rendern.
 
 Ein weiterer Vorteil ist die einfache Integration von Bibliotheken zur Datenvisualisierung und physikalischen Modellierung. Bibliotheken wie D3.js oder Three.js können nahtlos in React-Projekte eingebunden werden, um komplexe Darstellungen und Animationen zu erzeugen. Darüber hinaus unterstützt React.js den Einsatz von WebGL, was eine hardwarebeschleunigte Darstellung von Simulationen ermöglicht.
 
@@ -661,7 +675,7 @@ Dabei erhält das Canvas einen schwarzen Hintergrund und wird zentriert dargeste
 
 \subsubsection{3-Körper Simulation}
 Der Code zur Simulation des Drei-Körper-Problems basiert auf denselben physikalischen Prinzipien und numerischen Methoden wie der zuvor beschriebene Code für das Zwei-Körper-Problem. Beide Implementierungen verwenden Newtons Gravitationsgesetz, um die Kräfte zwischen den Körpern zu berechnen, und aktualisieren deren Positionen und Geschwindigkeiten durch numerische Integration. Zudem erfolgt die visuelle Darstellung der Bewegung über ein HTML5-Canvas-Element, das durch React.js verwaltet wird. Trotz dieser Gemeinsamkeiten erfordert die Simulation des Drei-Körper-Problems aufgrund der zusätzlichen Wechselwirkungen zwischen den Körpern eine komplexere Implementierung. Diese Anpassungen betreffen insbesondere die Berechnung der Kräfte, die Verwaltung der Zustände und die visuelle Darstellung der Pfade.
-Ein wesentlicher Unterschied zur Zwei-Körper-Simulation besteht darin, dass die Bewegungen jedes Körpers nicht mehr ausschließlich von einem einzelnen Partner beeinflusst werden. Stattdessen muss jede Wechselwirkung zwischen allen drei Körpern berücksichtigt werden, was insgesamt drei unabhängige Paarungen erzeugt: (Körper 1 und Körper 2), (Körper 1 und Körper 3) sowie (Körper 2 und Körper 3). Um diese Wechselwirkungen effizient zu berechnen, wird die Funktion \texttt{calculateForces()} eingeführt. Diese Funktion übernimmt die Berechnung der gravitativen Anziehungskraft zwischen zwei beliebigen Körpern und gibt die daraus resultierenden Beschleunigungen zurück:
+Ein wesentlicher Unterschied zur Zwei-Körper-Simulation besteht darin, dass die Bewegungen jedes Körpers nicht mehr ausschliesslich von einem einzelnen Partner beeinflusst werden. Stattdessen muss jede Wechselwirkung zwischen allen drei Körpern berücksichtigt werden, was insgesamt drei unabhängige Paarungen erzeugt: (Körper 1 und Körper 2), (Körper 1 und Körper 3) sowie (Körper 2 und Körper 3). Um diese Wechselwirkungen effizient zu berechnen, wird die Funktion \texttt{calculateForces()} eingeführt. Diese Funktion übernimmt die Berechnung der gravitativen Anziehungskraft zwischen zwei beliebigen Körpern und gibt die daraus resultierenden Beschleunigungen zurück:
 
 \begin{javascript}
 function calculateForces(bodyA, bodyB) {
@@ -693,11 +707,10 @@ bodies[0].y += bodies[0].vy;
 
 Die Geschwindigkeit jedes Körpers wird durch die Addition der Beschleunigungen aufgrund der beiden anderen Körper aktualisiert. Anschließend werden die Positionen anhand der neuen Geschwindigkeiten berechnet. Dieser Ansatz berücksichtigt die gleichzeitigen Wechselwirkungen zwischen allen Körpern und ermöglicht eine präzise Simulation ihrer Bewegungen.
 
-
 Die Simulation enthält zusätzlich eine Benutzeroberfläche, die es ermöglicht, verschiedene Anfangsbedingungen auszuwählen. Dies wird durch ein Dropdown-Menü realisiert, dessen Auswahl den Zustand der Körper entsprechend aktualisiert:
 
 \begin{javascript}
-const handleSelectChange = (event) => {
+    const handleSelectChange = (event) => {
     const selectedCase = event.target.value;
     setInitialCondition(selectedCase);
     setBodies(InitialConditions[selectedCase]);
@@ -706,13 +719,25 @@ const handleSelectChange = (event) => {
 
 Die Integration dieser Auswahlmöglichkeit erhöht die Flexibilität der Simulation und ermöglicht es, neue Konfigurationen oder Anfangsbedingungen problemlos zu ergänzen.
 
+In dieser Simulation wurde die Figur-8 als Auswahl hinzugefügt und die folgenden Anfangsbedingungen wurden entsprechend Abb.\ref{figure8} festgelegt. 
+
+\begin{javascript}
+    const InitialConditions = {
+        figureEight: [
+            { x: 400 + 0.97000436 * 200, y: 300 - 0.24308753 * 200, vx: -0.93240737, vy: -0.86473146, mass: 8000 },
+            { x: 400 - 0.97000436 * 200, y: 300 + 0.24308753 * 200, vx: -0.93240737, vy: -0.86473146, mass: 8000 },
+            { x: 400, y: 300, vx: 2 * 0.93240737, vy: 2 * 0.86473146, mass: 8000}
+        ]
+    };
+\end{javascript}
+
 Die Animation der Simulation erfolgt schliesslich über die Funktion \javascriptinline{animate()} wie bei der 2-Körper Simulation, die kontinuierlich die Positionen aktualisiert und sowohl die Körper als auch ihre Pfade neu zeichnet. Die kontinuierliche Aktualisierung der Bewegungen und Pfade sorgt für eine flüssige Animation, die die dynamischen Wechselwirkungen zwischen den Körpern in Echtzeit darstellt.
 
 \subsubsection{N-Körper Simulation}
 
-Der vorliegende Code zur Simulation des N-Körper-Problems nutzt den Barnes-Hut-Algorithmus, um die Gravitationskräfte effizient zu berechnen. Dieser Algorithmus verwendet eine QuadTree-Datenstruktur, um den Raum zu unterteilen und so die Komplexität der Berechnungen zu verringern. Der QuadTree ermöglicht es, die Anzahl der Berechnungen für die Gravitationskräfte von \(O(N^2)\) auf \(O(N \log N)\) zu reduzieren, was besonders bei einer großen Anzahl von Körpern von Vorteil ist. Der QuadTree teilt den Raum in vier Quadranten auf und aggregiert die Körper in jedem Quadranten zu einem einzigen "Schwerpunkt". Wenn Körper weit genug voneinander entfernt sind, kann die Gravitationskraft durch den Schwerpunkt des Quadranten approximiert werden, anstatt alle Körper innerhalb eines Quadranten direkt zu berücksichtigen.
+Der vorliegende Code zur Simulation des N-Körper-Problems nutzt den Barnes-Hut-Algorithmus, um die Gravitationskräfte effizient zu berechnen. Dieser Algorithmus verwendet eine QuadTree-Datenstruktur, um den Raum zu unterteilen und so die Komplexität der Berechnungen zu verringern. Der QuadTree ermöglicht es, die Anzahl der Berechnungen für die Gravitationskräfte von \(O(N^2)\) auf \(O(N \log N)\) zu reduzieren, was besonders bei einer grossen Anzahl von Körpern von Vorteil ist. Der QuadTree teilt den Raum in vier Quadranten auf und aggregiert die Körper in jedem Quadranten zu einem einzigen Schwerpunkt. Wenn Körper weit genug voneinander entfernt sind, kann die Gravitationskraft durch den Schwerpunkt des Quadranten approximiert werden, anstatt alle Körper innerhalb eines Quadranten direkt zu berücksichtigen.
 
-\paragraph{Die Body-Klasse}
+\paragraph{Die Body-Klasse:}
 Die \javascriptinline{Body}-Klasse stellt einen Körper im N-Körper-System dar. Jeder Körper hat eine Position (\javascriptinline{x}, \javascriptinline{y}), eine Geschwindigkeit (\javascriptinline{vx}, \javascriptinline{vy}), und eine Masse (\javascriptinline{mass}). Die Klasse enthält zwei Hauptmethoden: \javascriptinline{updatePosition()} und \javascriptinline{applyForce(fx, fy)}.
 
 Die Methode \javascriptinline{updatePosition()} berechnet die neue Position des Körpers basierend auf seiner Geschwindigkeit und einem festen Zeitschritt \javascriptinline{timeStep}. Sie nutzt die Geschwindigkeit des Körpers, um die Position im Raum in jedem Zeitschritt zu verschieben:
@@ -735,9 +760,9 @@ applyForce(fx, fy) {
 }
 \end{javascript}
 
-Durch diese Methode wird die Geschwindigkeit des Körpers entsprechend den berechneten Kräften angepasst. Dies ist notwendig, um die Bewegung des Körpers über die Zeit zu simulieren, da die Geschwindigkeit die Hauptgröße ist, die die Position beeinflusst.
+Durch diese Methode wird die Geschwindigkeit des Körpers entsprechend den berechneten Kräften angepasst. Dies ist notwendig, um die Bewegung des Körpers über die Zeit zu simulieren, da die Geschwindigkeit die Hauptgrösse ist, die die Position beeinflusst.
 
-\paragraph{Die QuadTree-Klasse}
+\paragraph{Die QuadTree-Klasse:}
 Die \javascriptinline{QuadTree}-Klasse ist die Grundlage des Barnes-Hut-Algorithmus. Sie dient dazu, den Raum effizient zu unterteilen, sodass die Berechnungen der Gravitationskräfte zwischen den Körpern schneller und weniger rechenintensiv sind. Der QuadTree unterteilt den Raum in vier quadratische Regionen (Nordwesten, Nordosten, Südwesten und Südosten), wobei jede Region Körper enthält, die sich in diesem Bereich befinden. Die Methode \javascriptinline{subdivide()} teilt den aktuellen Quadranten in vier kleinere Quadranten. Dies ermöglicht eine hierarchische Struktur, bei der jeder Quadrant wiederum in kleinere Teile unterteilt werden kann, bis eine bestimmte Kapazität erreicht ist.
 
 \begin{javascript}
@@ -804,7 +829,7 @@ Die Begrenzung der Kraft auf 50 verhindert extrem hohe Beschleunigungen bei klei
 unphysikalisch stark interagieren.
 
 
-Wenn der Quadrant unterteilt wurde, wird die Gravitationskraft nicht direkt zwischen allen Körpern berechnet, sondern durch den Schwerpunkt des gesamten Quadranten. Diese Methode wird verwendet, wenn der Körper weit genug vom Quadranten entfernt ist, um eine Approximation durch den Schwerpunkt zu rechtfertigen. Der Abstand zum Schwerpunkt wird als \javascriptinline{distanceToCOM} berechnet, und wenn dieser groß genug ist, wird die Gravitationskraft basierend auf dem gesamten Quadranten berechnet:
+Wenn der Quadrant unterteilt wurde, wird die Gravitationskraft nicht direkt zwischen allen Körpern berechnet, sondern durch den Schwerpunkt des gesamten Quadranten. Diese Methode wird verwendet, wenn der Körper weit genug vom Quadranten entfernt ist, um eine Approximation durch den Schwerpunkt zu rechtfertigen. Der Abstand zum Schwerpunkt wird als \javascriptinline{distanceToCOM} berechnet, und wenn dieser gross genug ist, wird die Gravitationskraft basierend auf dem gesamten Quadranten berechnet:
 
 \begin{javascript}
 const totalMass = this.bodies.reduce((acc, b) => acc + b.mass, 0);
@@ -815,9 +840,9 @@ const centerOfMass = {
 const distanceToCOM = Math.sqrt((centerOfMass.x - body.x) ** 2 + (centerOfMass.y - body.y) ** 2 + softening * softening);
 \end{javascript}
 
-- \javascriptinline{totalMass} berechnet die Gesamtmasse der Körper im Quadranten.
-- \javascriptinline{centerOfMass} ermittelt den Schwerpunkt des Quadranten unter Berücksichtigung der Massen und Positionen der Körper.
-- \javascriptinline{distanceToCOM} berechnet den Abstand des Körpers zum Schwerpunkt des Quadranten.
+\javascriptinline{totalMass} berechnet die Gesamtmasse der Körper im Quadranten.
+\javascriptinline{centerOfMass} ermittelt den Schwerpunkt des Quadranten unter Berücksichtigung der Massen und Positionen der Körper.
+\javascriptinline{distanceToCOM} berechnet den Abstand des Körpers zum Schwerpunkt des Quadranten.
 
 Wenn der Abstand zum Zentrum des Quadranten gross genug ist (d.h., \( \frac{\text{width}}{\text{distanceToCOM}} < \theta \)), wird die Gravitationskraft basierend auf dem Schwerpunkt des Quadranten berechnet:
 
@@ -848,12 +873,7 @@ Dies stellt sicher, dass auch bei komplexen Strukturen im QuadTree alle relevant
 Die Funktion \javascriptinline{query(body, theta)} verwendet eine rekursive Struktur, um die Gravitationskräfte in einem QuadTree zu berechnen. Sie entscheidet basierend auf dem Parameter \javascriptinline{theta}, ob die Berechnungen direkt zwischen benachbarten Körpern oder vereinfacht durch den Schwerpunkt eines Quadranten durchgeführt werden. Diese Technik optimiert die Berechnungszeit, insbesondere bei einer großen Anzahl von Körpern, und ist ein grundlegender Bestandteil des Barnes-Hut-Algorithmus.
 
 
-
-
-
-
-
-\paragraph{Simulationslogik und Animation}
+\paragraph{Simulationslogik und Animation:}
 
 Bei jeder Änderung der Körperliste (\javascriptinline{bodies}) wird das Canvas mit \javascriptinline{ctx.clearRect} gelöscht, um alte Zeichnungen zu entfernen. Für jeden Körper wird anschliessend ein roter Kreis an den Positionen des Körpers gezeichnet, wobei \javascriptinline{ctx.arc} den Kreis mit einem Radius von 5 Pixeln erstellt.
 
@@ -890,7 +910,7 @@ useEffect(() => {
 \end{javascript}
 
 
-\paragraph{Steuerung der Simulation}
+\paragraph{Steuerung der Simulation:}
 Der letzte Abschnitt des Codes definiert die Benutzeroberfläche zur Steuerung der Simulation. Das \javascriptinline{<canvas>}-Element dient als Zeichenfläche, auf der die Simulation visuell dargestellt wird, 
 während ein Klick mithilfe der Funktion \javascriptinline{handleCanvasClick}, die bei den ersten beiden Klicks die Körper mit Geschwindigkeit zur Canvas hinzufügt und bei den folgenden Klicks die Körper mit Geschwindigkeit 0 und Masse 8000 zur angeklickten Position hinzufügt.
 Drei Buttons ermöglichen die Interaktion: \javascriptinline{toggleSimulation }startet oder stoppt die Simulation durch Umschalten des Zustands \javascriptinline{isRunning}, \javascriptinline{add50Bodies} erzeugt 50 zufällig verteilte Körper, 
@@ -900,9 +920,8 @@ und \javascriptinline{resetSimulation} löscht alle vorhandenen Körper, um die 
 \begin{javascript}
     return (
         <div>
-            <p>Click to add a body</p>
             <canvas ref={canvasRef} width={400} height={400} style={{ border: '1px solid white' }} onClick={handleCanvasClick} />
-            <div style={{ marginTop: '10px' }}>
+            <div>
                 <button onClick={toggleSimulation}> {isRunning ? 'Stop' : 'Start'} Simulation</button>
                 <button onClick={add50Bodies}>Add 50 Bodies</button>
                 <button onClick={resetSimulation}>Reset</button>
@@ -916,7 +935,7 @@ und \javascriptinline{resetSimulation} löscht alle vorhandenen Körper, um die 
 
 In diesem Abschnitt werden die Ergebnisse der implementierten Simulationen detailliert analysiert und miteinander verglichen. Die untersuchten Szenarien umfassen eine Zwei-Körper-Simulation, eine Drei-Körper-Simulation sowie eine allgemeine N-Körper-Simulation. Die Simulationsergebnisse bieten wertvolle Einblicke in die Dynamik gravitativer Wechselwirkungen und ermöglichen eine kritische Bewertung der verwendeten Algorithmen.
 \subsection{Ergebnisse der Zwei- und Drei-Körper Simulationen}
-Die Zwei- und Drei-Körper Simulationen bieten eine hohe Genauigkeit und können analytisch validiert werden. Ihre Implementierung ist leicht verständlich und bildet eine solide Grundlage für komplexere Modelle. Der Barnes-Hut Algorithmus ermöglicht eine erhebliche Effizienzsteigerung, insbesondere bei der Simulation vieler Körper. Durch die QuadTree-Struktur werden die Berechnungen optimiert, sodass der Algorithmus mit einer Zeitkomplexität von O(N log N) arbeitet, was ihn für große Systeme besonders geeignet macht. Zudem sorgen die Implementierung einer maximalen Kraftbegrenzung und eines Softening-Faktors für eine numerische Stabilisierung. Dies verhindert Instabilitäten und ermöglicht eine realistische Simulation selbst bei sehr kurzen Distanzen zwischen den Körpern.
+Die Zwei- und Drei-Körper Simulationen bieten eine hohe Genauigkeit und können analytisch validiert werden. Ihre Implementierung ist leicht verständlich und bildet eine solide Grundlage für komplexere Modelle. Der Barnes-Hut Algorithmus ermöglicht eine erhebliche Effizienzsteigerung, insbesondere bei der Simulation vieler Körper. Durch die QuadTree-Struktur werden die Berechnungen optimiert, sodass der Algorithmus mit einer Zeitkomplexität von O(N log N) arbeitet, was ihn für grosse Systeme besonders geeignet macht. Zudem sorgen die Implementierung einer maximalen Kraftbegrenzung und eines Softening-Faktors für eine numerische Stabilisierung. Dies verhindert Instabilitäten und ermöglicht eine realistische Simulation selbst bei sehr kurzen Distanzen zwischen den Körpern.
 
 \subsection{Ergebnisse der N-Körper Simulation mit Barnes Hut Algorithmus}
 Die N-Körper Simulation demonstriert das Verhalten von bis zu 50 zufällig platzierten Körpern. Der Barnes-Hut Algorithmus ermöglicht eine effiziente Berechnung der Gravitationskräfte und gewährleistet selbst bei einer großen Anzahl von Teilchen eine stabile und realistische Simulation. Der Schwerpunkt des Systems wird ebenfalls korrekt berechnet und dargestellt, was die Präzision der resultierenden Kräfte unterstreicht. Besonders hervorzuheben ist die Skalierbarkeit des Algorithmus, der trotz wachsender Komplexität eine hohe Leistungsfähigkeit beibehält.
@@ -925,20 +944,21 @@ Die N-Körper Simulation demonstriert das Verhalten von bis zu 50 zufällig plat
 \section{Diskussion}
 
 \subsection{Vorteile der verwendeten Algorithmen}
-Die Zwei- und Drei-Körper Simulationen bieten eine hohe Genauigkeit und können analytisch validiert werden. Ihre Implementierung ist leicht verständlich und bildet eine solide Grundlage für komplexere Modelle. Der Barnes-Hut Algorithmus ermöglicht eine erhebliche Effizienzsteigerung, insbesondere bei der Simulation vieler Körper. Durch die QuadTree-Struktur werden die Berechnungen optimiert, sodass der Algorithmus mit einer Zeitkomplexität von O(N log N) arbeitet, was ihn für große Systeme besonders geeignet macht. Zudem sorgen die Implementierung einer maximalen Kraftbegrenzung und eines Softening-Faktors für eine numerische Stabilisierung. Dies verhindert Instabilitäten und ermöglicht eine realistische Simulation selbst bei sehr kurzen Distanzen zwischen den Körpern.
+Die Zwei- und Drei-Körper Simulationen bieten eine hohe Genauigkeit und können analytisch validiert werden. Ihre Implementierung ist leicht verständlich und bildet eine solide Grundlage für komplexere Modelle. Der Barnes-Hut Algorithmus ermöglicht eine erhebliche Effizienzsteigerung, insbesondere bei der Simulation vieler Körper. Durch die QuadTree-Struktur werden die Berechnungen optimiert, sodass der Algorithmus mit einer Zeitkomplexität von O(N log N) arbeitet, was ihn für grosse Systeme besonders geeignet macht. Zudem sorgen die Implementierung einer maximalen Kraftbegrenzung und eines Softening-Faktors für eine numerische Stabilisierung. Dies verhindert Instabilitäten und ermöglicht eine realistische Simulation selbst bei sehr kurzen Distanzen zwischen den Körpern.
 
 \subsection{Herausforderungen und Limitierungen}
 Obwohl die Simulationen insgesamt stabile und präzise Ergebnisse liefern, bestehen einige Herausforderungen und Einschränkungen. Besonders in der Drei-Körper Simulation kann es bei längeren Laufzeiten zu Abweichungen von den theoretischen Bahnen kommen, die auf kumulierte Rundungsfehler zurückzuführen sind. Der Softening-Faktor trägt zur Stabilisierung bei, führt jedoch zu geringfügigen Abweichungen von den exakten Gravitationskräften, insbesondere bei sehr kurzen Distanzen. Darüber hinaus wurde eine maximale Kraftbegrenzung von 50 implementiert, um numerische Instabilitäten zu verhindern. Diese Begrenzung kann jedoch in extremen Szenarien physikalisch nicht immer exakt sein und sollte daher je nach Anwendungsfall angepasst werden. Ein weiteres Hindernis ist die Skalierbarkeit. Obwohl der Barnes-Hut Algorithmus effizient ist, bleibt die Implementierung für sehr grosse Systeme mit mehr als 10.000 Körpern speicher- und rechenintensiv.
 
 \subsection{Vergleich mit bestehenden Methoden}
-Im Vergleich zu direkten Berechnungen, die eine Zeitkomplexität von \( O(N^2) \) aufweisen, zeigt der Barnes-Hut Algorithmus eine drastische Verbesserung der Rechenzeit. Während direkte Methoden für kleinere Systeme praktikabel sind, wird der Barnes-Hut Algorithmus für größere Simulationen unverzichtbar. Im Gegensatz zu analytischen Lösungen, die für das Zwei-Körper Problem exakte Ergebnisse liefern, erfordern Systeme mit mehreren Körpern numerische Methoden, um chaotisches Verhalten oder komplexe Wechselwirkungen zu simulieren.
+Im Vergleich zu direkten Berechnungen, die eine Zeitkomplexität von \( O(N^2) \) aufweisen, zeigt der Barnes-Hut Algorithmus eine drastische Verbesserung der Rechenzeit. Während direkte Methoden für kleinere Systeme praktikabel sind, wird der Barnes-Hut Algorithmus für grössere Simulationen unverzichtbar. Im Gegensatz zu analytischen Lösungen, die für das Zwei-Körper Problem exakte Ergebnisse liefern, erfordern Systeme mit mehreren Körpern numerische Methoden, um chaotisches Verhalten oder komplexe Wechselwirkungen zu simulieren.
+
 
 \section{Schlussfolgerung}
 Die durchgeführten Simulationen demonstrieren eine ausgewogene Kombination aus Genauigkeit und Effizienz. Während die Zwei- und Drei-Körper Simulationen grundlegende physikalische Prinzipien validierten, zeigte die N-Körper Simulation die Leistungsfähigkeit des Barnes-Hut Algorithmus bei der Modellierung komplexer Systeme.
 
 Die Ergebnisse verdeutlichen die Relevanz numerischer Methoden für die Simulation physikalischer Prozesse. Gleichzeitig werden die Herausforderungen solcher Verfahren, insbesondere in Bezug auf numerische Stabilität und Rechenleistung, hervorgehoben.
 
-Zukünftige Erweiterungen könnten die Implementierung von Parallelverarbeitung und GPU-Optimierungen (Graphics Processing Unit) umfassen, um noch größere Systeme effizient simulieren zu können. Darüber hinaus bietet eine adaptive Anpassung der Kraftbegrenzung und des Softening-Faktors Potenzial für eine weitere Verbesserung der Simulationsergebnisse.
+Zukünftige Erweiterungen könnten die Implementierung von Parallelverarbeitung und GPU-Optimierungen (Graphics Processing Unit) umfassen, um noch grössere Systeme effizient simulieren zu können. Darüber hinaus bietet eine adaptive Anpassung der Kraftbegrenzung und des Softening-Faktors Potenzial für eine weitere Verbesserung der Simulationsergebnisse.
 
 
 \section{Erster Anhang}

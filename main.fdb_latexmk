@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1735860140.5721 "main.aux" "main.bbl" "main" 1735860239.65693 0
-  "./biblio.bib" 1735839014 4653 9dc77e306972e570c61d3811a4c67b2f ""
+["bibtex main"] 1735927623.16495 "main.aux" "main.bbl" "main" 1735927643.89335 0
+  "./biblio.bib" 1735927031 4640 64c61a021515f7081e230d7864c205c1 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/bibtex/bst/apacite/apacite.bst" 1374952728 146156 9d7b79dbf9d91133318126032cff8c27 ""
-  "main.aux" 1735860238 13499 0be3b3a63a90259c5b7fb4c944c016a7 "pdflatex"
+  "main.aux" 1735927643 13524 3a1edc0956cc8c7f473fc260a90a4e44 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1735860234.53892 "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" "main.pdf" "main" 1735860239.65786 0
+["pdflatex"] 1735927641.59883 "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" "main.pdf" "main" 1735927643.89374 0
   "C:/Users/zeyne/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1732716197 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/zeyne/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecss1095.pk" 1719918147 21816 0f977c8c851e997abe8238d227892eba ""
   "C:/Users/zeyne/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx1095.pk" 1719918149 24028 800e0e7cce2aec2e9683390542c6c42c ""
@@ -278,21 +278,21 @@
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" 1735860235 70199 7233f9bf34945f6a88ec02cc041462ab ""
+  "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" 1735927642 69545 b1c05eb54ce0abd9e2940dce2225d583 ""
   "code_formatting.tex" 1697630962 4170 b0edd4549a47acdaa6596f691b120cba ""
   "commands.tex" 1604852422 1472 836abbf0ad87eb08c8e97ac7a2799146 ""
-  "figures/AndereOrbits.png" 1735259060 107085 5f42062b5c832a867bb37aab18ea053e ""
   "figures/Barnes_hut_tree.png" 1735843372 132862 eeb1ea30d4ea39a2eb9533c98b06c339 ""
   "figures/Baumstruktur.png" 1735431307 63687 b40c178c7abda88ba7166ec3ed6b81b9 ""
   "figures/EulerUndLagrange.png" 1735257532 16168 5f0437b5caa52a677bec604f738544c1 ""
   "figures/Zwei-Körper.png" 1735248280 24850 258b56a68183510ea5c410a0cfa9036d ""
-  "figures/figure8Orbit.png" 1735258079 24665 6a34b61befbe750111d9b8e86a8692bf ""
-  "main.aux" 1735860238 13499 0be3b3a63a90259c5b7fb4c944c016a7 "pdflatex"
-  "main.bbl" 1735860140 11173 ccdd62bcd193006cc5ca33e222e23d86 "bibtex main"
-  "main.lof" 1735860238 584 eb117982dc92d88623c7f1b17402a536 "pdflatex"
-  "main.out" 1735860238 8672 e88f4b001b6e8a88b3866dc5b1f8a0b3 "pdflatex"
-  "main.tex" 1735860235 70199 7233f9bf34945f6a88ec02cc041462ab ""
-  "main.toc" 1735860238 5586 dfa59939a8036075a1a5794344a2465a "pdflatex"
+  "figures/exzentrizitaet.jpg" 1735923664 16401 db3a5368187f6252ff50738ac095a68d ""
+  "figures/figure8.png" 1735913958 58614 6667a72efe4d0da88d7d147a5f5f5ddd ""
+  "main.aux" 1735927643 13524 3a1edc0956cc8c7f473fc260a90a4e44 "pdflatex"
+  "main.bbl" 1735927623 11113 08f3e2f2acc6212fc708e2b1f64c95fb "bibtex main"
+  "main.lof" 1735927643 708 7ef4b965c3b2d6366cdb0a4befb5d7fa "pdflatex"
+  "main.out" 1735927643 8672 c4f86ca8fb9c54f34f3ec49b6ba52dcd "pdflatex"
+  "main.tex" 1735927642 69545 b1c05eb54ce0abd9e2940dce2225d583 ""
+  "main.toc" 1735927643 5530 1b01353b7016cde332e6a691297096b7 "pdflatex"
   (generated)
   "main.aux"
   "main.lof"
