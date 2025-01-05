@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1736020617.8868 "main.aux" "main.bbl" "main" 1736022630.21619 0
+["bibtex main"] 1736081058.863 "main.aux" "main.bbl" "main" 1736081210.4684 0
   "./biblio.bib" 1736020597 4709 5a2ea7a217e423f5c5c1153065cb3752 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/bibtex/bst/apacite/apacite.bst" 1374952728 146156 9d7b79dbf9d91133318126032cff8c27 ""
-  "main.aux" 1736022628 13027 d8933f962722b8fd1933fb3fb137aca8 "pdflatex"
+  "main.aux" 1736081209 13253 1c6ec4191faacf4f3d6509c5c829a8e1 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1736022621.80229 "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" "main.pdf" "main" 1736022630.2174 0
+["pdflatex"] 1736081204.83871 "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" "main.pdf" "main" 1736081210.46974 0
   "C:/Users/zeyne/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1732716197 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/zeyne/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecss1095.pk" 1719918147 21816 0f977c8c851e997abe8238d227892eba ""
   "C:/Users/zeyne/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx1095.pk" 1719918149 24028 800e0e7cce2aec2e9683390542c6c42c ""
@@ -22,7 +22,6 @@
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768654 2172 fd0c924230362ff848a33632ed45dc23 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmb8r.tfm" 1136768654 4524 6bce29db5bc272ba5f332261583fee9c ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmb8t.tfm" 1136768654 6880 f19b8995b61c334d78fc734065f6b4d4 ""
-  "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmr8c.tfm" 1136768654 1352 fa28a7e6d323c65ce7d13d5342ff6be2 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmr8r.tfm" 1136768654 4408 25b74d011a4c66b7f212c0cc3c90061b ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmr8t.tfm" 1136768654 6672 e3ab9e37e925f3045c9005e6d1473d56 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmri7t.tfm" 1136768654 2288 f478fc8fed18759effb59f3dad7f3084 ""
@@ -56,7 +55,6 @@
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb" 1136849748 45458 504e2b06fa82109d168c7a0afb09e145 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmb7t.vf" 1136768654 1372 788387fea833ef5963f4c5bffe33eb89 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmb8t.vf" 1136768654 2340 df9c920cc5688ebbf16a93f45ce7bdd3 ""
-  "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmr8c.vf" 1136768654 3556 8a9a6dcbcd146ef985683f677f4758a6 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmr8t.vf" 1136768654 2348 91706c542228501c410c266421fbe30c ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmri8t.vf" 1136768654 2328 6cd7df782b09b29cfc4d93e55b6b9a59 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/zptmcm7m.vf" 1136768654 1132 27520247d3fe18d4266a226b461885c2 ""
@@ -266,7 +264,6 @@
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1ptm.fd" 1585253778 1007 15056f4a61917ceed3a44e4ac11fcc52 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1ztmcm.fd" 1585253778 346 aee7226812ba4138ac67a018466b488d ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/t1ptm.fd" 1585253778 817 61d7da1e9f9e74989b196d147e623736 ""
-  "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ts1ptm.fd" 1585253778 653 96f56dc5d1ef1fe1121f1cfeec70ee0c ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657800696 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/setspace/setspace.sty" 1670403145 22490 8cac309b79a4c53a4ffce4b1b07aead0 ""
@@ -278,7 +275,7 @@
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/zeyne/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" 1736022620 59420 d0829ab0d991f8708c92df8dc6f3914e ""
+  "c:/Users/zeyne/OneDrive/Desktop/Kanti/MA/latex/main.tex" 1736081206 74994 001b6de62ab882bdaf7641dfaa5c63f8 ""
   "code_formatting.tex" 1697630962 4170 b0edd4549a47acdaa6596f691b120cba ""
   "commands.tex" 1604852422 1472 836abbf0ad87eb08c8e97ac7a2799146 ""
   "figures/Barnes_hut_tree.png" 1735843372 132862 eeb1ea30d4ea39a2eb9533c98b06c339 ""
@@ -287,12 +284,12 @@
   "figures/Zwei-Körper.png" 1735248280 24850 258b56a68183510ea5c410a0cfa9036d ""
   "figures/exzentrizitaet.jpg" 1735923664 16401 db3a5368187f6252ff50738ac095a68d ""
   "figures/figure8.png" 1735913958 58614 6667a72efe4d0da88d7d147a5f5f5ddd ""
-  "main.aux" 1736022628 13027 d8933f962722b8fd1933fb3fb137aca8 "pdflatex"
-  "main.bbl" 1736020618 11293 e7558d182c796f7273d583bcdd454fbf "bibtex main"
-  "main.lof" 1736022628 705 e2ab66a8edfd89257991b71394f4d82f "pdflatex"
-  "main.out" 1736022628 7899 be8df0040ceecc1b95c93c262a3b8394 "pdflatex"
-  "main.tex" 1736022620 59420 d0829ab0d991f8708c92df8dc6f3914e ""
-  "main.toc" 1736022628 5120 5fbf3d08ec9b0102210e80c5f2e2a2e9 "pdflatex"
+  "main.aux" 1736081209 13253 1c6ec4191faacf4f3d6509c5c829a8e1 "pdflatex"
+  "main.bbl" 1736081059 11293 e7558d182c796f7273d583bcdd454fbf "bibtex main"
+  "main.lof" 1736081209 705 e2ab66a8edfd89257991b71394f4d82f "pdflatex"
+  "main.out" 1736081209 8134 42722427091d8b17aa7430fe1a524329 "pdflatex"
+  "main.tex" 1736081206 74994 001b6de62ab882bdaf7641dfaa5c63f8 ""
+  "main.toc" 1736081209 5264 935cbdda367a430ee4774ce290494434 "pdflatex"
   (generated)
   "main.aux"
   "main.lof"

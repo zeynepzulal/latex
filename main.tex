@@ -70,13 +70,6 @@
 
 \begin{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%% AB HIER ARBEITEN, WEITER OBEN NICHTS VERAENDERN
-%%% Ausnahme: Einbinden weitere Pakete
-
 \selectlanguage{ngerman} %% HIER SPRACHE EINSTELLEN! english, ngerman
 
 \begin{titlepage}
@@ -116,9 +109,6 @@
 	
 \end{titlepage}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % \null\thispagestyle{empty}\clearpage
 
@@ -133,9 +123,6 @@ das die Bewegung von N Massenpunkten unter gegenseitiger gravitativer Anziehung 
 Diese Arbeit untersucht zwei verschiedene Simulationsmethoden für das N-Körper-Problem: 
 die direkte Methode und den Barnes-Hut-Algorithmus. Ziel ist es, die Genauigkeit und 
 Effizienz dieser Methoden zu analysieren und zu vergleichen.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% TABLE OF CONTENTS
 
@@ -151,9 +138,7 @@ Effizienz dieser Methoden zu analysieren und zu vergleichen.
 
 \pagenumbering{arabic}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \section{Einleitung}
 Die Bewegungen von Himmelskörpern wie Planeten, Sterne und Galaxien faszinieren 
@@ -348,7 +333,7 @@ Anfangsbedingungen.
 Das Drei-Körper-Problem befasst sich mit der Bestimmung der Bewegung von drei Massen 
 \( m_1 \), \( m_2 \) und \( m_3 \), die durch ihre wechselseitigen Gravitationskräfte 
 miteinander interagieren. Die Beschleunigung jeder dieser Körper wird durch die 
-Gravitationsanziehung der beiden anderen Massen bestimmt, gemäß dem Gravitationsgesetz 
+Gravitationsanziehung der beiden anderen Massen bestimmt, gemäss dem Gravitationsgesetz 
 von Newton. Die Position jedes Körpers wird durch seinen Vektor \( \mathbf{r}_i \) 
 im dreidimensionalen Raum beschrieben. Die Gravitationskraft zwischen zwei Körpern 
 nimmt mit der dritten Potenz des Abstands zwischen ihnen ab, wobei die resultierende 
@@ -459,7 +444,7 @@ Dies ist ein Verfahren vierter Ordnung, d.h., der Fehler in der Näherung hat di
 Ordnung $(\delta t)^4$. Dies macht das Verfahren deutlich genauer als das Euler-Verfahren. Zum Vergleich mit dem Euler-Verfahren müssen wir denselben Zeitschritt $\delta t$ wählen, aber viermal so viele Auswertungen pro Zeitschritt vornehmen, da das rk4-Verfahren viermal so viele Auswertungen des Systems pro Zeitschritt erfordert~\cite{Swarthmore2005}.
 
 \subsection{N-Körper Problem}
-Das n-Körper-Problem ist ein klassisches Problem in der Physik und beschreibt 
+Das N-Körper-Problem ist ein klassisches Problem in der Physik und beschreibt 
 die Bewegung mehrerer Massenpunkte, die sich gegenseitig durch ihre Gravitationskräfte 
 beeinflussen. Die Grundgleichung für die Beschleunigung eines Körpers \( j \) 
 in einem solchen System ist gegeben durch:
@@ -477,7 +462,7 @@ Körpern \( j \) und \( k \), wobei der Abstand \( |\vec{r}_k - \vec{r}_j| \) ho
 im Nenner steht, um sicherzustellen, dass die Kraft gemäss dem Gravitationsgesetz mit 
 dem Quadrat des Abstands abnimmt~\cite{Schäfer2017}.
 
-Das n-Körper-Problem stellt eine Herausforderung dar, weil ab mehr als zwei Körpern eine 
+Das N-Körper-Problem stellt eine Herausforderung dar, weil ab mehr als zwei Körpern eine 
 chaotische Dynamik entsteht, die eine exakte analytische Lösung unmöglich macht. 
 Während das Zwei-Körper-Problem stabile, vorhersagbare Bahnen liefert, wird das 
 System bei drei oder mehr Körpern extrem empfindlich gegenüber Anfangsbedingungen.
@@ -748,7 +733,7 @@ und gibt die daraus resultierenden Beschleunigungen zurück:
 function calculateForces(bodyA, bodyB) {
     const dx = bodyB.x - bodyA.x;
     const dy = bodyB.y - bodyA.y;
-    const distance = Math.sqrt(dx * dx + dy * dy + softening);
+    const distance = Math.sqrt(dx * dx + dy * dy + softening * softening);
     const force = (G * bodyA.mass * bodyB.mass) / (distance * distance);
 
     const ax = (force * dx) / (bodyA.mass * distance);
@@ -1018,7 +1003,7 @@ um die Gravitationskräfte in einem QuadTree zu berechnen. Sie entscheidet basie
 auf dem Parameter \javascriptinline{theta}, ob die Berechnungen direkt zwischen 
 benachbarten Körpern oder vereinfacht durch den Schwerpunkt eines Quadranten 
 durchgeführt werden. Diese Technik optimiert die Berechnungszeit, insbesondere 
-bei einer großen Anzahl von Körpern, und ist ein grundlegender Bestandteil des 
+bei einer grossen Anzahl von Körpern, und ist ein grundlegender Bestandteil des 
 Barnes-Hut-Algorithmus.
 
 
@@ -1119,7 +1104,17 @@ validiert werden. Die Implementierung ist einfach und bietet eine gute
 Basis zur Einarbeitung in komplexere Simulationsmodelle.
 
 \subsection{Ergebnisse der N-Körper Simulation mit Barnes Hut Algorithmus}
-In der N-Körper-Simulation wurde getestet, ob die in den Zwei- und Dreikörper-Simulationen erhaltenen Flugbahnen reproduziert werden konnten, und dieser Test war erfolgreich. Dies zeigte, dass die Simulation funktioniert. Die N-Körper-Simulation wurde dann mit bis zu 50 zufällig platzierten Objekten getestet. Der Barnes-Hut-Algorithmus wurde nur geringfügig verändert und blieb auch bei der Simulation einer größeren Anzahl von Körpern stabil und realistisch. Der Schwerpunkt des Systems wurde genau berechnet und angezeigt. Der Barnes-Hut-Algorithmus kann eine viel grössere Anzahl von „Körpern“ ohne Probleme verarbeiten.
+In der N-Körper-Simulation wurde getestet, ob die in den Zwei- und 
+Dreikörper-Simulationen erhaltenen Flugbahnen reproduziert werden konnten, 
+und dieser Test war erfolgreich. Dies zeigte, dass die Simulation 
+funktioniert. Die N-Körper-Simulation wurde dann mit bis zu 50 
+zufällig platzierten Objekten getestet. Der Barnes-Hut-Algorithmus 
+wurde nur geringfügig verändert und blieb auch bei der Simulation 
+einer grösseren Anzahl von Körpern stabil und realistisch. 
+Der Schwerpunkt des Systems wurde genau berechnet und angezeigt. 
+Der Barnes-Hut-Algorithmus kann eine viel grössere Anzahl von "Körpern"
+ohne Probleme verarbeiten.
+
 
 \section{Diskussion}
 
@@ -1138,8 +1133,9 @@ realistische Simulationen auch für sehr kurze Abstände zwischen den Körpern z
 
 \subsection{Herausforderungen und Limitierungen}
 Jedoch brachte die Simulation auch einige Herausforderungen und Limitationen 
-mit sich. Die für die Figur-8-Bahn erforderlichen Anfangswerte sind sehr genau. 
+mit sich. Die für die Figur-8-Bahn erforderlichen Anfangswerte sind sehr empfindlich. 
 Daher kann die Figur-8-Umlaufbahn nicht mit kleinen Änderungen erreicht werden. 
+
 Softening kann zu Abweichungen vom wahren Wert führen. Dies führt zu einem 
 geringfügigen Unterschied zwischen der exakten Gravitationskraft und der 
 approximierten Grösse. Darüber hinaus wurde ein Maximum für die Grösse der 
@@ -1155,6 +1151,7 @@ Die Simulation mit dem Barnes-Hut-Algorithmus ist effizienter als die anderen
 Simulationen, da sie die gleichen Ergebnisse wie die beiden anderen Simulationen 
 erzielen kann. Daher ist sie eine umfassendere und nützlichere Simulation.
 
+
 \section{Schlussfolgerung}
 Wie die durchgeführten Simulationen zeigen, ermöglicht 
 die Implementierung eine ausgewogene Kombination aus Genauigkeit und Effizienz. 
@@ -1169,36 +1166,541 @@ der Dreikörpersimulation weitere spezielle Lösungsmethoden hinzugefügt werden
 Darüber hinaus könnte auch eine adaptive Anpassung der Kraftbegrenzung und des 
 Weichmachungsfaktors implementiert werden, um die Leistung weiter zu optimieren.
 
-\section{Erster Anhang}
-
-Ergänzende Informationen gehören in den Anhang. Wären diese Informationen im Haupttext der Arbeit, würden sie stören, zum Beispiel weil es zu viel und zu detailliert ist. In den Anhang (unter Umständen) gehören:
-\begin{itemize}
-	\item Code einer Programmierarbeit (Zeige im Haupttext nur Codeausschnitte, die der Argumentation helfen)
-	\item detaillierte Berechnungen
-	\item Ergebnisse einer Umfrage
-	\item Interviews
-	\item \ldots
-\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \newpage
+
+
+\section{Erster Anhang}
+\begin{javascript}
+import React, { useEffect, useRef } from 'react'
+
+const TwoBodySimulation = () => {
+
+    const canvasRef = useRef(null);
+
+    useEffect(() => {
+
+        const canvas = canvasRef.current;
+        const context = canvas.getContext('2d');
+        canvas.width = 800;
+        canvas.height = 600;
+
+        let body1 = { x: 300, y: 300, vx: 0, vy: 1.0, mass: 8000, path: [] };
+
+        let body2 = { x: 500, y: 300, vx: 0, vy: -1.0, mass: 8000, path: [] };
+
+        const G = 0.1;
+        const maxTrailLength = 200;
+        const softening = 1.0;
+
+        function update() {
+
+            //distance
+            const dx = body2.x - body1.x;
+            const dy = body2.y - body1.y;
+            const distance = Math.sqrt(dx * dx + dy * dy + softening * softening);
+
+            //gravitational force
+            const force = (G * body1.mass * body2.mass) / (distance * distance);
+
+            //direction of force
+            const ax1 = (force * dx) / (body1.mass * distance);
+            const ay1 = (force * dy) / (body1.mass * distance);
+            const ax2 = -(force * dx) / (body2.mass * distance);
+            const ay2 = -(force * dy) / (body2.mass * distance);
+
+            //update v 
+            body1.vx += ax1;
+            body1.vy += ay1;
+            body2.vx += ax2;
+            body2.vy += ay2;
+
+            //update position => new position = current position + v.t
+            body1.x += body1.vx;
+            body1.y += body1.vy;
+            body2.x += body2.vx;
+            body2.y += body2.vy;
+        }
+
+        function drawPath(body, color) {
+            body.path.push({ x: body.x, y: body.y });
+            if (body.path.length > maxTrailLength) body.path.shift();
+
+            context.strokeStyle = color;
+            context.beginPath();
+            for (let i = 0; i < body.path.length - 1; i++) {
+                context.moveTo(body.path[i].x, body.path[i].y);
+                context.lineTo(body.path[i + 1].x, body.path[i + 1].y);
+            }
+            context.stroke();
+        }
+
+        function drawBody(body, color) {
+            context.beginPath();
+            context.arc(body.x, body.y, 10, 0, 2 * Math.PI);
+            context.fillStyle = color;
+            context.fill();
+        }
+
+        function drawCenterOfMass(){
+            const centerX = (body1.x * body1.mass + body2.x * body2.mass) / (body1.mass + body2.mass);
+            const centerY = (body1.y * body1.mass + body2.y * body2.mass) / (body1.mass + body2.mass);
+            context.strokeStyle = 'yellow';
+            context.beginPath();
+            context.moveTo(centerX - 10, centerY);
+            context.lineTo(centerX + 10, centerY);
+            context.moveTo(centerX, centerY - 10);
+            context.lineTo(centerX, centerY + 10);
+            context.stroke();
+        }
+
+        function animate() {
+        
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            update();
+            drawPath(body1, 'blue');
+            drawPath(body2, 'red');
+            drawBody(body1, 'blue');
+            drawBody(body2, 'red');
+            drawCenterOfMass();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    }, []);
+
+
+
+    return (<canvas ref={canvasRef} style={{ border: '1px solid black', display: 'block', margin: '0 auto', background: 'black' }} />)
+
+};
+
+export default TwoBodySimulation
+\end{javascript}
+\newpage
+
 
 \section{Zweiter Anhang}
+\begin{javascript}
+import React, { useRef, useEffect, useState } from 'react'
 
-Anhang der Zweite.
+const ThreeBodySimulation = () => {
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    const canvasRef = useRef(null);
+    const [initialCondition, setInitialCondition] = useState('figureEight')
 
-%%%%%%%% AB HIER NICHTS MERH VERAENDERN!
+    const InitialConditions = {
+        figureEight: [
+            { x: 400 + 0.97000436 * 200, y: 300 - 0.24308753 * 200, vx: -0.93240737, vy: -0.86473146, mass: 8000 },
+            { x: 400 - 0.97000436 * 200, y: 300 + 0.24308753 * 200, vx: -0.93240737, vy: -0.86473146, mass: 8000 },
+            { x: 400, y: 300, vx: 2 * 0.93240737, vy: 2 * 0.86473146, mass: 8000}
+        ]
+    };
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    const [bodies, setBodies] = useState(InitialConditions.figureEight);
 
+    let path1 = [];
+    let path2 = [];
+    let path3 = [];
+
+    const handleSelectChange = (event) => {
+        const selectedCase = event.target.value;
+        setInitialCondition(selectedCase);
+        setBodies(InitialConditions[selectedCase]);
+    };
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        const context = canvas.getContext('2d');
+        canvas.width = 800;
+        canvas.height = 600;
+
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        path1 = [];
+        path2 = [];
+        path3 = [];
+
+        const G = 0.1;
+        const softening = 1.0;
+
+        function calculateForces(bodyA, bodyB) {
+            const dx = bodyB.x - bodyA.x;
+            const dy = bodyB.y - bodyA.y;
+            const distance = Math.sqrt(dx * dx + dy * dy + softening * softening);
+            const force = (G * bodyA.mass * bodyB.mass) / (distance * distance);
+
+            const ax = (force * dx) / (bodyA.mass * distance);
+            const ay = (force * dy) / (bodyA.mass * distance);
+
+            return { ax, ay };
+        }
+
+        function update() {
+            //force on body1
+            const force12 = calculateForces(bodies[0], bodies[1]);
+            const force13 = calculateForces(bodies[0], bodies[2]);
+
+            //force on body2
+            const force21 = calculateForces(bodies[1], bodies[0]);
+            const force23 = calculateForces(bodies[1], bodies[2]);
+
+            //force on body3
+            const force31 = calculateForces(bodies[2], bodies[0]);
+            const force32 = calculateForces(bodies[2], bodies[1]);
+
+            // update v
+            bodies[0].vx += force12.ax + force13.ax;
+            bodies[0].vy += force12.ay + force13.ay;
+
+            bodies[1].vx += force21.ax + force23.ax;
+            bodies[1].vy += force21.ay + force23.ay;
+
+            bodies[2].vx += force31.ax + force32.ax;
+            bodies[2].vy += force31.ay + force32.ay;
+
+            // update position Dt  = 1s
+            bodies[0].x += bodies[0].vx;
+            bodies[0].y += bodies[0].vy;
+            bodies[1].x += bodies[1].vx;
+            bodies[1].y += bodies[1].vy;
+            bodies[2].x += bodies[2].vx;
+            bodies[2].y += bodies[2].vy;
+
+            path1.push({ x: bodies[0].x, y: bodies[0].y });
+            path2.push({ x: bodies[1].x, y: bodies[1].y });
+            path3.push({ x: bodies[2].x, y: bodies[2].y });
+
+            if (path1.length > 400) path1.shift();
+            if (path2.length > 400) path2.shift();
+            if (path3.length > 400) path3.shift();
+        }
+
+        function drawBody(body, color) {
+            context.beginPath();
+            context.arc(body.x, body.y, 6, 0, 2 * Math.PI);
+            context.fillStyle = color;
+            context.shadowColor = color;
+            context.shadowBlur = 10;
+            context.fill();
+        }
+
+        function drawPath(path, color) {
+            context.beginPath();
+            context.moveTo(path[0].x, path[0].y);
+            for (let i = 1; i < path.length; i++) {
+                context.lineTo(path[i].x, path[i].y);
+            }
+            context.strokeStyle = color;
+            context.lineWidth = 1.5;
+            context.stroke();
+        }
+
+        function animate() {
+            context.fillStyle = 'rgba(0,0,0,1)';
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            update();
+
+            drawPath(path1, 'rgb(66, 135, 245)');
+            drawPath(path2, 'rgb(245, 66, 66)');
+            drawPath(path3, 'rgb(240, 240, 66)');
+
+            drawBody(bodies[0], 'rgb(66, 135, 245)');
+            drawBody(bodies[1], 'rgb(245, 66, 66)');
+            drawBody(bodies[2], 'rgb(240, 240, 66)');
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+    }, [bodies]);
+
+    return (
+        <div style={{ textAlign: 'center', padding: '10px' }}>
+            <select value={initialCondition} onChange={handleSelectChange} style={{ marginBottom: '10px', padding: '5px' }}>
+                <option value="figureEight">Figure Eight</option>
+            </select>
+            <canvas ref={canvasRef} style={{ border: '1px solid black', display: 'block', margin: '0 auto', background: 'black' }} />
+        </div>
+
+    );
+};
+
+
+export default ThreeBodySimulation
+\end{javascript}
 \newpage
+
+
+\section{Dritter Anhang}
+\begin{javascript}
+import React, { useRef, useEffect, useState } from 'react'
+
+const G = 0.1;
+const timeStep = 1;
+const softening = 1;
+
+class Body {
+    constructor(x, y, mass, vx = 0, vy = 0) {
+        this.x = x;
+        this.y = y;
+        this.mass = mass;
+        this.vx = vx;
+        this.vy = vy;
+    }
+
+    updatePosition() {
+        this.x += this.vx * timeStep;
+        this.y += this.vy * timeStep;
+    }
+
+    applyForce(fx, fy) {
+        this.vx += (fx / this.mass) * timeStep;
+        this.vy += (fy / this.mass) * timeStep;
+    }
+}
+
+class QuadTree {
+    constructor(boundary, capacity) {
+        this.boundary = boundary;
+        this.capacity = capacity;
+        this.bodies = [];
+        this.divided = false;
+    }
+
+    subdivide() {
+        const { x, y, width, height } = this.boundary;
+        const nw = { x, y, width: width / 2, height: height / 2 };
+        const ne = { x: x + width / 2, y, width: width / 2, height: height / 2 };
+        const sw = { x, y: y + height / 2, width: width / 2, height: height / 2 };
+        const se = { x: x + width / 2, y: y + height / 2, width: width / 2, height: height / 2 };
+
+        this.northwest = new QuadTree(nw, this.capacity);
+        this.northeast = new QuadTree(ne, this.capacity);
+        this.southwest = new QuadTree(sw, this.capacity);
+        this.southeast = new QuadTree(se, this.capacity);
+        this.divided = true;
+    }
+
+    insert(body) {
+        if (!this.contains(body)) return false;
+
+        if (this.bodies.length < this.capacity) {
+            this.bodies.push(body);
+            return true;
+        }
+
+        if (!this.divided) this.subdivide();
+
+        return (
+            this.northwest.insert(body) ||
+            this.northeast.insert(body) ||
+            this.southwest.insert(body) ||
+            this.southeast.insert(body)
+        );
+    }
+
+    contains(body) {
+        return (
+            body.x >= this.boundary.x &&
+            body.x <= this.boundary.x + this.boundary.width &&
+            body.y >= this.boundary.y &&
+            body.y <= this.boundary.y + this.boundary.height
+        );
+    }
+
+    query(body, theta = 0.5) {
+        const forces = { fx: 0, fy: 0 };
+        if (!this.divided) {
+            this.bodies.forEach((other) => {
+                if (other !== body) {
+                    const dx = other.x - body.x;
+                    const dy = other.y - body.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy + softening * softening);
+                    const force = Math.min((G * body.mass * other.mass) / (distance * distance), 50);
+                    forces.fx += (force * dx) / distance;
+                    forces.fy += (force * dy) / distance;
+                }
+            });
+            return forces;
+        }
+
+        const totalMass = this.bodies.reduce((acc, b) => acc + b.mass, 0);
+        const centerOfMass = {
+            x: this.bodies.reduce((acc, b) => acc + b.x * b.mass, 0) / totalMass,
+            y: this.bodies.reduce((acc, b) => acc + b.y * b.mass, 0) / totalMass,
+        };
+
+        const distanceToCOM = Math.sqrt((centerOfMass.x - body.x) ** 2 + (centerOfMass.y - body.y) ** 2 + softening * softening);
+
+        if ((this.boundary.width / distanceToCOM) < theta) {
+            const force = (G * body.mass * totalMass) / (distanceToCOM * distanceToCOM);
+            const dx = centerOfMass.x - body.x;
+            const dy = centerOfMass.y - body.y;
+            forces.fx += (force * dx) / distanceToCOM;
+            forces.fy += (force * dy) / distanceToCOM;
+        } else {
+            forces.fx += this.northwest.query(body, theta).fx;
+            forces.fy += this.northwest.query(body, theta).fy;
+            forces.fx += this.northeast.query(body, theta).fx;
+            forces.fy += this.northeast.query(body, theta).fy;
+            forces.fx += this.southwest.query(body, theta).fx;
+            forces.fy += this.southwest.query(body, theta).fy;
+            forces.fx += this.southeast.query(body, theta).fx;
+            forces.fy += this.southeast.query(body, theta).fy;
+        }
+        return forces;
+    }
+}
+
+const NBodySimulation = () => {
+    const canvasRef = useRef(null);
+    const [bodies, setBodies] = useState([]);
+    const [isRunning, setIsRunning] = useState(false);
+
+    const addBody = (x, y) => {
+        const mass = 8000;
+        let vx = 0;
+        let vy = 0;
+
+        if (bodies.length === 0) {
+            vx = 0;
+            vy = -1;
+        } else if (bodies.length === 1) {
+            vx = 0;
+            vy = 1;
+        }
+        const newBody = new Body(x, y, mass, vx, vy);
+        setBodies((prevBodies) => [...prevBodies, newBody]);
+    }
+
+    const toggleSimulation = () => {
+        setIsRunning(!isRunning);
+    }
+
+    const handleCanvasClick = (e) => {
+        const rect = canvasRef.current.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        addBody(x, y);
+    }
+
+    const add50Bodies = () => {
+        for (let i = 0; i < 50; i++) {
+            addBody(Math.random() * 400, Math.random() * 400);
+        }
+    }
+
+    const resetSimulation = () => {
+        setBodies([]);
+    }
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'black';
+        canvas.style.backgroundColor = 'black';
+
+        bodies.forEach((body) => {
+            ctx.beginPath();
+            ctx.arc(body.x, body.y, 5, 0, 2 * Math.PI);
+            ctx.fillStyle = 'red';
+            ctx.fill();
+        });
+
+        if (bodies.length > 0) {
+            const totalMass = bodies.reduce((sum, body) => sum + body.mass, 0);
+            const centerOfMass = bodies.reduce(
+                (acc, body) => {
+                    acc.x += body.x * body.mass;
+                    acc.y += body.y * body.mass;
+                    return acc;
+                },
+                { x: 0, y: 0 }
+            );
+            centerOfMass.x /= totalMass;
+            centerOfMass.y /= totalMass;
+
+            // Massenschwerpunkt zeichnen
+            ctx.strokeStyle = 'yellow';
+            ctx.beginPath();
+            ctx.moveTo(centerOfMass.x - 5, centerOfMass.y);
+            ctx.lineTo(centerOfMass.x + 5, centerOfMass.y);
+            ctx.moveTo(centerOfMass.x, centerOfMass.y - 5);
+            ctx.lineTo(centerOfMass.x, centerOfMass.y + 5);
+            ctx.stroke();
+        }
+
+    }, [bodies]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (isRunning && bodies.length > 0) {
+
+                const boundary = { x: 0, y: 0, width: 400, height: 400 };
+                const quadTree = new QuadTree(boundary, 4);
+
+                bodies.forEach((body) => quadTree.insert(body));
+
+                bodies.forEach((body) => {
+                    const forces = quadTree.query(body);
+                    body.applyForce(forces.fx, forces.fy);
+                    body.updatePosition();
+                })
+
+                setBodies([...bodies]);
+            }
+        }, 16);
+        return () => clearInterval(interval);
+    }, [isRunning, bodies]);
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <p style={{color: 'red'}}>Click to add a body</p>
+            <canvas ref={canvasRef} width={400} height={400} style={{ border: '1px solid white' }} onClick={handleCanvasClick} />
+            <div style={{ marginTop: '10px' }}>
+                <button onClick={toggleSimulation}> {isRunning ? 'Stop' : 'Start'} Simulation</button>
+                <button onClick={add50Bodies}>Add 50 Bodies</button>
+                <button onClick={resetSimulation}>Reset</button>
+            </div>
+        </div>
+    )
+}
+
+export default NBodySimulation
+\end{javascript}
+\newpage
+
+
+\section{Vierter Anhang}
+\begin{javascript}
+import React, { useState } from 'react';
+import './App.css';
+import TwoBodySimulation from './components/TwoBodySimulation';
+import ThreeBodySimulation from './components/ThreeBodySimulation';
+import NBodySimulation from './components/NBodySimulation';
+
+const App = () => {
+
+  const [simulationType, setSimulationType] = useState((null));
+
+  return (
+    <div className='container-btn'>
+      <button onClick={() => setSimulationType('TwoBody')}>Two-Body Simulation</button>
+      <button onClick={() => setSimulationType('ThreeBody')}>Three-Body Simulation</button>
+      <button onClick={() => setSimulationType('NBody')}>N-Body Simulation</button>
+
+      {simulationType === 'TwoBody' && <TwoBodySimulation />}
+      {simulationType === 'ThreeBody' && <ThreeBodySimulation />}
+      {simulationType === 'NBody' && <NBodySimulation />}
+
+    </div>
+  )
+}
+
+export default App;
+\end{javascript}
 
 \clearpage
 
@@ -1207,6 +1709,7 @@ Anhang der Zweite.
 \newpage
 \addcontentsline{toc}{section}{\listfigurename} % Fuege Abb.vz zu TOC hinzu
 \listoffigures % Abbildungsverzeichnis
+
 
 \end{document}
 
