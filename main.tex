@@ -608,7 +608,7 @@ const distance = Math.sqrt(dx * dx + dy * dy + softening * softening);
 
 Die Berechnung des Abstands \javascriptinline{distance} enthält 
 den \javascriptinline{softening}-Parameter, um numerische Instabilitäten 
-zu vermeiden. Anschließend wird die Gravitationskraft zwischen den Körpern berechnet:
+zu vermeiden. Anschliessend wird die Gravitationskraft zwischen den Körpern berechnet:
 
 \begin{javascript}
 const force = (G * body1.mass * body2.mass) / (distance * distance);
@@ -707,7 +707,6 @@ return (<canvas ref={canvasRef} style={{ border: '1px solid black', display: 'bl
 \end{javascript}
 Dabei erhält das Canvas einen schwarzen Hintergrund und wird zentriert dargestellt.
 
-
 \subsubsection{3-Körper Simulation}
 Der Code zur Simulation des Drei-Körper-Problems basiert auf denselben physikalischen 
 Prinzipien und numerischen Methoden wie der zuvor beschriebene Code für das 
@@ -783,8 +782,8 @@ realisiert, dessen Auswahl den Zustand der Körper entsprechend aktualisiert:
 Die Integration dieser Auswahlmöglichkeit erhöht die Flexibilität der Simulation und 
 ermöglicht es, neue Konfigurationen oder Anfangsbedingungen problemlos zu ergänzen.
 
-In dieser Simulation wurde die Figur-8 als Auswahl hinzugefügt und die folgenden
- Anfangsbedingungen wurden entsprechend Abb.\ref{figure8} festgelegt. 
+In dieser Simulation wurde die Figur-8 als Auswahl hinzugefügt und die folgenden 
+Anfangsbedingungen wurden entsprechend Abb.\ref{figure8} festgelegt. 
 
 \begin{javascript}
     const InitialConditions = {
@@ -1158,7 +1157,7 @@ die Implementierung eine ausgewogene Kombination aus Genauigkeit und Effizienz.
 Schliesslich demonstrieren die Ergebnisse der N-Körper-Simulation auch die Fähigkeit 
 des Barnes Hut-Algorithmus zur Modellierung komplexer physikalischer Systeme. 
 
-Mögliche Erweiterungen unserer Arbeit könnten eine implementierte Parallelverarbeitung 
+Mögliche Erweiterungen der Arbeit könnten eine implementierte Parallelverarbeitung 
 sowie Optimierungen für Grafikprozessoren sein, wodurch der Barnes Hut-Algorithmus 
 wesentlich grössere Systeme effizient modellieren könnte. Die Simulationen können 
 benutzerfreundlicher gestaltet werden. Zum Beispiel können dem Dropdown-Menü in 
